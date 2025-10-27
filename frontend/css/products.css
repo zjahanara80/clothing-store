@@ -586,6 +586,12 @@ body .container .overlay {
   align-items: center;
   justify-content: evenly;
 }
+.header-top__left-text {
+  cursor: pointer;
+}
+.header-top__left-text:hover {
+  color: orange;
+}
 .header-top__left-img {
   width: 1.8rem;
   height: 1.6rem;
@@ -1655,7 +1661,7 @@ body .container .overlay {
 .main {
   width: 100%;
   height: max-content;
-  margin: 1rem auto;
+  margin: 0 auto;
   background-image: url("../images/products/bg/main.jpg") !important;
   background-repeat: no-repeat !important;
 }

@@ -20,6 +20,9 @@ const FavoritePageBtn = $.querySelector('.header-middle__popular')
 const buyPageBtn = $.querySelector('.header-middle__buy')
 const FavoriteCount = $.querySelector('.header-middle__popular span')
 const buyCountSpan = $.querySelector('.header-middle__buy span')
+const menuBtns = $.querySelectorAll('.header-top__right-link')
+const contactBtn = $.querySelector('.header-top__left-text')
+
 
 if (ticketBtn) {
   ticketBtn.onclick = () => {
@@ -122,6 +125,33 @@ buyPageBtn ? buyPageBtn.onclick = () => {
 
   location.href = 'cart.html'
 } : ''
+
+menuBtns && menuBtns.forEach(btn => {
+  if(btn.innerHTML == "تماس با ما") {
+    btn.innerHTML = 'خانه'
+    btn.onclick = () => location.href = 'index.html'
+  }
+})
+
+contactBtn ? contactBtn.onclick = () =>  location.href = 'ticket.html' : ''
+ 
+
+
+menuBtns && menuBtns.forEach(btn => {
+  btn.onclick = () => {
+    switch (btn.innerHTML) {
+      case "مقالات":
+        location.href = 'articles.html'
+        break;
+      case "خانه":
+        location.href = 'index.html'
+        break;
+      case "درباره ی ما":
+        location.href = 'about-us.html'
+        break;
+    }
+  }
+})
 
 
 window.addEventListener('load', () => {

@@ -6,27 +6,33 @@
             "srcOne" : {
                 "src" : "images/main-gallery/woman/main.jpg",
                 "gridClass" : "main-category__box-item__gallery1",
-                "title" : "لباس زنانه"
+                "title" : "لباس زنانه",
+                "id" : "67fac080927c3776d0cb0be4"
             },
             "srcTwo" : {
                 "src" : "images/main-gallery/woman/majlesi.jpg",
                 "gridClass" : "main-category__box-item__gallery2",
-                "title" : "مجلسی زنانه"
+                "title" : "مجلسی زنانه",
+                "id" : "67fac4c9927c3776d0cb0be9"
+
             },
             "srcThree" : {
                 "src" : "images/main-gallery/woman/set.jpg",
                 "gridClass" : "main-category__box-item__gallery3",
-                "title" : "مانتو زنانه"
+                "title" : "مانتو زنانه",
+                "id" : "67fac4c9927c3776d0cb0bea"
             },
             "srcFour" : {
                 "src" : "images/main-gallery/woman/palto.jpg",
                 "gridClass" : "main-category__box-item__gallery4",
-                "title" : "زمستانی زنانه"
+                "title" : "زمستانی زنانه",
+                "id" : "67fac4c9927c3776d0cb0be8"
             },
             "srcFive" : {
                 "src" : "images/main-gallery/woman/varzeshi.jpg",
                 "gridClass" : "main-category__box-item__gallery5",
-                "title" : "ورزشی زنانه"
+                "title" : "پیراهن زنانه",
+                "id" : "67fac4c9927c3776d0cb0beb"
             }
         },
         "man" : {
@@ -35,22 +41,29 @@
             "srcOne" : {
                 "src" : "images/main-gallery/man/main.jpg",
                 "gridClass" : "main-category__box-item__gallery1",
-                "title" : "لباس مردانه"
+                "title" : "لباس مردانه",
+                                "id" : "67fac080927c3776d0cb0be5"
+
             },
             "srcTwo" : {
                 "src" : "images/main-gallery/man/coat.jpg",
                 "gridClass" : "main-category__box-item__gallery2",
-                "title" : "کت شلوار مردانه"
+                "title" : "کت شلوار مردانه",
+                                "id" : "67fac5a0927c3776d0cb0bee"
+
             },
             "srcThree" : {
                 "src" : "images/main-gallery/man/homedress.jpg",
                 "gridClass" : "main-category__box-item__gallery3",
-                "title" : " راحتی مردانه"
+                "title" : " راحتی مردانه",
+                                "id" : "67fac5a0927c3776d0cb0bed"
+
             },
             "srcFour" : {
                 "src" : "images/main-gallery/man/sport.jpg",
                 "gridClass" : "main-category__box-item__gallery4",
-                "title" : "شلوار مردانه"
+                "title" : "ورزشی مردانه",
+                "id" : "67fac5a0927c3776d0cb0bec"
             }
         },
         "child" : {
@@ -59,17 +72,20 @@
             "srcOne" : {
                 "src" : "images/main-gallery/child/main.jpg",
                 "gridClass" : "main-category__box-item__gallery1",
-                "title" : "لباس کودکان"
+                "title" : "لباس کودکان",
+                "id" : "67fac080927c3776d0cb0be6"
             },
             "srcTwo" : {
                 "src" : "images/main-gallery/child/girl.jpg",
                 "gridClass" : "main-category__box-item__gallery2",
-                "title" : "دخترانه"
+                "title" : "دخترانه",
+                "id" : "67fac640927c3776d0cb0bf0"
             },
             "srcThree" : {
                 "src" : "images/main-gallery/child/boy.jpg",
                 "gridClass" : "main-category__box-item__gallery3",
-                "title" : " پسرانه"
+                "title" : " پسرانه",
+                "id" : "67fac640927c3776d0cb0bef"
             }
         }
     },

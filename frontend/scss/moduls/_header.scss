@@ -55,6 +55,12 @@
       &-Consultant-wrapper {
         @include flexiblity(row);
       }
+      &-text {
+        cursor: pointer;
+        &:hover {
+           color: orange;
+        }
+      }
 
       &-img {
         width: 1.8rem;

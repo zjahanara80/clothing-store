@@ -586,6 +586,12 @@ body .container .overlay {
   align-items: center;
   justify-content: evenly;
 }
+.header-top__left-text {
+  cursor: pointer;
+}
+.header-top__left-text:hover {
+  color: orange;
+}
 .header-top__left-img {
   width: 1.8rem;
   height: 1.6rem;
