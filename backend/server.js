@@ -18,6 +18,10 @@ const userCartRoutes = require('./routes/userCart');
 dotenv.config();
 connectDB();
 
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB Atlas connected successfully"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
+
 const app = express();
 
 app.use(cors());
