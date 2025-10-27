@@ -1,0 +1,127 @@
+{
+    "mainCategory" : {
+        "woman" : {
+            "info" : "زنانه",
+            "gridTemplateClass" : "womanGridClass",
+            "srcOne" : {
+                "src" : "images/main-gallery/woman/main.jpg",
+                "gridClass" : "main-category__box-item__gallery1",
+                "title" : "لباس زنانه"
+            },
+            "srcTwo" : {
+                "src" : "images/main-gallery/woman/majlesi.jpg",
+                "gridClass" : "main-category__box-item__gallery2",
+                "title" : "مجلسی زنانه"
+            },
+            "srcThree" : {
+                "src" : "images/main-gallery/woman/set.jpg",
+                "gridClass" : "main-category__box-item__gallery3",
+                "title" : "مانتو زنانه"
+            },
+            "srcFour" : {
+                "src" : "images/main-gallery/woman/palto.jpg",
+                "gridClass" : "main-category__box-item__gallery4",
+                "title" : "زمستانی زنانه"
+            },
+            "srcFive" : {
+                "src" : "images/main-gallery/woman/varzeshi.jpg",
+                "gridClass" : "main-category__box-item__gallery5",
+                "title" : "ورزشی زنانه"
+            }
+        },
+        "man" : {
+            "info" : "مردانه",
+            "gridTemplateClass" : "manGridClass",
+            "srcOne" : {
+                "src" : "images/main-gallery/man/main.jpg",
+                "gridClass" : "main-category__box-item__gallery1",
+                "title" : "لباس مردانه"
+            },
+            "srcTwo" : {
+                "src" : "images/main-gallery/man/coat.jpg",
+                "gridClass" : "main-category__box-item__gallery2",
+                "title" : "کت شلوار مردانه"
+            },
+            "srcThree" : {
+                "src" : "images/main-gallery/man/homedress.jpg",
+                "gridClass" : "main-category__box-item__gallery3",
+                "title" : " راحتی مردانه"
+            },
+            "srcFour" : {
+                "src" : "images/main-gallery/man/sport.jpg",
+                "gridClass" : "main-category__box-item__gallery4",
+                "title" : "شلوار مردانه"
+            }
+        },
+        "child" : {
+            "info" : "کودکانه",
+            "gridTemplateClass" : "childGridClass",
+            "srcOne" : {
+                "src" : "images/main-gallery/child/main.jpg",
+                "gridClass" : "main-category__box-item__gallery1",
+                "title" : "لباس کودکان"
+            },
+            "srcTwo" : {
+                "src" : "images/main-gallery/child/girl.jpg",
+                "gridClass" : "main-category__box-item__gallery2",
+                "title" : "دخترانه"
+            },
+            "srcThree" : {
+                "src" : "images/main-gallery/child/boy.jpg",
+                "gridClass" : "main-category__box-item__gallery3",
+                "title" : " پسرانه"
+            }
+        }
+    },
+
+    "mainHotOffer" : {
+      "1" : {
+        "title" : "شلوار مردانه زغالی رنگ",
+        "code" : 1,
+        "oldPrice" : "540,000",
+        "newPrice" : "320,000",
+        "img" : "images/offer-section/item1.jpg",
+        "size" : 42,
+        "category" : "مردانه",
+        "hours" : 3,
+        "minutes" : 59,
+        "seconds" :60 
+      },
+      "2" : {
+        "title" : "پیراهن زنانه دل آویز",
+        "code" : 2,
+        "oldPrice" : "300,000",
+        "newPrice" : "140,000",
+        "img" : "images/offer-section/item2.jpg",
+        "size" : 38,
+        "category" : "مجلسی زنانه"
+      },
+      "3" : {
+        "title" : "پیراهن زنانه مدل گل بابونه",
+        "code" : 1,
+        "oldPrice" : "480,000",
+        "newPrice" : "420,000",
+        "img" : "images/offer-section/item3.jpg",
+        "size" : 34,
+        "category" : "پیراهن زنانه"
+      },
+      "4" : {
+        "title" : "ست تاپ و دامن دخترانه دل آویز",
+        "code" : 1,
+        "oldPrice" : "380,000",
+        "newPrice" : "290,000",
+        "img" : "images/offer-section/item4.jpg",
+        "size" : 3,
+        "category" : "کودکانه"
+      },
+      "5" : {
+        "title" : "ست پیراهن شلوار پسرانه ",
+        "code" : 1,
+        "oldPrice" : "500,000",
+        "newPrice" : "300,000",
+        "img" : "images/offer-section/item5.jpg",
+        "size" : 42,
+        "category" : "کودکانه"
+         }
+    }
+  }

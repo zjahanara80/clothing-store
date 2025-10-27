@@ -1,0 +1,492 @@
+:root {
+    /* global variables */
+    --g-color-first: #000;
+    --g-color-secondry: rgba(16, 16, 16, 0.7);
+    --g-color-orange1: rgb(243, 149, 83);
+    --g-color-orange2: rgb(198, 100, 30);
+    /* --g-bg-light: rgba(243, 242, 242, 0.36); */
+    --g-bg-light: rgb(243, 243, 243);
+    --g-bg-light-hover: rgba(228, 228, 228, 0.346);
+    --g-border-light: rgb(206, 206, 206);
+    --white-bg: white;
+    --black-bg: black;
+    --overlay-bg: rgba(0, 0, 0, 0.2);
+    --users-boxshadow: rgba(0, 0, 0, 0.284);
+    --body-bg: rgb(243 243 243);
+    --product-icon: #206f83;
+    --product-icon-line: #124c5b !important;
+
+    /* header variables */
+    --header-color-main: rgba(251, 250, 247, 1);
+    --header-color-secondary: rgba(16, 16, 16, 0.05);
+    --header-search-icon: rgb(135, 135, 135);
+    --header-search-placeholder: rgba(147, 147, 147, 0.732);
+    --header-login-bg: rgba(139, 126, 126, 0.218);
+    --header-login-color: rgb(23, 23, 23);
+    --header-buybox-hover: rgba(202, 202, 202, 0.836);
+    --header-current-color: rgba(99, 92, 92, 0.727);
+    --header-top-bg: rgb(230, 228, 228);
+
+    /* offer section variables */
+    --offer-main-bg: rgb(243 113 66);
+    --mainTop-shadow: black;
+
+    /* main mailbar variables */
+    --mailto-bg: #a592922b;
+    --mailto-border: #b0afaf;
+    --mailto-title-bg: transparent;
+    --mailto-title-color: black;
+    --mailto-box-bg: transparent;
+    --mailto-input-color: black;
+
+    /* footer variables */
+    --footer-main-bg: "transparent";
+    --footer-transfer-btn-border: #acacac;
+    --footer-transfer-btn-color: #4c4b4b;
+    --footer-two-item-color: #585656;
+    --footer-desc-title-color: #727171;
+
+    /* register page */
+    --register-bg: rgb(236 234 234 / 59%);
+
+    /* panel admin */
+    --main-boxes-bg: rgba(255, 255, 255, 0.358)
+}
+
+body {
+    background-color: var(--g-bg-light);
+}
+
+/* index */
+.overlay {
+    background: var(--overlay-bg);
+}
+
+.hamburger-menu__line {
+    background-color: var(--g-color-orange1);
+}
+
+.header {
+    box-shadow: 0 0 10px var(--header-top-bg);
+}
+
+.header-bottom__response-icon {
+    color: var(--g-color-orange1);
+}
+
+.header-top {
+    background-color: var(--header-top-bg);
+}
+
+.header-top__right-link,
+.header-top__left-text,
+.header-top__left-tel {
+    color: var(--g-color-secondry);
+}
+
+.header-top__left-icon {
+    color: var(--g-color-orange1);
+}
+
+.header-top__left-img {
+    box-shadow: 0px 0px 5px var(--users-boxshadow);
+}
+
+
+.h-b__rightSide {
+    background-color: var(--g-bg-light);
+}
+
+.header-middle__login-text {
+    color: var(--g-color-secondry);
+}
+
+/* .header-top__left-item{
+    border-color: var(--users-boxshadow);
+} */
+
+.header-middle {
+    background-color: var(--g-bg-light);
+}
+
+.header-middle__search {
+    background-color: var(--white-bg);
+    border: 1.5px solid var(--g-color-orange2);
+}
+
+.header-middle__search-icon {
+    color: var(--header-search-icon);
+}
+
+.header-middle__search-btn {
+    background: var(--header-top-bg);
+    color: var(--g-color-secondry);
+}
+
+.header-middle__search-input::placeholder {
+    color: var(--header-search-placeholder);
+}
+
+.header-middle__popular {
+    /* background-color: var(--header-login-bg); */
+    /* border: 1.5px solid var(--g-color-orange2); */
+}
+
+.header-middle__popular:hover {
+    background-color: var(--header-buybox-hover);
+}
+
+.header-middle__popular-icon {
+    color: var(--g-color-orange1);
+}
+
+.header-middle__login {
+    color: var(--header-login-color);
+    /* background-color: var(--header-login-bg); */
+    border: 1px solid rgb(206, 206, 206);
+}
+
+
+.header-middle__buy-count {
+    color: var(--g-color-secondry);
+}
+
+.header-middle__login-icon {
+    color: var(--g-color-orange1);
+}
+
+.header-middle__buy {
+    /* background-color: var(--header-login-bg); */
+    color: var(--header-login-color);
+    border: 1px solid rgb(206, 206, 206);
+}
+
+
+.header-middle__buy-icon {
+    color: var(--g-color-orange1);
+}
+
+.header-bottom {
+    background-color: var(--g-bg-light);
+}
+
+.header-bottom__link {
+    color: var(--g-color-secondry);
+}
+
+.header-bottom__sub {
+    background: var(--g-bg-light);
+}
+
+.header-bottom__sub-link {
+    color: var(--g-color-secondry);
+}
+
+.header-bottom__icon {
+    color: var(--g-color-secondry);
+}
+
+.header-bottom__mode {
+    background-color: var(--header-login-bg);
+}
+
+/* .header-bottom__mode:hover {
+    background-color: var(--header-buybox-hover);
+} */
+
+.current-page .header-bottom__link,
+.current-page .header-bottom__icon {
+    color: var(--header-current-color) !important;
+}
+
+.ticket-box {
+    background: var(--g-bg-light);
+    color: var(--g-color-secondry);
+}
+
+.ticket-box__body-ticket,
+.ticket-box__body-input {
+    background: var(--header-top-bg);
+    color: var(--g-color-secondry);
+}
+
+.ticket-box__body-ticket::placeholder,
+.ticket-box__body-input::placeholder {
+    color: var(--g-color-secondry);
+}
+
+/* main top */
+.main-top__parent {
+    box-shadow: 0px 0px 2px var(--mainTop-shadow);
+}
+
+.main-category__menu {
+    border-color: var(--g-color-secondry);
+}
+
+.main-category__box-item {
+    box-shadow: 0 0 3px var(--mainTop-shadow);
+}
+
+.main-category__item {
+    color: var(--g-color-secondry);
+}
+
+.subtitle {
+    /* color: white !important; */
+    color: #b5b1b1;
+}
+
+.text {
+    color: #8a8383 !important;
+
+}
+
+.current-category__item {
+    border-color: var(--mainTop-shadow);
+}
+
+/* offer section */
+.main-offer {
+    background: var(--offer-main-bg);
+}
+
+.main-offer {
+    box-shadow: 0 0 3px var(--g-color-secondry);
+}
+
+/* article suggestion section */
+.article-sug__title {
+    color: var(--g-color-secondry);
+    border-bottom-color: var(--g-color-orange2)
+}
+
+.swiper-pagination-bullet {
+    background: var(--g-bg-light) !important;
+}
+
+/* main-emailbar */
+.main-emailBar {
+    background-color: var(--mailto-bg);
+    border-color: var(--mailto-border);
+}
+
+.main-emailBar__title {
+    background-color: var(--mailto-title-bg);
+    color: var(--mailto-title-color);
+}
+
+.main-emailBar__box {
+    border-color: var(--mailto-border);
+}
+
+.main-emailBar__box-btn {
+    background: var(--mailto-border);
+}
+
+.main-emailBar__box {
+    border-color: var(--mailto-border);
+}
+
+.main-emailBar__box-input {
+    color: var(--mailto-input-color);
+    background-color: var(--mailto-box-bg);
+}
+
+/* footer section */
+.footer {
+    background: var(--footer-main-bg);
+}
+
+.footer-one__transferBtn {
+    border-color: var(--footer-transfer-btn-border);
+    color: var(--footer-transfer-btn-color);
+}
+
+.footer-two__item,
+.footer-five,
+.footer-three__item-title {
+    color: var(--footer-two-item-color);
+}
+
+.footer-four__right-title {
+    color: var(--footer-desc-title-color);
+}
+
+.footer-four__right-text {
+    color: var(--footer-desc-title-color);
+}
+
+.line-through::before {
+    background: var(--product-icon-line) !important;
+}
+
+.product-item-overlay__icon {
+    color: var(--product-icon);
+}
+
+/* product details page */
+.swiper-pagination-progressbar-fill {
+    background: var(--g-color-orange1) !important;
+}
+
+.details-Wrapper__left-desc {
+    background: var(--header-top-bg);
+}
+
+.comments-content .comment-left {
+    background-color: var(--header-top-bg);
+    color: var(--g-color-secondry);
+}
+
+/* article details page */
+.articles-info span,
+.articles-info,
+.details-Wrapper__left {
+    color: var(--g-color-secondry) !important;
+}
+
+
+/* register */
+.register {
+    background-color: var(--register-bg) !important;
+}
+
+.register-footer {
+    background-color: var(--header-top-bg);
+}
+
+.register-inputs__label,
+.register-inputs__icon,
+.register-submit-label,
+.register-title,
+.register-login,
+.register-inputs__input,
+.admin-arrow {
+    color: var(--g-color-secondry) !important;
+}
+
+.register-inputs__input {
+    font-size: 13px;
+}
+
+.register-login-logo {
+    background: var(--reg-logo-bg) !important;
+}
+
+/* basket page */
+.cart-box__details-bottom {
+    background: var(--footer-main-bg) !important;
+    color: var(--g-color-secondry) !important;
+    box-shadow: 0 0 10px var(--header-top-bg) !important;
+
+
+}
+
+.cart-box__details-top {
+    box-shadow: 0 0 10px var(--header-top-bg) !important;
+    color: var(--g-color-secondry) !important;
+    background-color: var(--header-top-bg) !important;
+}
+
+.cart-box__products-item,
+.cart-box__products-item .product-item-price {
+    box-shadow: 0 0 10px var(--header-top-bg) !important;
+    background-color: var(--footer-main-bg) !important;
+    color: var(--g-color-secondry) !important;
+}
+
+.basket-buy__count-wrapper .plus,
+.basket-buy__count-wrapper .mines,
+.basket-buy__count-wrapper .count {
+    color: var(--g-color-secondry);
+}
+
+.cart-box__products-item__icon {
+    box-shadow: 0 0 5px var(--header-top-bg) !important;
+}
+
+/* panel*/
+/* main panel */
+#sidebar {
+    background-color: var(--header-top-bg);
+}
+
+.active-menu a {
+    color: var(--g-color-secondry);
+}
+
+#home,
+#home #home-content .home-content-boxes .box,
+.swiper-pointer-events,
+.home-content-users-title {
+    background: var(--header-top-bg);
+}
+
+.info-wrapper {
+    background: var(--main-boxes-bg)
+}
+
+#home #home-content {
+    background-color: var(--g-bg-light);
+}
+
+.main-pane_topLink,
+.home-profile-name #admin-name,
+#home .home-header .home-left .home-profile .home-profile-icon i,
+.welcome,
+.home-box,
+.swiper-pointer-events,
+.home-content-users-title,
+.home-notification-modal a {
+    color: var(--g-color-secondry) !important;
+}
+
+.apexcharts-text {
+    fill: var(--g-color-secondry) !important;
+}
+
+.home-notification-modal {
+    background-color: var(--g-bg-light) !important;
+    color: var(--g-color-secondry);
+}
+
+#home #home-content .home-content-latset-users .home-content-users-table {
+    background: var(--g-bg-light);
+    box-shadow: 0 0 3px var(--g-color-secondry);
+}
+
+/* edit box in panel */
+.edit-box {
+    background: var(--header-top-bg) !important;
+    color: var(--g-color-secondry) !important;
+}
+
+/* .edit-btn{
+    border-color: var(--mainTop-shadow) !important;
+} */
+
+/* ticket page */
+.main-tickets {
+    background-color: var(--header-top-bg);
+}
+
+.ticket-top-title {
+    color: var(--g-color-secondry);
+}
+
+.mainTicket-box input,
+.mainTicket-box textarea {
+    border-color: var(--g-color-orange1);
+}
+
+.showTickets-box .ticket-show-box {
+    background: var(--header-top-bg);
+    border-color: var(--g-color-orange1);
+    color: var(--g-color-secondry);
+}
+
+/* components */
+.breadcrump__list-item {
+    color: var(--g-color-secondry);
+}

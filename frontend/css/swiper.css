@@ -1,0 +1,135 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* main-top swiper */
+.main-top{
+    direction: ltr;
+    /* height: 72.5vh; */
+    height: 520px;
+}
+.main-top .swiper {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    direction: ltr;
+  }
+
+  .main-top .swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    text-align: center;
+  }
+
+  .main-top .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .main-top .swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+  }
+
+  .main-top .swiper-slide .subtitle {
+    font-size: 21px;
+    display: block;
+    text-align: center;
+  }
+
+  .main-top  .swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+  }
+
+  .main-top .swiper-button-prev ,.swiper-button-next {
+    font-weight: 200;
+    font-size: 90px;
+    color: rgb(0 0 0 / 20%);
+    text-shadow: 0 0 4px black;
+  }
+  .main-top .swiper-button-next::after{
+    width: 30px;
+  }
+
+  .main-top  .swiper-pagination{
+    background: transparent;
+    width: max-content !important;
+    padding: 0.3rem;
+    border-radius: 20px; 
+    left: 48%;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.main-top .swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    background: #ffffff9f !important;
+    opacity: 0.8 !important;
+  }
+  
+  .main-top .swiper-pagination-bullet-active{
+    background: rgb(6 47 42) !important;
+  }
+
+  /* offer-section swiper  &  article suggestion swiper*/
+  .main-offer .swiper , .article-sug .swiper{
+    width: 100%;
+    height: 100%;
+  }
+
+  .main-offer .swiper-slide , .article-sug .swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-offer .swiper-slide img , .article-sug .swiper-slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.main-offer .swiper-pagination-horizontal{
+  bottom: -1% !important;
+}
+
+.article-sug .swiper-pagination-horizontal{
+  bottom: 1% !important;
+
+}
+
+.main-offer__left-item{
+    height: 100%;
+    margin: 0 1rem;
+  }
+
+
+

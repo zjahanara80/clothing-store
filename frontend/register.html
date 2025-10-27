@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+     <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <title>صفحه اصلی</title>
+  </head>
+  <body>
+    <div class="container">
+    <!-- start header section -->
+      <header class="header">
+        <div class="header-top">
+          <div class="header-top__right">
+            <ul class="header-top__right-list">
+              <li class="header-top__right-item">
+                <a href="#" class="header-top__right-link">مقالات</a>
+              </li>
+              <li class="header-top__right-item">
+                <a href="#" class="header-top__right-link">تماس با ما</a>
+              </li>
+              <li class="header-top__right-item">
+                <a href="#" class="header-top__right-link">درباره ی ما</a>
+              </li>
+
+              <div class="header-bottom__mode register-mode-btn rounded-pill" style="background: transparent; border: none;">
+                <i class="fas fa-moon header-bottom__mode-icon header-top__right-link header-bottom__mode-btn register-mode-btn"></i>
+              </div>
+            </ul>
+          </div>
+          <div class="header-top__left">
+            <ul class="header-top__left-list">
+              <li class="header-top__left-item border-end border-2 pe-4">
+                <span class="header-top__left-tel">021-732872347</span>
+                <i class="fas fa-phone header-top__left-icon"></i>
+              </li>
+              <li class="header-top__left-item d-flex align-items-center gap-2">
+                <span class="header-top__left-text">تماس با پشتیبانی</span>
+                <div class="header-top__left-Consultant-wrapper">
+                  <a href="#" class="header-top__left-link">
+                    <img
+                      src="images/consultants/Consultant1.jpg" alt="" class="header-top__left-img rounded-circle"/></a>
+                     <a href="#" class="header-top__left-link">
+                    <img
+                      src="images/consultants/Consultant2.jpg"
+                      alt=""
+                      class="header-top__left-img rounded-circle"
+                  /></a>
+                  <a href="#" class="header-top__left-link">
+                    <img
+                      src="images/consultants/Consultant3.jpg"
+                      alt=""
+                      class="header-top__left-img rounded-circle"
+                  /></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="header-middle">
+          <div class="header-middle__logo">
+            <img
+              src="images/logo/main-logo-removebg-preview (1).png"
+              alt="main-logo"
+              class="header-middle__logo-img register-login-logo"/>
+          </div>
+        </div>
+
+      </header>
+      <!-- finish header section -->
+
+      <!-- start register body -->
+      <div class="register">
+        <div class="register-icon">
+            <i class="fa-regular fa-user"></i>
+        </div>
+
+        <p class="register-title">ایجاد حساب کاربری </p>
+        <p class="register-login">
+            قبلا ثبت نام کرده اید؟           
+             <a href="login.html" class="register-link">وارد شوید</a>
+        </p>
+        <div class="register-inputs">
+            <div class="register-inputs__name-box register-inputs__box">
+              <label for="name" class="register-inputs__label">نام و نام خانوادگی </label>
+              <input type="text" name="" id="name" class="register-inputs__input">
+              <i class="fa fa-user register-inputs__icon"></i>
+            </div>
+            
+            <div class="register-inputs__email-box register-inputs__box">
+                <label for="email" class="register-inputs__label">نشانی ایمیل</label>
+                <input type="text" name="" id="email" class="register-inputs__input">
+                <i class="fa-solid fa-envelope register-inputs__icon"></i>
+            </div>
+
+            <div class="register-inputs__phone-box register-inputs__box">
+                <label for="phone" class="register-inputs__label">شماره تلفن</label>
+                <input type="text" name="" id="phone" class="register-inputs__input">
+                <i class="fa-solid fa-phone register-inputs__icon"></i>
+            </div>
+
+            <div class="register-inputs__pass-box register-inputs__box">
+                <label for="pass" class="register-inputs__label">رمز عبور</label>
+                <input type="number" name="" id="pass" class="register-inputs__input">
+                <i class="fa-solid fa-lock register-inputs__icon"></i>
+            </div>
+
+            <div class="register-inputs__pass-box register-inputs__box">
+                <label for="passConfirm" name="passConfirm" class="register-inputs__label">تایید رمز عبور</label>
+                <input type="number" name="" id="passConfirm" class="register-inputs__input">
+                <i class="fa-solid fa-lock register-inputs__icon"></i>
+            </div>
+
+            <button class="register-inputs__btn" id="registerBtn">ثبت نام</button>
+
+            <div class="register-inputs__remember-box register-inputs__box">
+               <label for="remember" class="register-submit-label">مرا به خاطر بسپار</label>
+               <input type="checkbox" id="remember">
+            </div>
+        </div>
+      </div>
+      <!-- finish register body -->
+      
+    <!-- start footer section -->
+    <footer class="footer register-footer">
+        <ul class="footer-two">
+         <li class="footer-two__item border-end border-2">تلفن پشتیبانی : 732872347-021</li>
+         <li class="footer-two__item">7روز هفته، پاسخگوی شما هستیم</li>
+        </ul>
+
+
+        <div class="footer-five">
+          تمامی حقوق این سایت محفوظ میباشد
+        </div>
+    </footer>
+
+    </div>
+    <script src="vendor/fontAwsome6/all.min.js"></script>
+    <script src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/register.js" type="module"></script>
+    <script src="js/components/page-mode.js"></script>
+  </body>
+</html>

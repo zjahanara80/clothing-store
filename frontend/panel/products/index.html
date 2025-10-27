@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>محصولات</title>
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/swiperSlider/swiper.css">
+    <link rel="stylesheet" href="vendor/fontAwsome5/all.min.css">
+    
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+  </head>
+
+  <body>
+   <div class="body-overlay"></div>
+    <div class="edit-box endedArticles-editbox">
+      <div class="home-content-edit active-edit-modal">
+        <div class="edit-title">
+          <span>ویرایش محصول </span>
+          <i class="fa fa-plus edit-box-icon"></i>
+        </div>
+
+        <form class="form row">
+          <div class="col-6">
+            <div class="name input">
+              <label class="input-title">نام محصول</label>
+              <input type="text" id="edit-name" isValid="false" />
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="family input">
+              <label class="input-title">کد</label>
+              <input type="number" isValid="false" id="edit-code" />
+            </div>
+          </div>
+
+              <div class="col-6">
+                <div class="price input">
+                  <label class="input-title">درصد تخفیف</label>
+                  <input
+                    type="text"
+                    id="product-discount-edit"
+                    isValid="false"
+                    placeholder="لطفا درصد تخفیف محصول را وارد کنید..."
+                  />
+                </div>
+              </div>
+
+          <div class="col-6">
+            <div class="family input">
+              <label class="input-title">قیمت</label>
+              <input type="number" isValid="false" id="edit-price" />
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="family input">
+              <label class="input-title">توضیحات محصول</label>
+              <textarea type="number" isValid="false" id="edit-description"></textarea>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="family input">
+              <label class="input-title">تعداد محصول</label>
+              <input type="number" isValid="false" id="edit-count" />
+            </div>
+          </div>
+
+        <div class="col-6">
+          <div class="number input">
+            <label class="input-title">دسته‌بندی محصول </label>
+            <select class="category-list-edit">
+            </select>
+          </div>
+        </div>
+
+      <div class="col-12">         
+        <fieldset class="size-options">
+            <label class="input-title" style="border: none;">انتخاب سایز</label>
+        
+            <label>
+              <input type="checkbox" name="edit-size" value="S">
+              <span>S</span>
+            </label>
+        
+            <label>
+              <input type="checkbox" name="edit-size" value="M">
+              <span>M</span>
+            </label>
+        
+            <label>
+              <input type="checkbox" name="edit-size" value="L">
+              <span>L</span>
+            </label>
+        
+            <label>
+              <input type="checkbox" name="edit-size" value="XL">
+              <span>XL</span>
+            </label>
+
+            <label>
+              <input type="checkbox" name="edit-size" value="free">
+              <span>free</span>
+            </label>
+          </fieldset>
+        </div>
+
+         <br><br>
+
+          <div class="col-12">
+            <div class="file">
+              <label class="input-title">افزودن تصویر</label>
+              <input type="file" id="product-images-edit" name="images[]" multiple />  
+            </div>
+
+            <div class="col-start-4 edit-cover">
+              <label class="input-title">تصاویر محصول</label>
+              <div class="images-parent-editBox">
+                <div class="position-relative">
+                  <img class="short-img-editBox" src="../../images/main-gallery/child/boy.jpg"/>
+                  <span alt="حذف تصویر" class="badge bg-danger position-absolute rounded-0 align-bottom d-flex align-items-center" style="right: 0px;top: 0px; padding: 0.1rem 0.6rem;cursor: pointer;">-</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+             <div class="submit-btn">
+                <input type="submit" value="ویرایش" id="edit-product-infos-btn" />
+              </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="sidebar-menu-btn">
+      <i class="fas fa-bars"></i>
+  </div>
+    <div id="content">
+        <div id="sidebar" class="col-2">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <a href="#"><img src="../shared/img/logo.png" alt="Logo"></a>
+                </div>
+
+                <div class="sidebar-menu-btn">
+                  <i class="fas fa-bars"></i>
+              </div>
+
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li><a href="../main/index.html" class="main-pane_topLink"><span>صفحه اصلی</span></a></li>
+                    <li class="active-menu"><a href="../products/index.html" class="main-pane_topLink"><span>محصولات</span></a></li>
+                    <li><a href="../C-Menus/index.html" class="main-pane_topLink"><span>منو ها</span></a></li>
+                    <li><a href="../D-Blogs/index.html" class="main-pane_topLink"><span>مقاله ها</span></a></li>
+                    <li><a href="../NewBlog/index.html" class="main-pane_topLink"><span>افزودن مقاله</span></a></li>
+                    <li><a href="../D-Users/index.html" class="main-pane_topLink"><span>کاربران</span></a></li>
+                    <li><a href="../C-Categories/index.html" class="main-pane_topLink"><span>دسته‌بندی‌ ها</span></a></li>
+                    <li><a href="../EditAdmin/index.html" class="main-pane_topLink"><span>ویرایش کاربر</span></a></li>
+                    <li><a href="" class="main-pane_topLink"><span>تیکت‌ ها</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="home" class="col-10">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="home-header">
+                        <div class="home-right">
+                            <div class="home-searchbar">
+                                <input type="text" class="search-bar" placeholder="جستجو...">
+                            </div>
+                            <div class="home-notification">
+                                <button type="button" id="notifications-icon">
+                                    <i class="far fa-bell"></i>
+                                </button>
+                            </div>
+                            <div class="header-bottom__mode rounded-pill" style="background: transparent;">
+                                <i class="fas fa-moon header-bottom__mode-icon notif-icon"></i>
+                              </div>
+                            <div class="home-notification-modal">
+                                <ul class="home-notification-modal-list">
+                                   <!-- Notifications Loaded From JS -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="home-left">
+                            <div class="home-profile">
+                                <div class="home-profile-image">
+                                    <a href="#">
+                                        <img src="img/profile.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="home-profile-name">
+                                    <a href="#" id="admin-name"></a>
+                                </div>
+                                <div class="home-profile-icon">
+                                    <i class="fas fa-angle-down admin-arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container-fluid" id="home-content">
+          <div class="container">
+            <div class="home-title">
+              <span>افزودن محصول جدید</span>
+            </div>
+            <form class="form">
+              <div class="col-6">
+                <div class="name input">
+                  <label class="input-title">نام محصول </label>
+                  <input
+                    type="text"
+                    id="product-name"
+                    isValid="false"
+                    placeholder="لطفا نام محصول را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="price input">
+                  <label class="input-title">قیمت محصول </label>
+                  <input
+                    type="text"
+                    id="product-price"
+                    isValid="false"
+                    placeholder="لطفا قیمت محصول را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="price input">
+                  <label class="input-title">اعمال تخفیف</label>
+                  <input
+                    type="text"
+                    id="product-discount"
+                    isValid="false"
+                    placeholder="لطفا درصد تخفیف محصول را وارد کنید..."
+                  />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="number input">
+                  <label class="input-title">توضیحات محصول </label>
+                  <textarea
+                    id="product-description"
+                    cols="30"
+                    rows="10"
+                    class="w-100"
+                    placeholder="توضیحات محصول را وارد کنید"
+                  ></textarea>
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="number input">
+                  <label class="input-title">تعداد محصول در انبار</label>
+                  <input
+                    type="text"
+                    id="product-count"
+                    isValid="false"
+                    placeholder="لطفا تعداد محصول را وارد کنید..."
+                  />
+                  <span class="error-message text-danger"></span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="number input">
+                  <label class="input-title">دسته‌بندی محصول </label>
+                  <select class="category-list">
+                  </select>
+                </div>
+              </div>
+
+                  <fieldset class="size-options">
+                    <label class="input-title" style="border: none;">انتخاب سایز</label>
+                
+                    <label>
+                      <input type="checkbox" name="size" value="S">
+                      <span>S</span>
+                    </label>
+                
+                    <label>
+                      <input type="checkbox" name="size" value="M">
+                      <span>M</span>
+                    </label>
+                
+                    <label>
+                      <input type="checkbox" name="size" value="L">
+                      <span>L</span>
+                    </label>
+                
+                    <label>
+                      <input type="checkbox" name="size" value="XL">
+                      <span>XL</span>
+                    </label>
+
+                    <label>
+                      <input type="checkbox" name="size" value="free">
+                      <span>free</span>
+                    </label>
+                  </fieldset>
+
+                  <div class="col-6">
+                    <div class="number input">
+                      <label class="input-code">کد محصول</label>
+                      <input
+                        type="number"
+                        id="product-code"
+                        placeholder="کد"
+                      />
+                      <span class="error-message text-danger"></span>
+                    </div>
+                  </div>
+
+              <div class="col-6">
+                <div class="file">
+                  <label class="input-title">عکس محصول  </label>
+                  <input type="file" id="product-images" name="images[]" multiple />                </div>
+              </div>
+
+              <div class="col6">
+                <button id="createProduct">ثبت محصول</button>
+              </div>
+        </div>
+    </form>
+
+            <div class="home-content-products">
+              <div class="home-content-products-title">
+                <span>لیست <span class="signup">محصولات</span></span>
+              </div>
+              <div class="home-content-products-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>کدمحصول</th>
+                      <th>نام محصول  </th>
+                      <th>مبلغ</th>
+                      <th>تعداد در انبار</th>
+                      <th>دسته بندی</th>
+                      <th>تخفیف</th>
+                      <th>ویرایش</th>
+                      <th>حذف</th>
+                    </tr>
+                  </thead>
+                  <tbody id="products-parent">
+                    <!-- Data Loaded From JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="vendor/fontAwsome5/all.min.js"></script> 
+    <script src="vendor/swiperSlider/swiper.js"></script> 
+    <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+    <script src="vendor/sweet-alert/sweetalert2@11.js"></script>
+
+    <script src="../../js/panel/shared.js" type="module"></script>
+    <script src="../../js/panel/products.js" type="module"></script>
+    <script src="../../js/components/page-mode.js" type="module"></script>
+
+</body>
+</html>

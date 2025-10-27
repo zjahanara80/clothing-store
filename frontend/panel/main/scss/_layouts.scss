@@ -1,0 +1,180 @@
+@import "../../shared/scss/variables.scss";
+
+// ! Home ! //
+#home {
+  #home-content {
+    margin-top: 12px;
+    .home-content-title {
+      padding-top: 50px;
+      .welcome {
+        @include title();
+      }
+      .name {
+        @include title();
+        color: $orange4;
+      }
+    }
+    .home-content-boxes {
+      margin-top: 40px;
+      .info-wrapper {
+        width: 33%;
+        padding: 1rem;
+        padding-right: 1.5rem;
+      }
+      .box {
+        background-color: #fdfdff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+        .home-box {
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          .home-box-title {
+            span {
+              font-family: "lalezar";
+              font-size: $font-size-xl;
+              font-weight: bold;
+              position: relative;
+              margin: 0.9rem 0;
+
+              &::after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: $orange4;
+                border-radius: 25px;
+                box-shadow: 0px 0px 5px 1px $orange3;
+                bottom: 50%;
+                // left: -15px;
+                right: 0;
+                top: 100%;
+                opacity: 0.6;
+              }
+            }
+          }
+          .home-box-value {
+            @include flex($j-c: space-between);
+            padding: 14px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+            align-items: flex-start;
+            div {
+              display: block;
+              label{
+                color: #898f93;
+                font-size: 15px;
+              }
+              span{
+                font-size: 15px !important;
+                font-weight: bold;
+              }
+            }
+            .percent{
+                direction: ltr;
+                label{
+                    direction: rtl;
+                }
+            }
+            .home-box-price {
+              span {
+                font-weight: bold;
+                font-size: $font-size-lg;
+              }
+            }
+            #percent-improve{
+                direction: ltr;
+            }
+            .home-box-result {
+              span {
+                font-weight: bold;
+              }
+            }
+          }
+          .home-box-text {
+            span {
+              color: #a3abb1;
+            }
+          }
+          .home-box-icon {
+            border-radius: 50%;
+            padding: 20px;
+            i {
+              font-size: 30px;
+              color: $orange4;
+            }
+          }
+        }
+      }
+    }
+    .home-content-chart {
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+    }
+    .home-content-latset-users {
+      background-color: #fff;
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+      border-radius: 5px;
+      .home-content-users-title {
+        padding: 20px 15px;
+        span {
+          @include title();
+
+          .signup {
+            color: $orange4;
+          }
+        }
+      }
+      .home-content-users-table {
+        padding: 0 10px;
+        table {
+          thead {
+            // background-color: #f2f7fd;
+            tr {
+              th {
+                border: none;
+                color: $orange4;
+                text-align: center;
+                @include title();
+              }
+            }
+          }
+          tbody {
+            tr {
+              vertical-align: middle;
+              .profile-table {
+                width: 40px;
+                border-radius: 50%;
+              }
+              td {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// ! End Home ! //
+
+// ! Content ! //
+#content {
+  display: flex;
+}
+// ! End Content ! //
+
+.improve-color {
+  color: rgb(6 157 6) !important;
+}
+.failed-color {
+  color: rgb(205, 27, 36) !important;
+}
+.equals-color {
+  color: rgb(126, 124, 125) !important;
+}

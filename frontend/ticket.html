@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/ticket.css" />
+    <link rel="stylesheet" href="css/colors.css" />
+    <title>صفحه محصولات</title>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+  
+        <!-- start header section -->
+        <header class="header">
+          <div class="hamburger-menu">
+            <div class="hamburger-menu__line first-line"></div>
+            <div class="hamburger-menu__line middle-line"></div>
+            <div class="hamburger-menu__line third-line"></div>
+          </div>
+  
+          <div class="header-top">
+            <div class="header-top__right">
+              <ul class="header-top__right-list">
+                <li class="header-top__right-item">
+                  <a href="articles.html" class="header-top__right-link">مقالات</a>
+                </li>
+                <li class="header-top__right-item">
+                  <a href="ticket.html" class="header-top__right-link">تماس با ما</a>
+                </li>
+                <li class="header-top__right-item">
+                  <a href="about-us.html" class="header-top__right-link">درباره ی ما</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-top__left">
+              <ul class="header-top__left-list">
+                <li class="header-top__left-item border-end border-2 pe-4">
+                  <span class="header-top__left-tel">021-732872347</span>
+                  <i class="fas fa-phone header-top__left-icon"></i>
+                </li>
+                <li class="header-top__left-item d-flex align-items-center gap-2">
+                  <span class="header-top__left-text">تماس با پشتیبانی</span>
+                  <div class="header-top__left-Consultant-wrapper">
+                    <a href="#" class="header-top__left-link">
+                      <img
+                        src="images/consultants/Consultant1.jpg" alt="" class="header-top__left-img rounded-circle"/></a>
+                       <a href="#" class="header-top__left-link">
+                      <img
+                        src="images/consultants/Consultant2.jpg"
+                        alt=""
+                        class="header-top__left-img rounded-circle"
+                    /></a>
+                    <a href="#" class="header-top__left-link">
+                      <img
+                        src="images/consultants/Consultant3.jpg"
+                        alt=""
+                        class="header-top__left-img rounded-circle"
+                    /></a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+  
+          <div class="header-middle">
+            <div class="header-middle__logo">
+              <!-- <span class="header-middle__logo-text">لاوین شاپ</span> -->
+              <img
+                src="images/logo/main-logo-removebg-preview (1).png"
+                alt="main-logo"
+                class="header-middle__logo-img" 
+              />
+            </div>
+  
+            <div class="header-middle__search rounded-pill">
+              <i class="fas fa-search header-middle__search-icon"></i>
+              <input
+                type="text"
+                class="header-middle__search-input"
+                placeholder="لباسی که میخوای رو سرچ کن"/>
+              <button class="header-middle__search-btn" id="header__search-btn">جست و جو</button>
+              <ul class="search-result__parent" id="search-result__parent">
+                  <!-- data loaded from server -->
+              </ul>
+            </div>
+           <div class="header-items__wrapper">
+            <a href="#" class="header-middle__popular rounded-circle position-relative">
+              <span
+              class="badge bg-danger position-absolute rounded-pill align-bottom d-flex align-items-center" style="right: -1px;top: -4px;padding: 0.3rem 0.3rem 0.2rem 0.3rem;">0</span>
+              <i class="fas fa-heart header-middle__popular-icon"></i>
+            </a>
+  
+            <div class="header-middle__login rounded-pill">
+            </div>
+  
+            <div
+              class="header-middle__buy rounded-pill position-relative"
+              style="direction: rtl"
+            >
+              <span
+                class="badge bg-danger position-absolute top-0 start-0 rounded-pill align-bottom d-flex align-items-center" style="padding: 0.3rem 0.3rem 0.2rem 0.3rem;">0</span>
+              <a href="#">
+                <i class="fa fa-basket-shopping header-middle__buy-icon"></i>
+              </a>
+              <span class="header-middle__buy-count">0</span>
+              <span class="header-middle__buy-count"> تومان</span>
+            </div>
+            </div>
+          </div>
+  
+          <div class="header-bottom">
+            <ul class="header-bottom__menu">
+              <li class="header-bottom__response-item">
+                <i class="fas fa-plus header-bottom__response-icon"></i>
+              </li>
+              <li></li>
+              <li class="header-bottom__item current-page">
+                <a href="#" class="header-bottom__link">خانه</a>
+                <i
+                  class="fas fa-home header-bottom__icon home-icon"
+                  style="font-size: 1rem"></i>
+              </li>
+            </ul>
+            <div class="header-bottom__mode rounded-pill">
+              <i class="fas fa-moon header-bottom__mode-icon"></i>
+              <span class="header-bottom__mode-btn light-mode">حالت تاریک</span>
+            </div>
+          </div>
+        </header>
+        <!-- finish header section -->
+
+
+        <!-- start main section -->
+        <main class="main">
+          <div class="main-top main-tickets">
+             <div class="mainTicket-box creteTicket row">
+                <span class="ticket-top-title col-12">ثبت تیکت جدید</span>
+
+                 <input type="text" class="col-6 email-box" id="user-email" placeholder = "ایمیل شما">
+                 
+                 <input type="text" class="col-6 name-box" id="user-name" placeholder = "نام شما">
+
+                 <input type="text" class="col-6 title-box" id="ticket-title" placeholder="موضوع تیکت">
+
+                 <textarea id="ticket-message" class="col-12 message-box" placeholder="متن تیکت ...."></textarea>
+
+                 <button class="submit-ticket-btn" id="submit-ticket-btn">ثبت تیکت</button>
+
+             </div>
+            </div>
+
+             <div class="showTickets-box row">
+                 <span class="ticket-top-title col-12">نمایش تیکت های شما</span>
+                 <div class="tickets-box-parent">
+
+                   <div class="ticket-box-wrapper-item">
+                     <div class="ticket-show-box">
+                        <div class="top">
+                            <span class="title">درخواست عضویت</span>
+                            <button>نمایش بیشتر 
+                                <i class="fa fa-angle-down"></i>
+                            </button>
+                        </div>
+    
+                        <div class="bottom">
+                            <div>
+                                <span class="show-ticket-title">وضعیت : </span>
+                                <span class="ticket-status">پاسخ داده شده</span>
+                            </div>
+                            <div>
+                                <span class="show-ticket-title">تعداد پاسخ : </span>
+                                <span class="ticket-status">4</span>
+                            </div>
+    
+                            <div>
+                                <span class="show-ticket-title">تاریخ ثبت : </span>
+                                <span class="ticket-status">13 آبان</span>
+                            </div>
+                        </div>
+    
+                     </div>
+    
+                     <div class="ticket-show-box details-box">
+                       <div class="top">
+                        نمایش جزییات تیکت
+                       </div>
+    
+                       <div class="ticket-details__body">
+                         <div class="right-side">
+                             <div class="user-ticket">سوال</div>
+                         </div>
+                         <div class="left-side">
+                             <div class="admin-answer">جواب</div>
+                         </div>
+                       </div>
+                     </div>
+
+                   </div>                  
+                 </div>
+             </div>
+
+
+        </main>
+        <!-- finish main section -->
+
+        <!-- start footer section -->
+       <footer class="footer">
+        <div class="footer-one">
+          <img src="images/logo/main-logo-removebg-preview (1).png" alt="" class="footer-one__logo">
+          <button class="footer-one__transferBtn">
+            <span class="btnScrollTop">بازگشت به بالا</span>
+            <i class="fa fa-arrow-up footer-one__transferBt-icon"></i>
+          </button>
+        </div>
+
+        <ul class="footer-two">
+         <li class="footer-two__item border-end border-2">تلفن پشتیبانی : 732872347-021</li>
+         <li class="footer-two__item">7روز هفته، پاسخگوی شما هستیم</li>
+        </ul>
+
+        <ul class="footer-three">
+         <li class="footer-three__item">
+          <img src="images/footer/footer-img1.svg" alt="" class="footer-three__item-img">
+          <span class="footer-three__item-title">امکان تحویل اکسپرس</span>
+         </li>
+         <li class="footer-three__item">
+          <img src="images/footer/footer-img2.svg" alt="" class="footer-three__item-img">
+          <span class="footer-three__item-title">امکان پرداخت در محل</span>
+         </li>
+         <li class="footer-three__item">
+          <img src="images/footer/footer-img3.svg" alt="" class="footer-three__item-img">
+          <span class="footer-three__item-title">هفت روز ضمانت مرجوعی</span>
+         </li>
+         <li class="footer-three__item">
+          <img src="images/footer/footer-img4.svg" alt="" class="footer-three__item-img">
+          <span class="footer-three__item-title">ضمانت اصالت کالا</span>
+         </li>
+        </ul>
+
+        <div class="footer-four">
+          <div class="footer-four__right">
+            <span class="footer-four__right-title">لاوین برازنده ی تن تو</span>
+            <p class="footer-four__right-text footer-four__right-overlay">
+              لاوین سال‌ها است که به انتخاب اول بسیاری از خریداران اینترنتی تبدیل شده است. لاوین به عنوان بزرگ‌ترین و معتبرترین فروشگاه آنلاین ایران، شناخته‌شده‌ترین فروشگاه نیز محسوب می‌شود. این فروشگاه آنلاین نه‌تنها گسترده‌ترین تنوع کالا را در دسته‌بندی‌های مختلف ارائه می‌دهد، بلکه با خدمات بی‌نظیر، سرعت ارسال بالا، ضمانت اصل بودن کالا و پشتیبانی حرفه‌ای، استاندارد جدیدی در خرید اینترنتی ایران تعریف کرده است. این فروشگاه با سال‌ها تجربه و اعتماد مشتریان، کامل‌ترین و بهترین گزینه برای خرید آنلاین در ایران محسوب می‌شود.
+            </p>
+            <button class="footer-four__right-btn">
+              <span class="footer-four__right-btn__title">مشاهده بیشتر</span>
+              <i class="fa fa-arrow-down footer-four__right-btn__icon"> </i>
+            </button>
+          </div>
+
+          <div class="footer-four__left">
+            <img src="images/footer/enamd1.jpg" alt="" class="footer-four__left-img">
+            <img src="images/footer/enamd2.jpg" alt="" class="footer-four__left-img">
+            <img src="images/footer/enamd3.jpg" alt="" class="footer-four__left-img">
+          </div>
+        </div>
+
+        <div class="footer-five">
+          تمامی حقوق این سایت محفوظ میباشد
+        </div>
+       </footer>
+        <!-- finish footer section -->
+
+    </div>
+</div>  
+<script src="vendor/fontAwsome6/all.min.js"></script>
+<script src="vendor/bootstrap/bootstrap.min.js"></script>
+<script src="vendor/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="js/components/header.js" type="module"></script>
+<script src="js/swiper.js"></script>
+<script src="js/components/page-mode.js" type="module"></script>
+<script src="js/components/footer.js" type="module"></script>
+<script src="js/components/sharedComponents.js" type="module"></script>
+<script src="js/ticket.js" type="module"></script>
+</body>
+</html>
