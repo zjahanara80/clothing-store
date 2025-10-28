@@ -9,7 +9,8 @@ const getAndShowParentMenus = async () => {
   const headerMenu = document.querySelector('.header-bottom__menu');
   if (!headerMenu) return;
 
-  const res = await fetch(`http://localhost:5000/api/categories/with-children?ts=${Date.now()}`);
+  // const res = await fetch(`http://localhost:5000/api/categories/with-children?ts=${Date.now()}`);
+  const res = await fetch(`https://lovin-clothing.onrender.com/api/categories/with-children?ts=${Date.now()}`);
   const result = await res.json();
   
   headerMenu.innerHTML = '';
