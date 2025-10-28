@@ -1,4 +1,4 @@
-import { getParamFromUrl, getToken, isLogin } from "./funcs/apiFuncs.js";
+import { getParamFromUrl, getToken, isLogin ,AddOrRemoveFavorite, AddOrRemoveCart} from "./funcs/apiFuncs.js";
 import { getMe } from './funcs/authentication.js';
 
 const productID = getParamFromUrl('q');
@@ -71,7 +71,7 @@ const getAndShowAllcomments = async (sortBy = 'oldest') => {
 
     let commentsRateSum = 0
     commentsParent.innerHTML = ''
-   
+
     if (comments.length > 0) {
         switch (sortBy) {
             case 'newest':
@@ -257,6 +257,43 @@ document.querySelector('.user-comment-submit').onclick = (event) => {
     sendComment()
 }
 
+
+window.addEventListener("DOMContentLoaded", () => {
+  const favoriteBtn = document.querySelector(".details-Wrapper__left-favorite-wrapper");
+  const addToCartBtn = document.querySelector("#add-to-card");
+
+  const productId = getParamFromUrl("q");
+
+  if (!productId) {
+    console.error(" آیدی محصول در URL پیدا نشد!");
+    console.log(productId);
+    
+    return;
+  }
+
+  // افزودن به علاقه‌مندی‌ها
+  favoriteBtn.addEventListener("click", async (e) => {
+    try {
+      await AddOrRemoveFavorite(e, productId);
+      alert("✅ محصول به علاقه‌مندی‌ها اضافه یا حذف شد");
+    } catch (error) {
+      console.error("خطا در افزودن به علاقه‌مندی:", error);
+      alert("⚠️ خطا در انجام عملیات علاقه‌مندی");
+    }
+  });
+
+  // افزودن به سبد خرید
+  addToCartBtn.addEventListener("click", async (e) => {
+    try {
+      await AddOrRemoveCart(e, productId);
+    //   alert("✅ محصول به سبد خرید اضافه یا حذف شد");
+    } catch (error) {
+      console.error("خطا در افزودن به سبد خرید:", error);
+    //   alert("⚠️ خطا در انجام عملیات سبد خرید");
+    }
+  });
+});
+
 window.onload = () => {
     getAndShowProductDetails()
     getAndShowAllcomments()
@@ -264,3 +301,4 @@ window.onload = () => {
     showUserInfoInCommentBoxStatus()
 
 }
+

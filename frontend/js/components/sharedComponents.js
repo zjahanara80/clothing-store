@@ -126,35 +126,18 @@ buyPageBtn ? buyPageBtn.onclick = () => {
   location.href = 'cart.html'
 } : ''
 
-menuBtns && menuBtns.forEach(btn => {
-  if(btn.innerHTML == "تماس با ما") {
-    btn.innerHTML = 'خانه'
-    btn.onclick = () => location.href = 'index.html'
-  }
-})
-
-contactBtn ? contactBtn.onclick = () =>  location.href = 'ticket.html' : ''
- 
-
-
-menuBtns && menuBtns.forEach(btn => {
-  btn.onclick = () => {
-    switch (btn.innerHTML) {
-      case "مقالات":
-        location.href = 'articles.html'
-        break;
-      case "خانه":
-        location.href = 'index.html'
-        break;
-      case "درباره ی ما":
-        location.href = 'about-us.html'
-        break;
-    }
-  }
-})
-
 
 window.addEventListener('load', () => {
+  //loader
+  const loader = document.getElementById("loader");
+  const mainContent = document.getElementById("main-content");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+    mainContent.style.display = "block";
+  }, 500);
+
+
   ticketShowStatus()
   getAndShowParentMenus()
   change_mode(getFromLs('mode'))

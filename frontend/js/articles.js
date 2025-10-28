@@ -5,12 +5,14 @@ import {
   userSearchProduct
 
 } from "./funcs/apiFuncs.js";
+import {shareArticle} from './funcs/index.js'
 
 const articlesParent = document.querySelector('.article-sug__itemWrapper')
 const paginateList = document.querySelector('.paginate-list');
 const pageNumber = parseInt(getParamFromUrl('page')) || 1;
 const selection = document.querySelector('.main-center__top-selection');
 const searchInput = document.querySelector('.main-center__top-input');
+window.shareArticle = shareArticle
 
 const getAndShowSuggestedAllArticles = async () => {
   const res = await fetch(`http://localhost:5000/api/articles`)
@@ -54,7 +56,7 @@ const addContentToElem = (pageArticles) => {
                  ${article.chekide}
                 </p>
               <div class="article-sug__iconWrapper">
-                <i class="fa fa-share article-sug__icon article-sug__share" title="share"></i>
+                <i class="fa fa-share article-sug__icon article-sug__share" title="share" onclick="shareArticle('${article.title}', '${article._id}')"></i>
                 <i class="fa fa-comment article-sug__icon article-sug__comment" title="comments" onclick="goToArticleComments('${article._id}')"></i> 
               </div>
               <a class="article-sug__link" href="articlesDetails.html?q=${article._id}">ادامه مطلب</a>

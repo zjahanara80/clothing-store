@@ -74,7 +74,7 @@ const setProductsToDom = async (products, parent, isFavoritesPage = false, isCar
                      ${favActionBtnHTML}
                      <i class="fa fa-eye product-item-overlay__icon show-product-btn" 
                         title="مشاهده محصول" 
-                        data-show-id="${product._id}"></i>
+                        data-id="${product._id}"></i>
                  </div>
              </div>
          `);
@@ -141,6 +141,69 @@ const setProductsToDom = async (products, parent, isFavoritesPage = false, isCar
 
 
 //حذف و اضافه در علاقه مندی ها و سبد خرید ها در این توابع فقط برای محصولات ساده هستند و نه محصولات داخل سبد و علاقه مندی
+// const AddOrRemoveFavorite = async (event, productId) => {
+//     event.stopPropagation();
+
+//     const productIndex = window.AllProducts.findIndex(p => p._id === productId);
+//     if (productIndex === -1) {
+//         console.error('Product not found in AllProducts');
+//         return;
+//     }
+
+//     try {
+//         const response = await fetch(`http://localhost:5000/api/user-favorites/favorites/toggle/${productId}`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 Authorization: `Bearer ${getToken()}`
+//             }
+//         });
+
+//         if (response.status === 403) {
+//             Swal.fire({
+//                 title: "ابتدا وارد حساب کاربری خود شوید",
+//                 icon: "error",
+//                 confirmButtonText: "ورود به حساب"
+//             }).then(result => {
+//                 if (result.isConfirmed) {
+//                     const currentPage = location.pathname + location.search + '#products-wrapper';
+//                     location.href = `login.html?redirect=${encodeURIComponent(currentPage)}`;
+//                 }
+//             });
+//             return;
+//         }
+
+//         if (!response.ok) {
+//             throw new Error('خطا در تغییر علاقه‌مندی‌ها');
+//         }
+
+//         const data = await response.json();
+//         window.AllProducts[productIndex].isFavorite = data.isFavorite;
+//         console.log(data);
+
+//         // icon updating
+//         const heartBtn = event.target.closest(".favorite-btn");
+//         heartBtn.classList.toggle("red-color-btn", data.isFavorite);
+
+//         //count of favorites dinamic updating
+//         const FavoriteCount = document.querySelector('.header-middle__popular span')
+//         if (FavoriteCount) {
+//             let currentCount = parseInt(FavoriteCount.textContent) || 0;
+
+//             if (data.isFavorite) {
+//                 currentCount += 1;
+//             } else {
+//                 currentCount -= 1;
+//             }
+
+//             FavoriteCount.textContent = currentCount;
+//         }
+//     } catch (error) {
+//         alert('خطا در تغییر علاقه‌مندی‌ها');
+//         console.error(error);
+//     }
+// };
+
 const AddOrRemoveFavorite = async (event, productId) => {
     event.stopPropagation();
 
@@ -181,28 +244,104 @@ const AddOrRemoveFavorite = async (event, productId) => {
         window.AllProducts[productIndex].isFavorite = data.isFavorite;
         console.log(data);
 
-        // icon updating
+        // 🔴 نمایش پیغام موفقیت
+        Swal.fire({
+            title: data.isFavorite
+                ? "محصول به علاقه‌مندی‌ها اضافه شد ❤️"
+                : "محصول از علاقه‌مندی‌ها حذف شد 💔",
+            icon: data.isFavorite ? "success" : "info",
+            timer: 1800,
+            showConfirmButton: false
+        });
+
+        // آیکون قلب را به‌روزرسانی کن
         const heartBtn = event.target.closest(".favorite-btn");
         heartBtn.classList.toggle("red-color-btn", data.isFavorite);
 
-        //count of favorites dinamic updating
-        const FavoriteCount = document.querySelector('.header-middle__popular span')
+        // شمارنده علاقه‌مندی‌ها
+        const FavoriteCount = document.querySelector('.header-middle__popular span');
         if (FavoriteCount) {
             let currentCount = parseInt(FavoriteCount.textContent) || 0;
-
-            if (data.isFavorite) {
-                currentCount += 1;
-            } else {
-                currentCount -= 1;
-            }
-
+            data.isFavorite ? currentCount++ : currentCount--;
             FavoriteCount.textContent = currentCount;
         }
+
     } catch (error) {
-        alert('خطا در تغییر علاقه‌مندی‌ها');
+        Swal.fire({
+            title: 'خطا در تغییر علاقه‌مندی‌ها',
+            icon: 'error',
+            confirmButtonText: 'باشه'
+        });
         console.error(error);
     }
 };
+
+
+// const AddOrRemoveCart = async (event, productId) => {
+//     event.stopPropagation();
+
+//     const productIndex = window.AllProducts.findIndex(p => p._id === productId);
+//     if (productIndex === -1) {
+//         console.error('Product not found in AllProducts');
+//         alert("خطا در اضافه کردن محصول در سبد خرید")
+//         return;
+//     }
+
+//     try {
+//         const response = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 Authorization: `Bearer ${getToken()}`
+//             }
+//         });
+
+//         if (response.status === 403) {
+//             Swal.fire({
+//                 title: "ابتدا وارد حساب کاربری خود شوید",
+//                 icon: "error",
+//                 confirmButtonText: "ورود به حساب"
+//             }).then(result => {
+//                 if (result.isConfirmed) {
+//                     const currentPage = location.pathname + location.search + '#products-wrapper';
+//                     location.href = `login.html?redirect=${encodeURIComponent(currentPage)}`;
+//                 }
+//             });
+//             return;
+//         }
+
+//         if (!response.ok) {
+//             alert("خطا در اضافه کردن محصول در سبد خرید")
+//             throw new Error('خطا در تغییر سبد خرید');
+//         }
+
+//         const data = await response.json();
+//         console.log("Toggle Cart Response:", data);
+
+//         // آپدیت وضعیت محصول
+//         window.AllProducts[productIndex].inCart = data.inCart;
+
+//         // تغییر آیکون
+//         const cartBtn = event.target.closest(".basket-icon-wrapper");
+//         cartBtn ? cartBtn.classList.toggle("line-through", data.inCart) : ''
+
+
+//         // شمارنده سبد خرید (هدر)
+//         const cartCount = document.querySelector('.header-middle__buy span');
+//         if (cartCount) {
+//             let currentCount = parseInt(cartCount.textContent) || 0;
+//             if (data.inCart) {
+//                 currentCount += 1;
+//             } else {
+//                 currentCount -= 1;
+//             }
+//             cartCount.textContent = currentCount;
+//         }
+//     } catch (error) {
+//         alert('خطا در تغییر سبد خرید');
+//         console.error(error);
+//     }
+// };
 
 const AddOrRemoveCart = async (event, productId) => {
     event.stopPropagation();
@@ -210,6 +349,12 @@ const AddOrRemoveCart = async (event, productId) => {
     const productIndex = window.AllProducts.findIndex(p => p._id === productId);
     if (productIndex === -1) {
         console.error('Product not found in AllProducts');
+        Swal.fire({
+            title: "خطا در اضافه کردن محصول",
+            text: "محصول مورد نظر یافت نشد",
+            icon: "error",
+            confirmButtonText: "باشه"
+        });
         return;
     }
 
@@ -237,6 +382,12 @@ const AddOrRemoveCart = async (event, productId) => {
         }
 
         if (!response.ok) {
+            Swal.fire({
+                title: "خطا در اضافه کردن به سبد خرید",
+                text: "لطفاً دوباره تلاش کنید",
+                icon: "error",
+                confirmButtonText: "باشه"
+            });
             throw new Error('خطا در تغییر سبد خرید');
         }
 
@@ -248,26 +399,45 @@ const AddOrRemoveCart = async (event, productId) => {
 
         // تغییر آیکون
         const cartBtn = event.target.closest(".basket-icon-wrapper");
-        cartBtn ? cartBtn.classList.toggle("line-through", data.inCart) : ''
-        
+        if (cartBtn) cartBtn.classList.toggle("line-through", data.inCart);
 
-        // شمارنده سبد خرید (هدر)
+        // شمارنده سبد خرید
         const cartCount = document.querySelector('.header-middle__buy span');
         if (cartCount) {
             let currentCount = parseInt(cartCount.textContent) || 0;
-            if (data.inCart) {
-                currentCount += 1;
-            } else {
-                currentCount -= 1;
-            }
-            cartCount.textContent = currentCount;
+            cartCount.textContent = data.inCart ? currentCount + 1 : currentCount - 1;
         }
+
+        if (data.inCart) {
+            Swal.fire({
+                title: "محصول به سبد خرید اضافه شد ✅",
+                icon: "success",
+                timer: 2000,
+                showConfirmButton: false,
+                toast: true,
+                position: "top-end"
+            });
+        } else {
+            Swal.fire({
+                title: "محصول از سبد خرید حذف شد 🗑️",
+                icon: "info",
+                timer: 2000,
+                showConfirmButton: false,
+                toast: true,
+                position: "top-end"
+            });
+        }
+
     } catch (error) {
-        alert('خطا در تغییر سبد خرید');
+        Swal.fire({
+            title: "خطا در ارتباط با سرور",
+            text: "لطفاً اتصال اینترنت را بررسی کنید",
+            icon: "error",
+            confirmButtonText: "باشه"
+        });
         console.error(error);
     }
 };
-
 
 
 const sortUserSelection = (products, userSelect) => {
@@ -341,6 +511,16 @@ document.addEventListener("click", (event) => {
     }
 });
 
+const showLoader = () => {
+  const loader = document.getElementById("loader");
+  if (loader) loader.style.display = "flex";
+};
+
+const hideLoader = () => {
+  const loader = document.getElementById("loader");
+  if (loader) loader.style.display = "none";
+};
+
 export {
     getDataFromApi,
     saveIntoLS,
@@ -354,4 +534,7 @@ export {
     getParamFromUrl,
     getCategoriesItems,
     getProductsFromCategories,
+    AddOrRemoveFavorite,
+    AddOrRemoveCart,
+    showLoader, hideLoader
 };

@@ -1,4 +1,7 @@
-import { getAndShowAllArticlesInDom, visitArticle } from './funcs/index.js'
+import {
+    getAndShowAllArticlesInDom, visitArticle, shareArticle
+    , visitArticleComments
+} from './funcs/index.js'
 import { getDataFromApi } from "./funcs/apiFuncs.js";
 
 
@@ -6,7 +9,8 @@ let $ = document;
 let mainTopSubTest = $.querySelector('.main-top__text-first')
 let galleryBtns = $.querySelectorAll('.main-category__item');
 let showAllOffsProductsBtn = $.querySelector('.main-offer__btn')
-
+window.shareArticle = shareArticle
+window.visitArticleComments = visitArticleComments
 //main top brand transition
 function typeWriter(text, index) {
     if (index < text.length) {
@@ -43,7 +47,7 @@ galleryBtns.forEach(btn => {
         })
 
         galleryGeneration(btnTitle)
-        
+
     }
 })
 
@@ -180,9 +184,9 @@ let galleryGeneration = async (title) => {
             }
         }
     })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 }
 
 
@@ -236,7 +240,7 @@ let mainOfferGeneration = () => {
         for (const [key, value] of Object.entries(data)) {
             if (value.discount > 0) {
                 console.log(value);
-                
+
                 const slide = `
                     <div class="swiper-slide main-offer__left-item">
     
@@ -277,8 +281,8 @@ var swiperArticles = new Swiper(".article-sug__itemWrapper", {
     }
 });
 
-const openProductDetails = async(proID) => {
-  window.location = `productDetails.html?q=${proID}`
+const openProductDetails = async (proID) => {
+    window.location = `productDetails.html?q=${proID}`
 }
 
 // article suggestion generation
@@ -379,7 +383,8 @@ window.onload = () => {
     let typeIndex = 0;
     typeWriter(mainText, typeIndex);
     getData();
-    categoryResponse(event)
+    // categoryResponse(event)
+    galleryGeneration('زنانه')
     mainOfferGeneration();
     getAndShowAllArticlesInDom()
     articleSugGeneration();

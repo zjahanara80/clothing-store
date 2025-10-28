@@ -13,6 +13,9 @@
     <title>لیست محصولات مورد علاقه</title>
 </head>
 <body>
+    <div id="loader">
+     <div class="spinner"></div>
+   </div>  
     <div class="container">
         <div class="overlay"></div>
   
@@ -26,17 +29,21 @@
   
           <div class="header-top">
             <div class="header-top__right">
-              <ul class="header-top__right-list">
-                <li class="header-top__right-item">
-                  <a href="#" class="header-top__right-link">مقالات</a>
-                </li>
-                <li class="header-top__right-item">
-                  <a href="#" class="header-top__right-link">تماس با ما</a>
-                </li>
-                <li class="header-top__right-item">
-                  <a href="#" class="header-top__right-link">درباره ی ما</a>
-                </li>
-              </ul>
+            <ul class="header-top__right-list">
+              <li class="header-top__right-item">
+                <a href="articles.html" class="header-top__right-link">مقالات</a>
+              </li>
+              <li class="header-top__right-item">
+                <a href="index.html" class="header-top__right-link">خانه</a>
+              </li>
+              <li class="header-top__right-item">
+                <a href="ticket.html" class="header-top__right-link">تماس با ما</a>
+              </li>
+
+              <li class="header-top__right-item">
+                <a href="panel/main/index.html" class="header-top__right-link">پنل مدیریت</a>
+              </li>
+            </ul>
             </div>
             <div class="header-top__left">
               <ul class="header-top__left-list">
@@ -137,21 +144,27 @@
 
               <!-- ticket-elem -->
        <div class="ticket-elem">
-        <i class="fa-solid fa-comment ticket-elem__icon"></i>
+        <img src="images/contact-icon/contact.png" class="ticket-elem__icon" alt="">
 
       </div>
-      <div class="ticket-box">
-       <div class="ticket-box__title">ارسال تیکت به پشتیبانی
-         <div class="ticket-icon">
-           <i class="fa fa-plus ticket-box__icon"></i></div>
+       <div class="ticket-box">
+        <div class="ticket-box__title">ارسال تیکت به پشتیبانی
+          <div class="ticket-icon">
+            <i class="fa fa-plus ticket-box__icon"></i></div>
+        </div>
+        <div class="ticket-box__body">
+          <input class="ticket-box__body-input email-input" type="text" placeholder="ایمیل را وارد کنید">
+          <div class="ticket-box__body-showEmail" type="email"></div>
+
+          <input class="ticket-box__body-input name-input" type="text" placeholder="نام خود را وارد کنید">
+
+          <input class="ticket-box__body-input title-input" type="text" placeholder="عنوان را وارد کنید">
+
+
+          <textarea class="ticket-box__body-ticket" placeholder="متن تیکت را وارد کنید ..!"></textarea>
+          <button class="ticket-box__body-ticket__submit">ارسال</button>
+        </div>
        </div>
-       <div class="ticket-box__body">
-         <input class="ticket-box__body-input" type="text" placeholder="ایمیل را وارد کنید">
-         <div class="ticket-box__body-showEmail" type="email">ze@gmail,com</div>
-         <textarea class="ticket-box__body-ticket" placeholder="متن تیکت را وارد کنید ..!"></textarea>
-         <button class="ticket-box__body-ticket__submit">ارسال</button>
-       </div>
-      </div>
 
         <!-- start main section -->
         <main class="main">

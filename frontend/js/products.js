@@ -6,10 +6,13 @@ import {
   sortUserSelection,
   userSearchProduct,
   getToken,
+  showLoader, hideLoader
 } from "./funcs/apiFuncs.js";
 import { paginationStructure } from './funcs/utils.js';
 
 const getAndShowCategoryProducts = async () => {
+  try {
+    showLoader()
   const categoryId = getParamFromUrl('category');
   let allProducts = null
 
@@ -120,6 +123,13 @@ const getAndShowCategoryProducts = async () => {
     productsParent.innerHTML = '';
     setProductsToDom(paged, productsParent);
   };
+}
+catch (error) {
+  console.log('خطا در گرفتن محصولات'); 
+}
+finally {
+  hideLoader ()
+}
 };
 
 window.onload = () => {

@@ -70,13 +70,11 @@ const loadUserCart = async () => {
 
 
     const renderProducts = (productsArray) => {
-      const pageProducts = paginationStructure(productsArray, 6, paginateList, pageNumber);
+      // const pageProducts = paginationStructure(productsArray, 6, paginateList, pageNumber);
       productsParent.innerHTML = '';
 
-      if (pageProducts.length) {
-
-        setProductsToDom(pageProducts, productsParent, false, true);
-
+      if (productsArray.length) {
+        setProductsToDom(productsArray, productsParent, false, true);
       } else {
         productsParent.innerHTML = `
           <div class="alert alert-danger" 
@@ -92,15 +90,89 @@ const loadUserCart = async () => {
       const minusBtn = event.target.closest(".mines");
 
       // حذف محصول از سبد
+      // if (deleteProBTN) {
+      //   const productId = deleteProBTN.dataset.id;
+      //   try {
+      //     const res = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //         Authorization: `Bearer ${getToken()}`
+      //       }
+      //     });
+
+      //     const data = await res.json();
+      //     if (!res.ok) {
+      //       alert(data.message || "خطا در تغییر سبد خرید");
+      //       return;
+      //     }
+
+      //     // حذف محصول از allProducts و رندر مجدد
+      //     allProducts = allProducts.filter(p => p._id !== productId);
+      //     renderProducts(allProducts);
+
+      //     // به‌روزرسانی شمارنده هدر
+      //     CartCountVar = allProducts.length;
+      //     cartCount ? cartCount.textContent = CartCountVar : '';
+
+      //   } catch (err) {
+      //     console.error("خطا در toggle محصول:", err);
+      //     alert("خطا در تغییر سبد خرید");
+      //   }
+      // }
+
+      // // افزایش یا کاهش تعداد
+      // if (plusBtn || minusBtn) {
+      //   const productElem = event.target.closest(".cart-box__products-item");
+      //   const productId = productElem.dataset.id;
+      //   const countInput = productElem.querySelector(".count");
+      //   let newQuantity = parseInt(countInput.value);
+      //   const maxStock = parseInt(productElem.dataset.stock);
+
+      //   if (plusBtn && newQuantity < 3 && newQuantity < maxStock) newQuantity++;
+      //   if (plusBtn && newQuantity >= maxStock) {
+      //     alert("تعداد محصول داخل انبار کافی نیست");
+      //     return;
+      //   }
+      //   if (minusBtn && newQuantity > 1) newQuantity--;
+
+      //   countInput.value = newQuantity;
+
+      //   try {
+      //     const res = await fetch("http://localhost:5000/api/user/cart/update-quantity", {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //         Authorization: `Bearer ${getToken()}`
+      //       },
+      //       body: JSON.stringify({ productId, quantity: newQuantity })
+      //     });
+
+      //     const data = await res.json();
+      //     if (!res.ok) {
+      //       alert(data.message);
+      //       return;
+      //     }
+
+      //     // آپدیت مقدار در allProducts
+      //     const index = allProducts.findIndex(p => p._id === productId);
+      //     if (index !== -1) allProducts[index].quantity = newQuantity;
+
+      //     // شمارنده هدر
+      //     CartCountVar = allProducts.length;
+      //     cartCount ? cartCount.textContent = CartCountVar : '';
+
+      //   } catch (err) {
+      //     console.error("خطا در آپدیت تعداد:", err);
+      //   }
+      // }
+      // حذف محصول
       if (deleteProBTN) {
         const productId = deleteProBTN.dataset.id;
         try {
           const res = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${getToken()}`
-            }
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${getToken()}` }
           });
 
           const data = await res.json();
@@ -109,14 +181,9 @@ const loadUserCart = async () => {
             return;
           }
 
-          // حذف محصول از allProducts و رندر مجدد
           allProducts = allProducts.filter(p => p._id !== productId);
           renderProducts(allProducts);
-
-          // به‌روزرسانی شمارنده هدر
-          CartCountVar = allProducts.length;
-          cartCount ? cartCount.textContent = CartCountVar : '';
-
+          updateCartTotals(allProducts);  // ⚡ بروزرسانی قیمت و تخفیف
         } catch (err) {
           console.error("خطا در toggle محصول:", err);
           alert("خطا در تغییر سبد خرید");
@@ -132,10 +199,7 @@ const loadUserCart = async () => {
         const maxStock = parseInt(productElem.dataset.stock);
 
         if (plusBtn && newQuantity < 3 && newQuantity < maxStock) newQuantity++;
-        if (plusBtn && newQuantity >= maxStock) {
-          alert("تعداد محصول داخل انبار کافی نیست");
-          return;
-        }
+        if (plusBtn && newQuantity >= maxStock) { alert("تعداد محصول داخل انبار کافی نیست"); return; }
         if (minusBtn && newQuantity > 1) newQuantity--;
 
         countInput.value = newQuantity;
@@ -143,31 +207,22 @@ const loadUserCart = async () => {
         try {
           const res = await fetch("http://localhost:5000/api/user/cart/update-quantity", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${getToken()}`
-            },
+            headers: { "Content-Type": "application/json", Authorization: `Bearer ${getToken()}` },
             body: JSON.stringify({ productId, quantity: newQuantity })
           });
 
           const data = await res.json();
-          if (!res.ok) {
-            alert(data.message);
-            return;
-          }
+          if (!res.ok) { alert(data.message); return; }
 
-          // آپدیت مقدار در allProducts
           const index = allProducts.findIndex(p => p._id === productId);
           if (index !== -1) allProducts[index].quantity = newQuantity;
 
-          // شمارنده هدر
-          CartCountVar = allProducts.length;
-          cartCount ? cartCount.textContent = CartCountVar : '';
-
+          updateCartTotals(allProducts);  // ⚡ بروزرسانی قیمت و تخفیف
         } catch (err) {
           console.error("خطا در آپدیت تعداد:", err);
         }
       }
+
     });
     renderProducts(allProducts);
 
@@ -217,6 +272,34 @@ const getBuyCount = async () => {
   }
 }
 
+const updateCartTotals = (productsArray) => {
+  let totalVar = 0;
+  let discountVar = 0;
+
+  productsArray.forEach(item => {
+    const mainTotal = item.price * item.quantity;
+
+    if (item.globalDiscount > 0) {
+      const discountTotal = (mainTotal * item.globalDiscount) / 100;
+      totalVar += mainTotal - discountTotal;
+      discountVar += discountTotal;
+    } else if (item.discount > 0) {
+      const discountTotal = (mainTotal * item.discount) / 100;
+      totalVar += mainTotal - discountTotal;
+      discountVar += discountTotal;
+    } else {
+      totalVar += mainTotal;
+    }
+  });
+
+  document.getElementById('carts-total-elem').innerHTML = totalVar.toLocaleString();
+  document.getElementById('carts-discounts-elem').innerHTML = discountVar.toLocaleString();
+  document.getElementById('carts-count-elem').innerHTML = productsArray.length;
+  cartCount ? cartCount.textContent = productsArray.length : '';
+};
+
+
+
 document.addEventListener("click", async (event) => {
   const editBtn = event.target.closest(".edit-info");
   const submitBtn = event.target.closest(".submit-info");
@@ -237,7 +320,7 @@ document.addEventListener("click", async (event) => {
         nameElem.classList.add('info-mode')
         nameElem.innerHTML = `<input type="text" class="info-input" 
              data-value="name" id="name-input-sub">
-             <i class="fas fa-like icon-mode tick-icon submit-info" data-value="phone">ثبت</i>
+             <i class="fas fa-check icon-mode tick-icon submit-info" data-value="phone">ثبت</i>
              <i class="fas fa-add icon-mode cancel-icon" data-value="name"></i>
              `
         break;
@@ -245,7 +328,7 @@ document.addEventListener("click", async (event) => {
         phoneElem.classList.add('info-mode')
         phoneElem.innerHTML = `<input type="text" class="info-input" 
              data-value="phone" id="phone-input-sub">
-             <i class="fas fa-like tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
+             <i class="fas fa-check tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
              <i class="fas fa-add cancel-icon icon-mode" data-value="phone"></i>
              `
         break;
@@ -253,14 +336,14 @@ document.addEventListener("click", async (event) => {
         addressElem.classList.add('info-mode')
         addressElem.innerHTML = `<textarea type="text" class="info-input" 
              data-value="address" id="address-input-sub"></textarea>
-             <i class="fas fa-like tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
+             <i class="fas fa-check tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
              <i class="fas fa-add cancel-icon icon-mode" data-value="address"></i>`
         break;
       case "post":
         postElem.classList.add('info-mode')
         postElem.innerHTML = `<input type="text" class="info-input" 
              data-value="post" id="post-input-sub">
-             <i class="fas fa-like tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
+             <i class="fas fa-check tick-icon icon-mode submit-info" data-value="phone">ثبت</i>
              <i class="fas fa-add cancel-icon icon-mode" data-value="post"></i>`
         break;
 

@@ -14,7 +14,11 @@
   </head>
   <body>
 
-    <div class="container">
+  <div id="loader">
+    <div class="spinner"></div>
+  </div>
+
+    <div class="container" id="main-content">
       <div class="overlay"></div>
 
       <!-- start header section -->
@@ -28,13 +32,17 @@
           <div class="header-top__right">
             <ul class="header-top__right-list">
               <li class="header-top__right-item">
-                <a href="#" class="header-top__right-link">مقالات</a>
+                <a href="articles.html" class="header-top__right-link">مقالات</a>
               </li>
               <li class="header-top__right-item">
-                <a href="#" class="header-top__right-link">تماس با ما</a>
+                <a href="index.html" class="header-top__right-link">خانه</a>
               </li>
               <li class="header-top__right-item">
-                <a href="#" class="header-top__right-link">درباره ی ما</a>
+                <a href="ticket.html" class="header-top__right-link">تماس با ما</a>
+              </li>
+
+              <li class="header-top__right-item">
+                <a href="panel/main/index.html" class="header-top__right-link">پنل مدیریت</a>
               </li>
             </ul>
           </div>
@@ -137,9 +145,9 @@
 
       <!-- ticket-elem -->
        <div class="ticket-elem">
-         <i class="fa-solid fa-comment ticket-elem__icon"></i>
-
+        <img src="images/contact-icon/contact.png" class="ticket-elem__icon" alt="">
        </div>
+
        <div class="ticket-box">
         <div class="ticket-box__title">ارسال تیکت به پشتیبانی
           <div class="ticket-icon">
@@ -241,7 +249,7 @@
 
         <div class="main-category__box mx-auto mt-3">
           <div
-            class="main-category__box-item main-category__box-item__gallery1"
+            class="main-category__box-item main-category__box-item__gallery1 women-item"
           >
             <img
               src="images/main-gallery/woman/main.jpg"

@@ -22,6 +22,8 @@ body {
   flex-wrap: wrap;
   align-items: center;
   margin-top: 2rem;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .product-item {
@@ -31,7 +33,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 300px;
   flex-direction: column;
   border-radius: 20px;
   margin: 1rem;
@@ -40,7 +42,7 @@ body {
   max-height: max-content;
   position: relative;
 
-  .discount-percent{
+  .discount-percent {
     position: absolute;
     left: 0;
     background: orange;
@@ -55,7 +57,7 @@ body {
     text-wrap: wrap;
     font-size: 1rem;
     background: white;
-    z-index: 999;
+    z-index: 990;
     padding-top: 0.3rem;
     line-height: 1.2rem;
   }
@@ -91,7 +93,7 @@ body {
     flex-basis: 10%;
     font-size: 1.2vw;
     background: white;
-    z-index: 999;
+    z-index: 980;
     padding: 1rem;
   }
   &-price {
@@ -109,7 +111,7 @@ body {
     gap: 1rem;
     background: white;
     padding: 0.5rem 1rem 0 1rem;
-    z-index: 999;
+    z-index: 990;
     width: 90%;
     &__icon {
       transition: all 0.3s ease-in-out;
@@ -204,7 +206,7 @@ body {
   position: fixed;
   bottom: 6%;
   left: 2%;
-  z-index:1000;
+  z-index: 1000;
   &__icon {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
@@ -300,29 +302,29 @@ body {
   }
 }
 
-.display-none{
+.display-none {
   display: none;
 }
-.display-block{
+.display-block {
   display: block;
 }
 
-.red-color-btn{
+.red-color-btn {
   color: red !important;
 }
 
-.oldPrice{
+.oldPrice {
   text-decoration: line-through;
   opacity: 0.9;
   font-weight: normal;
   display: block;
 }
 
-.newPrice{
+.newPrice {
   font-weight: bold;
 }
 
-.basket-icon-wrapper{
+.basket-icon-wrapper {
   position: relative;
   display: inline;
   width: max-content;
@@ -330,10 +332,10 @@ body {
   margin: 0;
 }
 
-.line-through{
+.line-through {
   position: relative;
-  &::before{
-content: "";
+  &::before {
+    content: "";
     position: absolute;
     width: 120%;
     height: 3px;
@@ -345,3 +347,34 @@ content: "";
   }
 }
 
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #ae5909;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

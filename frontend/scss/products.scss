@@ -37,26 +37,35 @@
       justify-content: space-between;
       &-title {
         font-weight: bold;
-        border: 1px solid black;
-        padding: 0.7rem 1rem;
+        border-bottom: 1.5px solid;
+        padding: 0.7rem 0;
         background: white;
       }
 
-      &-selection {
+      .main-center__top-selection {
         font-weight: bold;
         padding: 0.4rem;
         cursor: pointer;
+        border-bottom: 1px solid;
+        border: none;
+        border-bottom: 1px solid;
+        outline: none;
       }
 
       &-input {
         position: relative;
-        width: 300px;
+        width: 45%;
         height: 1.5rem;
-        padding: 1.3rem 0.5rem;
+        padding: 1.3rem 1rem;
         font-size: 15px;
-        box-shadow: 0 0 5px rgb(180, 180, 180);
+        // box-shadow: 0 0 5px rgb(180, 180, 180);
         outline: none;
         border: none;
+        // border-radius: 20px;
+        border-bottom: 1px solid;
+        &::placeholder {
+          text-align: center;
+        }
       }
     }
   }
@@ -108,4 +117,12 @@
   width: 99%;
   display: flex;
   justify-content: space-between;
+}
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  
 }

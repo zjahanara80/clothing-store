@@ -50,7 +50,9 @@
     --register-bg: rgb(236 234 234 / 59%);
 
     /* panel admin */
-    --main-boxes-bg: rgba(255, 255, 255, 0.358)
+    --main-boxes-bg: rgba(255, 255, 255, 0.358);
+
+    --gradient-mode : rgb(243 243 243 / 91%);
 }
 
 body {
@@ -256,6 +258,13 @@ body {
 }
 
 /* article suggestion section */
+.article-sug__item {
+    background-color: var(--g-bg-light);
+    color: white !important;
+}
+.article-sug__text::before {
+       background: linear-gradient(to top, var(--gradient-mode) 15%, transparent);
+}
 .article-sug__title {
     color: var(--g-color-secondry);
     border-bottom-color: var(--g-color-orange2)
@@ -264,7 +273,12 @@ body {
 .swiper-pagination-bullet {
     background: var(--g-bg-light) !important;
 }
-
+.article-sug__item-title , .article-sug__text{
+        color: var(--g-color-secondry);
+}
+.article-sug__link {
+    background: var(--g-color-orange1);
+}
 /* main-emailbar */
 .main-emailBar {
     background-color: var(--mailto-bg);
@@ -309,12 +323,20 @@ body {
     color: var(--footer-two-item-color);
 }
 
+.footer-four {
+    background: var(--g-bg-light) !important;
+    color: var(--g-color-secondry) !important;
+}
+.footer-four__right-overlay::before {
+    background: linear-gradient(to top, var(--gradient-mode) 10%, transparent) !important;
+}
+
 .footer-four__right-title {
-    color: var(--footer-desc-title-color);
+    color: var(--g-color-secondry)
 }
 
 .footer-four__right-text {
-    color: var(--footer-desc-title-color);
+    color: var(--g-color-secondry)
 }
 
 .line-through::before {
@@ -326,6 +348,19 @@ body {
 }
 
 /* product details page */
+.main-center__top-input , .main-center__top-title , .main-center__top-selection {
+    background: var(--g-bg-light);
+    color: var(--g-color-secondry) !important;
+    border-color: var(--g-color-orange1) !important;
+}
+.main-center__top-input::placeholder {
+    color: var(--g-color-secondry) !important;
+}
+
+.details-Wrapper__left-buy__count-wrapper input , .details-Wrapper__left-buy__count-wrapper span {
+ color: var(--g-color-secondry) !important;
+}
+
 .swiper-pagination-progressbar-fill {
     background: var(--g-color-orange1) !important;
 }

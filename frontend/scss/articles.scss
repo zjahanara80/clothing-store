@@ -28,7 +28,7 @@
       justify-content: space-between;
       &-title {
         font-weight: bold;
-        border: 1px solid black;
+        border-bottom: 1px solid;
         padding: 0.7rem 1rem;
         background: white;
       }
@@ -37,17 +37,25 @@
         font-weight: bold;
         padding: 0.4rem;
         cursor: pointer;
+        border: none;
+        border-bottom: 1px solid;
+        outline: none;
       }
 
       &-input {
         position: relative;
-        width: 300px;
+        width: 45%;
         height: 1.5rem;
-        padding: 1.3rem 0.5rem;
+        padding: 1.3rem 1rem;
         font-size: 15px;
-        box-shadow: 0 0 5px rgb(180, 180, 180);
+        // box-shadow: 0 0 5px rgb(180, 180, 180);
         outline: none;
         border: none;
+        // border-radius: 20px;
+        border-bottom: 1px solid;
+        &::placeholder {
+          text-align: center;
+        }
       }
     }
   }
@@ -117,11 +125,12 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: 1rem;
   }
 
   &__item {
-    width: 30% !important;
-    height: 95%;
+    width: 350px !important;
+    // height: 95%;
     @include flexiblity(column, center);
     justify-content: space-between !important;
     // gap: 0.5rem;
@@ -139,12 +148,12 @@
   &__img {
     @include set-transition;
     width: 100%;
-    flex-basis: 45%;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+        height: 200px !important;
 
     &-transition {
       cursor: pointer;
@@ -201,6 +210,7 @@
     flex-basis: 10%;
     text-align: center;
     padding: 1.5rem 0.2rem 0.5rem 0.2rem;
+    line-height: 2rem;
   }
 
   &__text {
@@ -272,4 +282,13 @@
     }
   }
 }
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+
 // finish article  section styles
