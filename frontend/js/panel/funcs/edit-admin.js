@@ -7,7 +7,7 @@ const phoneInputElem = document.getElementById('phone')
 const passwordInputElem = document.getElementById('password')
 
 const getAdminInfos = async () => {
-    const res = await fetch('http://localhost:5000/api/users/me', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/users/me', {
         method: "GET",
         headers: {
             Authorization: `Bearer ${getToken()}`
@@ -30,7 +30,7 @@ const editAdminInfoHandler = async () => {
         password: document.getElementById('password').value
     }
 
-    const res = await fetch('http://localhost:5000/api/users/me', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/users/me', {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

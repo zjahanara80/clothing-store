@@ -48,7 +48,7 @@ const showNotificationsToModalBox = (filteredNotifs , parentElem) => {
 }
 
 const getNotifications = async () => {
-    const res = await fetch('http://localhost:5000/api/tickets', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/tickets', {
       method: "GET",
       headers: {
         Authorization: `Bearer ${getToken()}`,
@@ -72,7 +72,7 @@ const getNotifications = async () => {
   
 
 const seenNotification = async (notifications , notifId) => {
-    const res = await fetch(`http://localhost:5000/api/tickets/${notifId}` , {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets/${notifId}` , {
         method : "PATCH",
         headers : {
         Authorization: `Bearer ${getToken()}`,

@@ -152,7 +152,7 @@ var swiperOffer = new Swiper(".main-offer-swiper", {
 
 // main-offer section
 let mainOfferGeneration = () => {
-    getDataFromApi('http://localhost:5000/api/products').then(data => {
+    getDataFromApi('https://lovin-clothing.onrender.com/api/products').then(data => {
         console.log(data);
         
         const swiperWrapper = document.querySelector('.offer-swiper-parent');

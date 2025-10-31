@@ -30,7 +30,7 @@ const ticketShowStatusForCreateTicket = async () => {
 const showTicketsOnDom = async () => {
     showUserTicketBox.innerHTML = ''
     if (isLogin() == true) {
-        const res = await fetch('http://localhost:5000/api/tickets/user', {
+        const res = await fetch('https://lovin-clothing.onrender.com/api/tickets/user', {
             headers: {
                 Authorization: `Bearer ${getToken()}`
             }
@@ -91,7 +91,7 @@ const showDetailsOfTicket = async (event, ticketID) => {
         return;
     }
 
-    const res = await fetch(`http://localhost:5000/api/tickets/user`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets/user`, {
         headers: {
             Authorization: `Bearer ${getToken()}`,
             "content-type": "application/json"
@@ -136,7 +136,7 @@ const createNewTicket = async () => {
         message: ticketMessage.value.trim()
     }
 
-    let res = await fetch('http://localhost:5000/api/tickets', {
+    let res = await fetch('https://lovin-clothing.onrender.com/api/tickets', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

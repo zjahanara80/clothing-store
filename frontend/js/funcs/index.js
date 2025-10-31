@@ -2,7 +2,7 @@
 const getAndShowAllArticlesInDom = async () => {
   const articleParent = document.querySelector('.sug-articles__wrapper');
 
-  const res = await fetch('http://localhost:5000/api/articles');
+  const res = await fetch('https://lovin-clothing.onrender.com/api/articles');
   const articles = await res.json();
 
   articles.forEach(article => {
@@ -12,7 +12,7 @@ const getAndShowAllArticlesInDom = async () => {
         `
         <div class="swiper-slide article-sug__item">
           <img 
-            src="http://localhost:5000${article.cover}" 
+            src="https://lovin-clothing.onrender.com${article.cover}" 
             alt="${article.title}" 
             class="article-sug__img"
             onclick="visitArticle('${article._id}')"

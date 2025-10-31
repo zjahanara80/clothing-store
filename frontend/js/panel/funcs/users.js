@@ -7,7 +7,7 @@ const getAndShowAllUsers = async () => {
     const tableElem = document.querySelector('table tbody')
 
     tableElem.innerHTML = ''
-    const res = await fetch(`http://localhost:5000/api/users`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/users`, {
         headers: {
             Authorization: `Bearer ${getToken()}`,
             "content-type": "application/json"
@@ -46,7 +46,7 @@ const removeUser = async (userID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/users/${userID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/users/${userID}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
@@ -74,7 +74,7 @@ const blockUser = async (userID, isBanned) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/users/ban/${userID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/users/ban/${userID}`, {
                 method: 'PATCH',
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
@@ -139,7 +139,7 @@ const createNewUser = async () => {
     console.log(UserInfoObj);
 
 
-    const res = await fetch('http://localhost:5000/api/users', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/users', {
         method: "POST",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -177,7 +177,7 @@ const editUserInfos = async (userID) => {
 
     await modalBoxShowHandeling()
 
-    const userDetailsRes = await fetch(`http://localhost:5000/api/users/${userID}`, {
+    const userDetailsRes = await fetch(`https://lovin-clothing.onrender.com/api/users/${userID}`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -222,7 +222,7 @@ const editUserInfos = async (userID) => {
             isAdmin: editUserRoleIsAdmin
         }
 
-        const res = await fetch(`http://localhost:5000/api/users/admin/${userID}`, {
+        const res = await fetch(`https://lovin-clothing.onrender.com/api/users/admin/${userID}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${getToken()}`,

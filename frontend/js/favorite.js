@@ -36,7 +36,7 @@ if (!isLogin() || !getToken()) {
     let allProducts = [];
 
     try {
-      const res = await fetch('http://localhost:5000/api/user-favorites/favorites', {
+      const res = await fetch('https://lovin-clothing.onrender.com/api/user-favorites/favorites', {
         headers: { Authorization: `Bearer ${getToken()}` }
       });
 
@@ -72,7 +72,7 @@ if (!isLogin() || !getToken()) {
           const productId = favBtn.dataset.id;
 
           try {
-            const toggleRes = await fetch(`http://localhost:5000/api/user-favorites/favorites/toggle/${productId}`, {
+            const toggleRes = await fetch(`https://lovin-clothing.onrender.com/api/user-favorites/favorites/toggle/${productId}`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

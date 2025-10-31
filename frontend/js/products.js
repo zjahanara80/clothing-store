@@ -33,12 +33,12 @@ const getAndShowCategoryProducts = async () => {
     console.log(current.background)
     console.log(backgroundCat);
 
-    backgroundCat.style.background = `url("http://localhost:5000${current.background}")`;
+    backgroundCat.style.background = `url("https://lovin-clothing.onrender.com${current.background}")`;
   }
 
   // اگه وارد صفحه تخفیفات شدیم محصولات تخفیف دار رو نمایش بده
   if (categoryId == "67fb7e93055a1468df373b7c") {
-    const res = await fetch('http://localhost:5000/api/products', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/products', {
       "content-type": "application/json",
       Authorization: `Bearer ${getToken()}`
     })
@@ -51,7 +51,7 @@ const getAndShowCategoryProducts = async () => {
 
     if (getToken()) {
       try {
-        const favRes = await fetch("http://localhost:5000/api/user-favorites/favorites", {
+        const favRes = await fetch("https://lovin-clothing.onrender.com/api/user-favorites/favorites", {
           headers: { Authorization: `Bearer ${getToken()}` }
         });
         const favorites = await favRes.json();

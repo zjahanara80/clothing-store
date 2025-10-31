@@ -13,7 +13,7 @@ let parentID = undefined;
 const getAndShowMenues = async () => {
     const menuesParentElem = document.querySelector('.table tbody')
 
-    const res = await fetch('http://localhost:5000/api/categories')
+    const res = await fetch('https://lovin-clothing.onrender.com/api/categories')
     const result = await res.json()
 
     menuesParentElem.innerHTML = ''
@@ -69,7 +69,7 @@ const createNewMenu = async () => {
     formData.append('description', descriptionElem.value.trim())
     formData.append('background', bg)
 
-    const res = await fetch('http://localhost:5000/api/categories', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/categories', {
         method: "POST",
         headers: {
             Authorization: `Bearer ${getToken()}`
@@ -100,7 +100,7 @@ const createNewMenu = async () => {
 }
 
 const showMenuCategories = async (parent) => {
-    const res = await fetch('http://localhost:5000/api/categories/parents')
+    const res = await fetch('https://lovin-clothing.onrender.com/api/categories/parents')
     const parentsOfMenus = await res.json()
 
     parent.innerHTML = ''
@@ -123,7 +123,7 @@ const deleteCategory = async (catID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/categories/${catID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/categories/${catID}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${getToken()}`
@@ -154,7 +154,7 @@ const editMenuesInfos = async (menuID) => {
     const categoriesEditSelect = document.getElementById('edit-selectCategory')
     const editMenuBtn = document.getElementById('edit-menu-infos-btn')
 
-    const menuDetalisRes = await fetch(`http://localhost:5000/api/categories/${menuID}`, {
+    const menuDetalisRes = await fetch(`https://lovin-clothing.onrender.com/api/categories/${menuID}`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -198,7 +198,7 @@ const editMenuesInfos = async (menuID) => {
             formData.append("background", bgEditInputElem.files[0]) 
         }
 
-        const res = await fetch(`http://localhost:5000/api/categories/${menuID}`, {
+        const res = await fetch(`https://lovin-clothing.onrender.com/api/categories/${menuID}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${getToken()}`            },

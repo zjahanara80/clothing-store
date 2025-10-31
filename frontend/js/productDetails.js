@@ -18,7 +18,7 @@ const sortBtns = document.querySelectorAll('.sort-btn')
 const productRateStatusShow = document.querySelector('.comment-right__stars-result')
 
 const getAndShowProductDetails = async () => {
-    const res = await fetch(`http://localhost:5000/api/products/${productID}`)
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/products/${productID}`)
     const product = await res.json()
     console.log(product);
 
@@ -26,7 +26,7 @@ const getAndShowProductDetails = async () => {
     product.img.forEach(item => {
         productImagesParent.insertAdjacentHTML('afterbegin', `
               <div class="swiper-slide">
-                    <img src="http://localhost:5000${item}" alt="" class="">
+                    <img src="https://lovin-clothing.onrender.com${item}" alt="" class="">
                </div>
             `)
     })
@@ -65,7 +65,7 @@ const getAndShowProductDetails = async () => {
 
 const getAndShowAllcomments = async (sortBy = 'oldest') => {
 
-    const res = await fetch(`http://localhost:5000/api/comments/${productID}`)
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comments/${productID}`)
     const comments = await res.json()
     console.log(comments);
 
@@ -214,7 +214,7 @@ const sendComment = async () => {
     console.log(commentInfo);
 
 
-    const res = await fetch(`http://localhost:5000/api/comments`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comments`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

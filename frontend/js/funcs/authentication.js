@@ -12,7 +12,7 @@ let register = () => {
         passConfirm: $.querySelector('#passConfirm').value
     }
 
-    fetch('http://localhost:5000/api/auth/register',
+    fetch('https://lovin-clothing.onrender.com/api/auth/register',
         {
             method: 'POST',
             headers: {
@@ -54,7 +54,7 @@ let login = () => {
         password: passwordInput.value.trim()
     };
 
-    fetch(`http://localhost:5000/api/auth/login`,
+    fetch(`https://lovin-clothing.onrender.com/api/auth/login`,
         {
             method: "POST",
             headers: {
@@ -101,7 +101,7 @@ const getMe = async () => {
   }
 
   try {
-    const response = await fetch(`http://localhost:5000/api/auth/getme`, {
+    const response = await fetch(`https://lovin-clothing.onrender.com/api/auth/getme`, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'

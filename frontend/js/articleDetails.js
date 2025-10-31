@@ -14,7 +14,7 @@ const productRateStatusShow = document.querySelector('.comment-right__stars-resu
 
 
 const getAndShowArticleDetails = async () => {
-    const res = await fetch(`http://localhost:5000/api/articles/${articleID}`)
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/articles/${articleID}`)
     const article = await res.json()
     console.log(article);
 
@@ -38,7 +38,7 @@ const getAndShowArticleDetails = async () => {
 }
 
 const getAndShowSuggestedAllArticles = async () => {
-    const res = await fetch(`http://localhost:5000/api/articles`)
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/articles`)
     const articles = await res.json()
     console.log(articles);
 
@@ -53,7 +53,7 @@ const getAndShowSuggestedAllArticles = async () => {
 
 const getAndShowAllcomments = async (sortBy = 'oldest') => {
 
-    const res = await fetch(`http://localhost:5000/api/comment-articles/${articleID}`)
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles/${articleID}`)
     const comments = await res.json()
     console.log(comments);
 
@@ -207,7 +207,7 @@ const sendComment = async () => {
     console.log(commentInfo);
 
 
-    const res = await fetch(`http://localhost:5000/api/comment-articles`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ const searchInput = document.querySelector('.main-center__top-input');
 window.shareArticle = shareArticle;
 
 const getAndShowSuggestedAllArticles = async () => {
-  const res = await fetch(`http://localhost:5000/api/articles`);
+  const res = await fetch(`https://lovin-clothing.onrender.com/api/articles`);
   const articles = await res.json();
   console.log(articles);
 
@@ -75,7 +75,7 @@ const addContentToElem = (pageArticles) => {
   pageArticles.forEach(article => {
     articlesParent.insertAdjacentHTML('afterbegin', `
       <div class="article-sug__item swiper-slide-active" style="margin-left: 30px;">
-        <img src="http://localhost:5000${article.cover}" alt="" class="article-sug__img">
+        <img src="https://lovin-clothing.onrender.com${article.cover}" alt="" class="article-sug__img">
         <h1 class="article-sug__item-title">${article.title}</h1>
         <p class="article-sug__text">${article.chekide}</p>
         <div class="article-sug__iconWrapper">

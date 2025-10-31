@@ -53,7 +53,7 @@ const setProductsToDom = async (products, parent, isFavoritesPage = false, isCar
                     : ''}
  
                  <span class="product-item-title">${product.name} کد ${product.code}</span>
-                 <img src="http://localhost:5000${product.img[0]}" alt="" class="product-item-img" />
+                 <img src="https://lovin-clothing.onrender.com${product.img[0]}" alt="" class="product-item-img" />
                  <div class="product-item-priceWrapper">
                      ${product.globalDiscount > 0 || product.discount > 0 ? `
                          <span class="product-item-price oldPrice">${product.price.toLocaleString()} تومان</span><br/>
@@ -82,7 +82,7 @@ const setProductsToDom = async (products, parent, isFavoritesPage = false, isCar
         else {
             parent.insertAdjacentHTML('beforeend', `
              <div class="cart-box__products-item" data-id="${product._id}" data-stock="${product.countInStock}">
-                <img src="http://localhost:5000${product.img[0]}" alt="" class="cart-box__products-item__img" />
+                <img src="https://lovin-clothing.onrender.com${product.img[0]}" alt="" class="cart-box__products-item__img" />
                   <div class="cart-box__products-details">  
                     <span class="product-item-title">${product.name} </span>
                     <span class="product-item-code">کد : ${product.code}</span>
@@ -150,7 +150,7 @@ const AddOrRemoveFavorite = async (event, productId) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/user-favorites/favorites/toggle/${productId}`, {
+        const response = await fetch(`https://lovin-clothing.onrender.com/api/user-favorites/favorites/toggle/${productId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -228,7 +228,7 @@ const AddOrRemoveCart = async (event, productId) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
+        const response = await fetch(`https://lovin-clothing.onrender.com/api/user/cart/toggle/${productId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -324,14 +324,14 @@ const userSearchProduct = (products, searchProperty, searchValue) => {
 };
 
 const getCategoriesItems = async (shortName) => {
-    const res = await fetch(`http://localhost:5000/api/categories?category=${shortName}`);
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/categories?category=${shortName}`);
     return await res.json();
 };
 
 const getProductsFromCategories = async (shortName) => {
     console.log(getToken());
 
-    const res = await fetch(`http://localhost:5000/api/products?category=${shortName}`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/products?category=${shortName}`, {
         method: 'GET',
         headers: {
             "content-type": "application/json",
@@ -347,7 +347,7 @@ const getParamFromUrl = (param) => {
 };
 
 const globalSearch = async (searchValue) => {
-    const res = await fetch(`http://localhost:5000/api/products/search?query=${searchValue}`);
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/products/search?query=${searchValue}`);
     return await res.json();
 };
 

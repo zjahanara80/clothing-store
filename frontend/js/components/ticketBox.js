@@ -56,7 +56,7 @@ const sendTicket = async () => {
         message: ticketContent.value.trim()
     }
 
-    let res = await fetch('http://localhost:5000/api/tickets', {
+    let res = await fetch('https://lovin-clothing.onrender.com/api/tickets', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

@@ -1,7 +1,7 @@
  import{getToken} from '../../funcs/apiFuncs.js'
 
  const getAllUsers = async () => {
-  const res = await fetch('http://localhost:5000/api/users' , {
+  const res = await fetch('https://lovin-clothing.onrender.com/api/users' , {
     headers : {
       Authorization : `Bearer ${getToken()}`
     }
@@ -13,13 +13,13 @@
 
 
 const getAllProducts = async () => {
-  const res = await fetch('http://localhost:5000/api/products')
+  const res = await fetch('https://lovin-clothing.onrender.com/api/products')
   const products = await res.json()
   return products
 }
 
 const getAllCategories = async () => {
-  const res = await fetch('http://localhost:5000/api/categories')
+  const res = await fetch('https://lovin-clothing.onrender.com/api/categories')
   const categories = await res.json()
   return categories
 }

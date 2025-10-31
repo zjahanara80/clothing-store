@@ -6,7 +6,7 @@ const endDateInputElem = document.getElementById('end-date')
 const getAndShowAllCampaigns = async () => {
     const parentElem = document.querySelector('table tbody')
 
-    const res = await fetch('http://localhost:5000/api/campaign')
+    const res = await fetch('https://lovin-clothing.onrender.com/api/campaign')
     const campaign = await res.json()
 
     parentElem.innerHTML = ''
@@ -40,7 +40,7 @@ const addNewCampFunc = async () => {
         endDate: endDateInputElem.value.trim(),
     }
 
-    const res = await fetch('http://localhost:5000/api/campaign', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/campaign', {
         method: "POST",
         headers: {
             Authorization: `Bearer ${ getToken() }`,
@@ -81,7 +81,7 @@ const removeCampaign = async (campID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/campaign/${campID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/campaign/${campID}`, {
             method: 'DELETE',
             headers: {
             Authorization: `Bearer ${getToken()}`

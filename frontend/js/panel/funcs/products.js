@@ -110,7 +110,7 @@ const createNewProduct = async () => {
    }
 
 
-   const res = await fetch('http://localhost:5000/api/products',
+   const res = await fetch('https://lovin-clothing.onrender.com/api/products',
       {
          method: "POST",
          headers: {
@@ -156,7 +156,7 @@ const removeProduct = async (productID) => {
       denyButtonText: `خیر`
    }).then(async (result) => {
       if (result.isConfirmed) {
-         const res = await fetch(`http://localhost:5000/api/products/${productID}`,
+         const res = await fetch(`https://lovin-clothing.onrender.com/api/products/${productID}`,
             {
                method: 'DELETE',
                headers: {
@@ -198,7 +198,7 @@ const editProduct = async (proID) => {
    const imagesParentElem = document.querySelector('.images-parent-editBox')
    await showCategoriesToSelectBox(editCatSelect)
 
-   const res = await fetch(`http://localhost:5000/api/products/${proID}`, {
+   const res = await fetch(`https://lovin-clothing.onrender.com/api/products/${proID}`, {
       Authorization: `Bearer ${getToken()}`,
       "content-type": "application/json"
    })
@@ -232,7 +232,7 @@ const editProduct = async (proID) => {
    product.img.forEach(image => {
       imagesParentElem.insertAdjacentHTML('beforeend', `
      <div class="img-Box-editBox position-relative">
-        <img class="short-img-editBox" src="http://localhost:5000${image}"/>
+        <img class="short-img-editBox" src="https://lovin-clothing.onrender.com${image}"/>
         <span onclick="removeImgFromDb('${product._id}', '${image}')" 
               class="badge bg-danger position-absolute rounded-0 align-bottom d-flex align-items-center" 
               style="right: 0px;top: 0px; padding: 0.1rem 0.6rem;cursor: pointer;">-
@@ -266,7 +266,7 @@ const editProduct = async (proID) => {
       const editSizes = Array.from(checkedSizes).map(cb => cb.value);
       formData.append("size", editSizes)
 
-      const res = await fetch(`http://localhost:5000/api/products/${proID}`, {
+      const res = await fetch(`https://lovin-clothing.onrender.com/api/products/${proID}`, {
          method: "PATCH",
          headers: {
             Authorization: `Bearer ${getToken()}`
@@ -296,7 +296,7 @@ const editProduct = async (proID) => {
 }
 
 function removeImgFromDb(productId, imagePath) {
-   fetch(`http://localhost:5000/api/products/${productId}/images`, {
+   fetch(`https://lovin-clothing.onrender.com/api/products/${productId}/images`, {
       method: "DELETE",
       headers: {
          "Content-Type": "application/json",

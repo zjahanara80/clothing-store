@@ -29,7 +29,7 @@ const getAndShowMainDetails = async () => {
     const productsImproveCountElem = document.querySelector('.count-products #count-improve')
 
     //get all main details
-    const res = await fetch('http://localhost:5000/api/stats/overview', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/stats/overview', {
         headers: {
             Authorization: `Bearer ${getToken()}`
         }

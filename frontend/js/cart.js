@@ -43,7 +43,7 @@ if (!isLogin() || !getToken()) {
     let allProducts = [];
 
     try {
-      const res = await fetch('http://localhost:5000/api/user/cart', {
+      const res = await fetch('https://lovin-clothing.onrender.com/api/user/cart', {
         headers: { Authorization: `Bearer ${getToken()}` }
       });
 
@@ -104,7 +104,7 @@ if (!isLogin() || !getToken()) {
         // if (deleteProBTN) {
         //   const productId = deleteProBTN.dataset.id;
         //   try {
-        //     const res = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
+        //     const res = await fetch(`https://lovin-clothing.onrender.com/api/user/cart/toggle/${productId}`, {
         //       method: "POST",
         //       headers: {
         //         "Content-Type": "application/json",
@@ -150,7 +150,7 @@ if (!isLogin() || !getToken()) {
         //   countInput.value = newQuantity;
 
         //   try {
-        //     const res = await fetch("http://localhost:5000/api/user/cart/update-quantity", {
+        //     const res = await fetch("https://lovin-clothing.onrender.com/api/user/cart/update-quantity", {
         //       method: "POST",
         //       headers: {
         //         "Content-Type": "application/json",
@@ -181,7 +181,7 @@ if (!isLogin() || !getToken()) {
         if (deleteProBTN) {
           const productId = deleteProBTN.dataset.id;
           try {
-            const res = await fetch(`http://localhost:5000/api/user/cart/toggle/${productId}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/user/cart/toggle/${productId}`, {
               method: "POST",
               headers: { "Content-Type": "application/json", Authorization: `Bearer ${getToken()}` }
             });
@@ -216,7 +216,7 @@ if (!isLogin() || !getToken()) {
           countInput.value = newQuantity;
 
           try {
-            const res = await fetch("http://localhost:5000/api/user/cart/update-quantity", {
+            const res = await fetch("https://lovin-clothing.onrender.com/api/user/cart/update-quantity", {
               method: "POST",
               headers: { "Content-Type": "application/json", Authorization: `Bearer ${getToken()}` },
               body: JSON.stringify({ productId, quantity: newQuantity })
@@ -268,7 +268,7 @@ if (!isLogin() || !getToken()) {
     const token = getToken();
     if (!token) return 0;
     try {
-      const res = await fetch("http://localhost:5000/api/user/cart", {
+      const res = await fetch("https://lovin-clothing.onrender.com/api/user/cart", {
         headers: { Authorization: `Bearer ${token}` }
       });
       const data = await res.json();
@@ -421,7 +421,7 @@ if (!isLogin() || !getToken()) {
           break;
       }
 
-      const response = await fetch(`http://localhost:5000/api/users/me`, {
+      const response = await fetch(`https://lovin-clothing.onrender.com/api/users/me`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${getToken()}`,

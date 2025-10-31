@@ -4,7 +4,7 @@ const getAndShowAllTickets = async () => {
     const tableElem = document.querySelector('table tbody')
 
     tableElem.innerHTML = ''
-    const res = await fetch(`http://localhost:5000/api/tickets`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets`, {
         headers: {
             Authorization: `Bearer ${getToken()}`,
             "content-type": "application/json"
@@ -70,7 +70,7 @@ const answerTicketFunc = async (ticketId) => {
                     message: result.value
                 }
 
-                const res = await fetch(`http://localhost:5000/api/tickets/answer`, {
+                const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets/answer`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -113,7 +113,7 @@ const removeTicket = async (ticketID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/tickets/${ticketID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets/${ticketID}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
@@ -140,7 +140,7 @@ const showTicketMore = async (event, ticketID) => {
     if (iconElem.classList.contains("fa-angle-down")) {
         iconElem.classList.replace("fa-angle-down", "fa-angle-up");
 
-        const res = await fetch(`http://localhost:5000/api/tickets`, {
+        const res = await fetch(`https://lovin-clothing.onrender.com/api/tickets`, {
             headers: {
                 Authorization: `Bearer ${getToken()}`,
                 "content-type": "application/json"

@@ -4,7 +4,7 @@ const getAndShowAllcomments = async() => {
     const tableElem = document.querySelector('table tbody')
 
     tableElem.innerHTML = ''
-    const res = await fetch(`http://localhost:5000/api/comment-articles`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles`, {
         headers: {
             Authorization: `Bearer ${getToken()}`,
             "content-type": "application/json"
@@ -59,7 +59,7 @@ const showCommentFunc = (commentTitle,commentText) => {
 
 const acceptComment = async (commentID) => {
 
-    const res = await fetch(`http://localhost:5000/api/comment-articles/approve/${commentID}`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles/approve/${commentID}`, {
         method : "PATCH",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -75,7 +75,7 @@ const acceptComment = async (commentID) => {
 }
 
 const rejectComment = async (commentID) => {
-    const res = await fetch(`http://localhost:5000/api/comment-articles/reject/${commentID}`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles/reject/${commentID}`, {
         method : "PATCH",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -98,7 +98,7 @@ const removeComment = async (commentID) => {
         denyButtonText: `خیر`
     }).then(async (result) => {
         if (result.isConfirmed) {
-            const res = await fetch(`http://localhost:5000/api/comment-articles/${commentID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/comment-articles/${commentID}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${getToken()}`,

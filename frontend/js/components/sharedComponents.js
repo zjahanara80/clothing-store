@@ -132,7 +132,7 @@ const getFavoriteCount = async () => {
   if (!getToken()) return 0;
 
   try {
-    const res = await fetch("http://localhost:5000/api/user-favorites/favorites", {
+    const res = await fetch("https://lovin-clothing.onrender.com/api/user-favorites/favorites", {
       headers: { Authorization: `Bearer ${getToken()}` }
     });
 
@@ -156,7 +156,7 @@ const getBuyCount = async () => {
   const token = getToken();
   if (!token) return 0;
   try {
-    const res = await fetch("http://localhost:5000/api/user/cart", {
+    const res = await fetch("https://lovin-clothing.onrender.com/api/user/cart", {
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await res.json();

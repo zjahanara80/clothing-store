@@ -1,7 +1,7 @@
 import { getToken } from './../../funcs/apiFuncs.js'
 
 const getAdminInfo = async () => {
-    const res = await fetch('http://localhost:5000/api/auth/getme', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/auth/getme', {
         headers: {
             Authorization: `Bearer ${getToken()}`,
             'Content-Type': 'application/json'

@@ -25,7 +25,7 @@ const getAndShowAllArticles = async () => {
     endArticlesElem.innerHTML = ''
     preArticlesElem.innerHTML = ''
 
-    const res = await fetch(`http://localhost:5000/api/articles/admin`, {
+    const res = await fetch(`https://lovin-clothing.onrender.com/api/articles/admin`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${getToken()}`,
@@ -82,7 +82,7 @@ const getAndShowAllArticles = async () => {
 }
 
 const getAndShowCetgoriesItems = async (parentElem) => {
-    const CatRes = await fetch('http://localhost:5000/api/categories')
+    const CatRes = await fetch('https://lovin-clothing.onrender.com/api/categories')
     const Categories = await CatRes.json()
     console.log(Categories);
     Categories.forEach(category => {
@@ -138,7 +138,7 @@ const insertTextEditor = async (element) => {
     //         ]
     //     },
     //     simpleUpload: {
-    //         uploadUrl: 'http://localhost:5000/uploads/articles'
+    //         uploadUrl: 'https://lovin-clothing.onrender.com/uploads/articles'
     //     },
     //     // تنظیمات زبان فارسی و راست‌به‌چپ
     //     language: {
@@ -173,7 +173,7 @@ const insertTextEditor = async (element) => {
             licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTIxOTE5OTksImp0aSI6IjYzNWJhZWEzLTY3MmMtNDliNC04NWIwLThlYzVjYjg4M2Y3NSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImEwM2VmMzM2In0.Wy2m5n7t_V8qE6GD7-HdfZeHR2cFm6al2FA3rOk1LqD2T9aKnR85pp0T2GFQmyElYr5Sxt_ZUNPMEZAh7lIbJg',
             plugins: [Essentials, Heading, Bold, Italic, Font, Paragraph, Table, TableToolbar, Image, ImageUpload, ImageInsert, SimpleUploadAdapter],
             toolbar: ['heading', '|', 'undo', 'redo', '|', 'bold', 'italic', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|', 'insertTable', 'insertImage'],
-            simpleUpload: { uploadUrl: 'http://localhost:5000/uploads/articles' },
+            simpleUpload: { uploadUrl: 'https://lovin-clothing.onrender.com/uploads/articles' },
             language: { uiLanguage: 'fa', contentLanguage: 'fa' },
             initialData: '<p dir="rtl"></p>',
             wordCount: false
@@ -214,7 +214,7 @@ const createNewArticle = async () => {
     formData.append('isDraft', false)
 
 
-    const res = await fetch('http://localhost:5000/api/articles', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/articles', {
         method: "POST",
         headers: {
             Authorization: `Bearer ${getToken()}`
@@ -259,7 +259,7 @@ const createNewDraft = async () => {
     console.log(articleCover)
 
 
-    const res = await fetch('http://localhost:5000/api/articles', {
+    const res = await fetch('https://lovin-clothing.onrender.com/api/articles', {
         method: "POST",
         headers: {
             Authorization: `Bearer ${getToken()}`
@@ -294,7 +294,7 @@ const deleteArticle = async (articleID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/articles/${articleID}`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/articles/${articleID}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${getToken()}`
@@ -337,7 +337,7 @@ const publishedArticleEdit = async (articleID, event) => {
 
     document.getElementById('edit-content').value = article.body
 
-    articleImgPreview.src = `http://localhost:5000${article.cover}`
+    articleImgPreview.src = `https://lovin-clothing.onrender.com${article.cover}`
 
     updateArticleCover.onchange = event => {
         const imgCover = event.target.files[0];
@@ -377,7 +377,7 @@ const publishedArticleEdit = async (articleID, event) => {
         console.log(editCategoryParent.value)
         console.log(imgCover)
 
-        const res = await fetch(`http://localhost:5000/api/articles/${articleID}`, {
+        const res = await fetch(`https://lovin-clothing.onrender.com/api/articles/${articleID}`, {
             method: "PUT",
             headers: {
                 Authorization: `Bearer ${getToken()}`
@@ -409,7 +409,7 @@ const publishDraftedArticle = async (articleID) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            const res = await fetch(`http://localhost:5000/api/articles/${articleID}/publish`, {
+            const res = await fetch(`https://lovin-clothing.onrender.com/api/articles/${articleID}/publish`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${getToken()}`
