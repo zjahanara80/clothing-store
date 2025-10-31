@@ -536,7 +536,10 @@ body {
     background: var(--g-bg-light) !important;
     color: var(--g-color-secondry) !important;
 }
-
+.ticket-box {
+    background: var(--g-bg-light) !important;
+    color: var(--g-color-secondry) !important;
+}
 /* components */
 .breadcrump__list-item {
     color: var(--g-color-secondry);
