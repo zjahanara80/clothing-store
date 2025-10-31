@@ -12,6 +12,7 @@ const getAndShowParentMenus = async () => {
   // const res = await fetch(`http://localhost:5000/api/categories/with-children?ts=${Date.now()}`);
   const res = await fetch(`https://lovin-clothing.onrender.com/api/categories/with-children?ts=${Date.now()}`);
   const result = await res.json();
+  console.log(result);
   
   headerMenu.innerHTML = '';
   result.forEach(menu => {

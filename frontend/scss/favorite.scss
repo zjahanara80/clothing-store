@@ -36,7 +36,7 @@
       justify-content: space-between;
       &-title {
         font-weight: bold;
-        border: 1px solid black;
+        border-bottom: 1px solid ;
         padding: 0.7rem 1rem;
         background: white;
       }
@@ -45,6 +45,9 @@
         font-weight: bold;
         padding: 0.4rem;
         cursor: pointer;
+        outline : none;
+        border: none;
+        border-bottom: 1px solid;
       }
 
       &-input {

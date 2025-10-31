@@ -117,12 +117,27 @@ const getAndShowCategoryProducts = async () => {
   };
 
   // search
+  // searchInput.oninput = event => {
+  //   const filtered = userSearchProduct(allProducts, 'name', event.target.value);
+  //   const paged = paginationStructure(filtered, 3, paginateList, 1);
+  //   productsParent.innerHTML = '';
+  //   setProductsToDom(paged, productsParent);
+  // };
   searchInput.oninput = event => {
-    const filtered = userSearchProduct(allProducts, 'name', event.target.value);
-    const paged = paginationStructure(filtered, 3, paginateList, 1);
-    productsParent.innerHTML = '';
+  const filtered = userSearchProduct(allProducts, 'name', event.target.value);
+  const paged = paginationStructure(filtered, 3, paginateList, 1);
+  productsParent.innerHTML = '';
+
+  if (paged.length > 0) {
     setProductsToDom(paged, productsParent);
-  };
+  } else {
+    productsParent.innerHTML = `
+      <div class="alert alert-warning" 
+        style="border:2px solid orange; color:orange; padding:2rem; width:90%; margin:2rem auto; text-align:center;">
+        محصولی یافت نشد
+      </div>`;
+  }
+};
 }
 catch (error) {
   console.log('خطا در گرفتن محصولات'); 

@@ -87,6 +87,7 @@ const seenNotification = async (notifications , notifId) => {
     console.log(notifResponse);   
 }
 
+
 window.seenNotification = seenNotification
 
 

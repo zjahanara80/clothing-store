@@ -1,8 +1,8 @@
-import { saveIntoLS } from "../funcs/apiFuncs.js";
+import { saveIntoLS , getFromLs } from "../funcs/apiFuncs.js";
 let $ = document
 
 let darkMode_flag = true;
-
+let changeModeBtn = document.querySelector('.header-bottom__mode-btn')
 
 const mode_handler = () => {
     darkMode_flag = !darkMode_flag
@@ -88,5 +88,10 @@ function change_mode(flagMode) {
 
     }
 }
+
+changeModeBtn ? changeModeBtn.onclick = () => {
+    mode_handler()
+} : ""
+
 
 export { mode_handler, change_mode }

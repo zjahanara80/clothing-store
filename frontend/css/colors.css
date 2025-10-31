@@ -52,7 +52,7 @@
     /* panel admin */
     --main-boxes-bg: rgba(255, 255, 255, 0.358);
 
-    --gradient-mode : rgb(243 243 243 / 91%);
+    --gradient-mode: rgb(243 243 243 / 91%);
 }
 
 body {
@@ -262,9 +262,11 @@ body {
     background-color: var(--g-bg-light);
     color: white !important;
 }
+
 .article-sug__text::before {
-       background: linear-gradient(to top, var(--gradient-mode) 15%, transparent);
+    background: linear-gradient(to top, var(--gradient-mode) 15%, transparent);
 }
+
 .article-sug__title {
     color: var(--g-color-secondry);
     border-bottom-color: var(--g-color-orange2)
@@ -273,12 +275,16 @@ body {
 .swiper-pagination-bullet {
     background: var(--g-bg-light) !important;
 }
-.article-sug__item-title , .article-sug__text{
-        color: var(--g-color-secondry);
+
+.article-sug__item-title,
+.article-sug__text {
+    color: var(--g-color-secondry);
 }
+
 .article-sug__link {
     background: var(--g-color-orange1);
 }
+
 /* main-emailbar */
 .main-emailBar {
     background-color: var(--mailto-bg);
@@ -327,6 +333,7 @@ body {
     background: var(--g-bg-light) !important;
     color: var(--g-color-secondry) !important;
 }
+
 .footer-four__right-overlay::before {
     background: linear-gradient(to top, var(--gradient-mode) 10%, transparent) !important;
 }
@@ -348,17 +355,21 @@ body {
 }
 
 /* product details page */
-.main-center__top-input , .main-center__top-title , .main-center__top-selection {
+.main-center__top-input,
+.main-center__top-title,
+.main-center__top-selection {
     background: var(--g-bg-light);
     color: var(--g-color-secondry) !important;
     border-color: var(--g-color-orange1) !important;
 }
+
 .main-center__top-input::placeholder {
     color: var(--g-color-secondry) !important;
 }
 
-.details-Wrapper__left-buy__count-wrapper input , .details-Wrapper__left-buy__count-wrapper span {
- color: var(--g-color-secondry) !important;
+.details-Wrapper__left-buy__count-wrapper input,
+.details-Wrapper__left-buy__count-wrapper span {
+    color: var(--g-color-secondry) !important;
 }
 
 .swiper-pagination-progressbar-fill {
@@ -384,7 +395,7 @@ body {
 
 /* register */
 .register {
-    background-color: var(--register-bg) !important;
+    background-color: var(--header-top-bg) !important;
 }
 
 .register-footer {
@@ -521,7 +532,94 @@ body {
     color: var(--g-color-secondry);
 }
 
+.user-ticket {
+    background: var(--g-bg-light) !important;
+    color: var(--g-color-secondry) !important;
+}
+
 /* components */
 .breadcrump__list-item {
     color: var(--g-color-secondry);
+}
+
+/* panel */
+#admin-welcome-name {
+    color: var(--g-color-orange1) !important;
+}
+
+.home-box-value span,
+.home-box-value label,
+.home-content-users-title span,
+#user-insert-parent td,
+.sidebar-menu span,
+.home-title span,
+tbody td,
+.back-btn,
+.input-title,
+.home-content-products-title span,
+table th,
+.size-options span {
+    color: var(--g-color-secondry) !important;
+}
+
+.form input,
+#selectCategory,
+thead,
+#chekideh,
+.category-list,
+.ck-toolbar_grouping,
+.home-content-products-table,
+#product-description,
+.table,
+thead,
+#products-parent,
+table tbody tr td,
+table thead tr th {
+    background: var(--g-bg-light) !important;
+    color: var(--g-color-secondry) !important;
+}
+
+.ck-editor__editable,
+.home-content-products-title {
+    background-color: var(--header-top-bg) !important;
+    color: var(--g-color-secondry) !important;
+}
+
+.form input::placeholder, .home-profile-icon {
+    color: var(--g-color-secondry) !important;
+}
+
+.ck-icon,
+.ck-button__label {
+    color: var(--g-color-orange1) !important;
+    opacity: 1 !important;
+}
+
+.submit-btn:not(.addNewCamp) {
+    border: 1px solid var(--g-color-orange1);
+    color: var(--g-color-orange1) !important;
+}
+
+.submit-btn input {
+    color: var(--g-color-orange1) !important;
+}
+
+.sidebar-menu-btn {
+    cursor: pointer;
+    transform: scale(1.5);
+    top: 10px;
+}
+
+.alert-danger {
+    margin: 0;
+    border-radius: 0;
+}
+
+.header-bottom__mode {
+    margin-right: 0.7rem;
+}
+
+.home-notification {
+    font-size: 23px;
+    margin-left: 1rem;
 }

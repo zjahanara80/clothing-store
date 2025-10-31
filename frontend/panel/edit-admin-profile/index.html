@@ -12,39 +12,79 @@
   </head>
 
   <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
     <div id="content">
-      <div class="sidebar-menu-btn top-hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
-
       <div id="sidebar" class="col-2">
         <div class="sidebar-header">
           <div class="sidebar-logo">
             <a href="#"><img src="../shared/img/logo.png" alt="Logo" /></a>
           </div>
+          <div class="sidebar-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
         </div>
         <div class="sidebar-menu">
           <ul>
+            <li>
+              <a href="../main/index.html"><span>صفحه اصلی</span></a>
+            </li>
+
+            <li>
+              <a href="../menus/index.html" class="main-pane_topLink"
+                ><span>منو ها</span></a
+              >
+            </li>
+            <li>
+              <a href="../articles/index.html" class="main-pane_topLink"
+                ><span>مقاله ها</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="../articles-comments/index.html"
+                class="main-pane_topLink"
+                ><span>کامنت های مقالات</span></a
+              >
+            </li>
+            <li>
+              <a href="../users/index.html" class="main-pane_topLink"
+                ><span>کاربران</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="../products-comments/index.html"
+                class="main-pane_topLink"
+                ><span>کامنت های محصولات</span></a
+              >
+            </li>
+            <li>
+              <a href="../products/index.html" class="main-pane_topLink"
+                ><span> محصولات</span></a
+              >
+            </li>
+            <li>
+              <a href="../tickets/index.html" class="main-pane_topLink"
+                ><span> تیکت ها</span></a
+              >
+            </li>
+            <li>
+              <a href="../campaign/index.html" class="main-pane_topLink"
+                ><span>کمپین ها</span></a
+              >
+            </li>
             <li class="active-menu">
-              <a href="#"><span>صفحه اصلی</span></a>
+              <a
+                href="../edit-admin-profile/index.html"
+                class="main-pane_topLink"
+                ><span>ویرایش پروفایل</span></a
+              >
             </li>
-            <li>
-              <a href="#"><span>دوره ها</span></a>
-            </li>
-            <li>
-              <a href="#"><span>منو ها</span></a>
-            </li>
-            <li>
-              <a href="#"><span>مقاله ها</span></a>
-            </li>
-            <li>
-              <a href="#"><span>کاربران</span></a>
-            </li>
-            <li>
-              <a href="#"><span>کدهای تخفیف</span></a>
-            </li>
-            <li>
-              <a href="#"><span>دسته‌بندی‌ها</span></a>
+
+            <li class="logout-btn">
+              <a href="" class="main-pane_topLink"><span>خروج</span></a>
             </li>
           </ul>
         </div>
@@ -54,25 +94,16 @@
           <div class="container">
             <div class="home-header">
               <div class="home-right">
-                <div class="home-searchbar">
-                  <input
-                    type="text"
-                    class="search-bar"
-                    placeholder="جستجو..."
-                  />
-                </div>
+                <div class="home-searchbar"></div>
                 <div class="home-notification">
                   <button type="button" id="notifications-icon">
                     <i class="far fa-bell"></i>
                   </button>
                 </div>
-                <div
-                  class="header-bottom__mode rounded-pill"
-                  style="background: transparent"
-                >
-                  <i
-                    class="fas fa-moon header-bottom__mode-icon notif-icon"
-                  ></i>
+                <div class="header-bottom__mode rounded-pill" style="cursor: pointer;margin-right: 0.5rem;padding:0.2rem 0.5rem;">
+                  <i class="fas fa-moon header-bottom__mode-icon" style="color: rgb(224, 90, 41);"></i>
+                  <span class="header-bottom__mode-btn light-mode"
+                    >حالت تاریک</span>
                 </div>
                 <div class="home-notification-modal">
                   <ul class="home-notification-modal-list">
@@ -109,7 +140,10 @@
         <div class="container-fluid" id="home-content">
           <div class="container">
             <div class="home-content-edit active-edit-modal">
-              ویرایش اطلاعات
+              <span class="action-title">
+                ویرایش اطلاعات
+              </span>
+                
               <form class="form">
                 <div class="col-6">
                   <div class="name input">

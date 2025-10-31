@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>کاربران</title>
+    <title>users</title>
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.min.css" />
     <link rel="stylesheet" href="vendor/BootStrap/Bootstrap5.min.css" />
     <link rel="stylesheet" href="./css/main.css" />
@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
     <div class="body-overlay"></div>
     <div class="edit-box endedArticles-editbox">
       <div class="home-content-edit active-edit-modal">
@@ -83,43 +86,78 @@
               </div>
             </div>
           </div>
-
         </form>
       </div>
     </div>
     <div id="content">
-      <div class="sidebar-menu-btn top-hamburger">
-        <i class="fas fa-bars"></i>
-      </div>
-
       <div id="sidebar" class="col-2">
         <div class="sidebar-header">
           <div class="sidebar-logo">
             <a href="#"><img src="../shared/img/logo.png" alt="Logo" /></a>
           </div>
+          <div class="sidebar-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
         </div>
         <div class="sidebar-menu">
           <ul>
+            <li>
+              <a href="../main/index.html"><span>صفحه اصلی</span></a>
+            </li>
+            <li>
+              <a href="../menus/index.html" class="main-pane_topLink"
+                ><span>منو ها</span></a
+              >
+            </li>
+            <li>
+              <a href="../articles/index.html" class="main-pane_topLink"
+                ><span>مقاله ها</span></a
+              >
+            </li>
+            <li>
+              <a
+                href="../articles-comments/index.html"
+                class="main-pane_topLink"
+                ><span>کامنت های مقالات</span></a
+              >
+            </li>
             <li class="active-menu">
-              <a href="#"><span>صفحه اصلی</span></a>
+              <a href="../users/index.html" class="main-pane_topLink"
+                ><span>کاربران</span></a
+              >
             </li>
             <li>
-              <a href="#"><span>دوره ها</span></a>
+              <a
+                href="../products-comments/index.html"
+                class="main-pane_topLink"
+                ><span>کامنت های محصولات</span></a
+              >
             </li>
             <li>
-              <a href="#"><span>منو ها</span></a>
+              <a href="../products/index.html" class="main-pane_topLink"
+                ><span> محصولات</span></a
+              >
             </li>
             <li>
-              <a href="#"><span>مقاله ها</span></a>
+              <a href="../tickets/index.html" class="main-pane_topLink"
+                ><span> تیکت ها</span></a
+              >
             </li>
             <li>
-              <a href="#"><span>کاربران</span></a>
+              <a href="../campaign/index.html" class="main-pane_topLink"
+                ><span>کمپین ها</span></a
+              >
             </li>
             <li>
-              <a href="#"><span>کدهای تخفیف</span></a>
+              <a
+                href="../edit-admin-profile/index.html"
+                class="main-pane_topLink"
+                ><span>ویرایش پروفایل</span></a
+              >
             </li>
-            <li>
-              <a href="#"><span>دسته‌بندی‌ها</span></a>
+
+            <li class="logout-btn">
+              <a href="" class="main-pane_topLink"><span>خروج</span></a>
             </li>
           </ul>
         </div>
@@ -129,37 +167,20 @@
           <div class="container">
             <div class="home-header">
               <div class="home-right">
-                <div class="home-searchbar">
-                  <input
-                    type="text"
-                    class="search-bar"
-                    placeholder="جستجو..."
-                  />
-                </div>
+                <div class="home-searchbar"></div>
                 <div class="home-notification">
                   <button type="button" id="notifications-icon">
                     <i class="far fa-bell"></i>
                   </button>
                 </div>
-                <div
-                  class="header-bottom__mode rounded-pill"
-                  style="background: transparent"
-                >
-                  <i
-                    class="fas fa-moon header-bottom__mode-icon notif-icon"
-                  ></i>
+                <div class="header-bottom__mode rounded-pill" style="cursor: pointer;margin-right: 0.5rem;padding:0.2rem 0.5rem;">
+                  <i class="fas fa-moon header-bottom__mode-icon" style="color: rgb(224, 90, 41);"></i>
+                  <span class="header-bottom__mode-btn light-mode"
+                    >حالت تاریک</span>
                 </div>
                 <div class="home-notification-modal">
                   <ul class="home-notification-modal-list">
-                    <!-- data loaded from JS -->
-                  </ul>
-                </div>
-                <div class="mode">
-                  <ul class="mode-list">
-                    <div class="mode-list-item mode-red"></div>
-                    <div class="mode-list-item mode-blue"></div>
-                    <div class="mode-list-item mode-dark"></div>
-                    <div class="mode-list-item mode-light"></div>
+                    <!-- Notifications Loaded From JS -->
                   </ul>
                 </div>
               </div>
@@ -167,14 +188,14 @@
                 <div class="home-profile">
                   <div class="home-profile-image">
                     <a href="#">
-                      <img src="../shared/img/profile.jpg" alt="" />
+                      <img src="./../shared/img/profile.jpg" alt="" />
                     </a>
                   </div>
                   <div class="home-profile-name">
-                    <a href="#" id="admin-name"></a>
+                    <a href="#" id="admin-name"> </a>
                   </div>
                   <div class="home-profile-icon">
-                    <i class="fas fa-angle-down"></i>
+                    <i class="fas fa-angle-down admin-arrow"></i>
                   </div>
                 </div>
               </div>
@@ -314,8 +335,8 @@
     <script src="vendor/FontAwesome/FontAwesome.min.js"></script>
     <script src="vendor/sweet-alert/sweetalert2@11.js"></script>
 
+    <script src="../../js/components/page-mode.js" type="module"></script>
     <script src="../../js/panel/shared.js" type="module"></script>
     <script src="../../js/panel/users.js" type="module"></script>
-    <script src="../../js/components/page-mode.js" type="module"></script>
   </body>
 </html>

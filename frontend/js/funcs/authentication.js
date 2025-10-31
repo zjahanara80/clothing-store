@@ -44,6 +44,7 @@ let register = () => {
 
 let params = new URLSearchParams(location.search);
 let redirect = params.get("redirect") || "index.html";
+
 let login = () => {
     let identifierInput = $.getElementById('identifier')
     let passwordInput = $.getElementById('password')
@@ -92,19 +93,33 @@ let login = () => {
 }
 
 const getMe = async () => {
-  let token = getToken()
-  let response = await fetch(`http://localhost:5000/api/auth/getme` , {
-    headers : {
-        Authorization : `Bearer ${token}`,
+  const token = getToken();
+
+  if (!token) {
+    console.log("کاربر لاگین نکرده است");
+    return [null, 0]; //  عدد خاص برای 'مهمان'
+  }
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/auth/getme`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json'
-    }
-  })
-  console.log(response.status);
-  
-  let data = await response.json()
-  console.log(data);
-  
-  return [data , response.status]
+      }
+    });
+
+    const data = await response.json();
+    console.log(response.status, data);
+
+    return [data, response.status];
+  } catch (error) {
+    console.error("خطا در getMe:", error);
+    return [null, 500];
+  }
+};
+
+const logout = () => {
+  localStorage.removeItem('user');
 }
 
-export { register, login , getMe}
+export { register, login , getMe , logout}

@@ -35,6 +35,7 @@ span {
   position: fixed;
   right: 0;
   top: 0;
+  cursor: pointer;
 }
 
 a {
@@ -173,7 +174,7 @@ ul {
           transition: $transition;
           display: block;
           padding: 15px 25px;
-          font-size: $font-size-md;
+          font-size: 13px;
           i {
             padding-left: 10px;
           }
@@ -194,6 +195,7 @@ ul {
   position: absolute;
   left: 0;
   .home-header {
+    padding: 0.5rem;
     @include flex($j-c: space-between);
     .home-right {
       @include flex();
@@ -231,6 +233,7 @@ ul {
         top: 45px;
         left: -120px;
         display: none;
+        z-index: 999;
         .home-notification-modal-list {
           list-style-type: none;
         }
@@ -551,7 +554,50 @@ body.no-scroll {
   min-height: 0 !important;
   padding: 0 !important ;
 }
+.header-bottom__mode {
+  margin-right: 1rem;
+}
 // end edit box editing
+
+//loader
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #ae5909;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+.action-title {
+  padding: 5px 15px;
+  font-size: 20px;
+  font-family: "lalezar";
+  margin: 1rem 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @font-face {
   font-family: "vazir";

@@ -52,73 +52,6 @@ galleryBtns.forEach(btn => {
 })
 
 
-// let galleryGeneration = async (title) => {
-
-//     getData().then(data => {
-
-//         for (const [key, value] of Object.entries(data.mainCategory)) {
-//             console.log(key, value);
-//             if (value.info == title) {
-//                 // grid template area
-//                 $.querySelector('.main-category__box').classList = "main-category__box mx-auto mt-3 " + value.gridTemplateClass
-
-//                 console.log(key, value);
-
-//                 //items details
-//                 $.querySelector('.main-item').src = value.srcOne.src
-//                 $.querySelector('.main-title').innerHTML = value.srcOne.title
-
-//                 $.querySelector('.item-one').src = value.srcTwo.src
-//                 $.querySelector('.item-one-title').innerHTML = value.srcTwo.title
-
-//                 $.querySelector('.item-two').src = value.srcThree.src
-//                 $.querySelector('.item-two-title').innerHTML = value.srcThree.title
-
-//                 if (value.srcFour) {
-//                     $.querySelector('.item-three').src = value.srcFour.src
-//                 }
-
-//                 if (value.srcFour) {
-//                     $.querySelector('.item-three-title').innerHTML = value.srcFour.title
-//                 }
-
-//                 if (value.srcFive) {
-//                     $.querySelector('.item-four').src = value.srcFive.src
-//                 }
-
-//                 if (value.srcFive) {
-//                     $.querySelector('.item-four-title').innerHTML = value.srcFive.title
-//                 }
-
-//                 if (title == 'کودکانه') {
-//                     $.querySelector('.main-category__box').style.gridTemplateRows = 'repeat(2, 270px)';
-//                     $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(2, 1fr)';
-//                     $.querySelector('.main-category__box-item__gallery3').style.display = 'none'
-//                     $.querySelector('.main-category__box-item__gallery5').style.display = 'none'
-//                 }
-//                 else if (title == 'مردانه') {
-//                     $.querySelector('.main-category__box').style.gridTemplateRows = 'repeat(2, 270px)';
-//                     $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(3, 1fr)';
-//                     $.querySelector('.main-category__box-item__gallery3').style.display = 'none'
-//                     $.querySelector('.main-category__box-item__gallery5').style.display = 'block'
-
-//                 }
-//                 else if (title == "زنانه") {
-//                     $.querySelector('.main-category__box').style.gridTemplateRows = 'repeat(3, 270px)';
-//                     $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(3, 1fr)';
-//                     $.querySelector('.main-category__box-item__gallery3').style.display = 'block'
-//                     $.querySelector('.main-category__box-item__gallery5').style.display = 'block'
-//                 }
-//             }
-//         }
-//     })
-//         .catch(error => {
-//             console.error('Error fetching data:', error);
-//         });
-// }
-
-// responsive main category
-
 let galleryGeneration = async (title) => {
     getData().then(data => {
         for (const [key, value] of Object.entries(data.mainCategory)) {
@@ -289,8 +222,9 @@ const openProductDetails = async (proID) => {
 let articleSugGeneration = () => {
     getData().then(data => {
         const articlesWrapper = $.querySelector('.sug-articles__wrapper');
-        for (const [key, value] of Object.entries(data.articles)) {
-            const slide = `
+        if (data.articles) {
+            for (const [key, value] of Object.entries(data.articles)) {
+                const slide = `
                 <div class="swiper-slide article-sug__item">
                 <img src="${value.sugPlace.img}" alt="" class="article-sug__img">
                 <div class="article-sug__img-balls">
@@ -307,8 +241,9 @@ let articleSugGeneration = () => {
               </div>
               <div class="article-sug__link">ادامه مطلب</div>
           </div>`;
-            articlesWrapper.insertAdjacentHTML('beforeend', slide)
-            swiperArticles.update()
+                articlesWrapper.insertAdjacentHTML('beforeend', slide)
+                swiperArticles.update()
+            }
         }
 
         //article img animation

@@ -352,7 +352,7 @@
     font-size: 14px !important;
   }
 
-  .main-top {
+  .main-top:not(.main-tickets) {
     height: 20rem !important;
   }
   .cart-box__products {
@@ -439,7 +439,8 @@
     align-items: center !important;
     justify-content: center !important;
     gap: 1.5rem;
-    &__right , &__left {
+    &__right,
+    &__left {
       max-width: 90% !important;
       width: 90% !important;
     }
@@ -449,11 +450,11 @@
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    .comment-right  {
+    .comment-right {
       height: auto !important;
       width: 90% !important;
     }
-    .comment-left  {
+    .comment-left {
       position: relative !important;
       width: 90% !important;
     }
@@ -727,6 +728,35 @@
     }
   }
   //finish footer response styles
+
+  //ticket page
+  .main-tickets {
+    width: 95% !important;
+    input {
+      width: 90% !important;
+    }
+  }
+  .showTickets-box {
+    width: 99% !important;
+    margin: 2rem auto !important;
+    padding: 0 !important;
+    .showUserTicketItemWrapper {
+      margin-top: 0.5rem;
+    }
+    .ticket-show-box .bottom {
+      flex-wrap: wrap;
+    }
+    .ticket-details__body .right-side .user-ticket {
+      width: max-content !important;
+      max-width: 70% !important;
+      line-height: 1.3rem !important;
+    }
+    .ticket-details__body .left-side .admin-answer {
+      width: max-content !important;
+      max-width: 70% !important;
+      line-height: 1.3rem !important;
+    }
+  }
 }
 
 @media (max-width: 503px) {

@@ -5,7 +5,7 @@ const User = require('../models/User');
 const optionalAuth = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
     
-  console.log('Authorization header:', authHeader); // ← اینجا
+  console.log('Authorization header:', authHeader);
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     req.user = null;
     return next();

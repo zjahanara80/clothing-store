@@ -1,3 +1,14 @@
-// @import "./base";
+#home-content{
+    padding: 1rem;
+    .home-title span {
+        font-size: 20px;
+            font-family: "lalezar";
+            margin: 1rem 0;
+    }
+}
+#home .form {
+    padding: 1rem 0
+}
 @import "./../../shared/scss/base";
 @import "layouts";
+@import "responsive";

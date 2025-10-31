@@ -42,7 +42,6 @@ let ticketShowStatus = async () => {
         emailShow.classList.add('display-none')
 
         loginFlag = false
-
     }
 }
 

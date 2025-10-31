@@ -1291,7 +1291,7 @@ body .container .overlay {
   .article-sug__text {
     font-size: 14px !important;
   }
-  .main-top {
+  .main-top:not(.main-tickets) {
     height: 20rem !important;
   }
   .cart-box__products {
@@ -1581,6 +1581,33 @@ body .container .overlay {
     width: 80px !important;
     height: 90px !important;
   }
+  .main-tickets {
+    width: 95% !important;
+  }
+  .main-tickets input {
+    width: 90% !important;
+  }
+  .showTickets-box {
+    width: 99% !important;
+    margin: 2rem auto !important;
+    padding: 0 !important;
+  }
+  .showTickets-box .showUserTicketItemWrapper {
+    margin-top: 0.5rem;
+  }
+  .showTickets-box .ticket-show-box .bottom {
+    flex-wrap: wrap;
+  }
+  .showTickets-box .ticket-details__body .right-side .user-ticket {
+    width: max-content !important;
+    max-width: 70% !important;
+    line-height: 1.3rem !important;
+  }
+  .showTickets-box .ticket-details__body .left-side .admin-answer {
+    width: max-content !important;
+    max-width: 70% !important;
+    line-height: 1.3rem !important;
+  }
 }
 @media (max-width: 503px) {
   .main-offer__right {
@@ -1822,7 +1849,7 @@ body .container .overlay {
 }
 .main-center__top-title {
   font-weight: bold;
-  border: 1px solid black;
+  border-bottom: 1px solid;
   padding: 0.7rem 1rem;
   background: white;
 }
@@ -1830,6 +1857,9 @@ body .container .overlay {
   font-weight: bold;
   padding: 0.4rem;
   cursor: pointer;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
 }
 .main-center__top-input {
   position: relative;

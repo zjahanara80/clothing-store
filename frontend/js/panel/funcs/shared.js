@@ -16,4 +16,5 @@ const modalBoxHideHandeling = () => {
     editBoxElem.style.transform = 'translate(-150%, 0)';
 }
 
+
 export{modalBoxShowHandeling , modalBoxHideHandeling}

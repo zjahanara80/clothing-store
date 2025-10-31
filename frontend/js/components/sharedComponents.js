@@ -1,5 +1,5 @@
 import { isLogin } from '../funcs/apiFuncs.js';
-import { getMe } from '../funcs/authentication.js';
+import { getMe, logout } from '../funcs/authentication.js';
 import { getToken } from '../funcs/apiFuncs.js';
 import { getAndShowParentMenus } from './menus.js';
 import {
@@ -9,7 +9,8 @@ import {
 import { checkResize } from './header.js'
 import { mode_handler, change_mode } from './page-mode.js'
 import { getFromLs } from './../funcs/apiFuncs.js'
-import { getBuyCount } from './../cart.js';
+
+// import { getBuyCount } from './../cart.js';
 
 const $ = document
 let ticketBtn = $.querySelector('.ticket-elem')
@@ -22,7 +23,29 @@ const FavoriteCount = $.querySelector('.header-middle__popular span')
 const buyCountSpan = $.querySelector('.header-middle__buy span')
 const menuBtns = $.querySelectorAll('.header-top__right-link')
 const contactBtn = $.querySelector('.header-top__left-text')
+const logoutBtn = document.getElementById('logout-btn');
 
+const logoutHandler = () => {
+  Swal.fire({
+    title: "آیا می‌خواهید از حساب خارج شوید؟",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "بله، خروج",
+    cancelButtonText: "خیر"
+  }).then(result => {
+    if (result.isConfirmed) {
+      logout();
+      showUsernameInNav();
+      Swal.fire({
+        title: "خارج شدید",
+        icon: "success",
+        timer: 1500,
+        showConfirmButton: false
+      })
+    }
+  })
+
+}
 
 if (ticketBtn) {
   ticketBtn.onclick = () => {
@@ -46,6 +69,7 @@ if (document.querySelector('.ticket-box__body-ticket__submit')) {
     })
   }
 }
+
 const showUsernameInNav = () => {
   let navProfileBox = document.querySelector('.header-middle__login')
   navProfileBox.innerHTML = ''
@@ -65,7 +89,11 @@ const showUsernameInNav = () => {
         else {
           navProfileBox.style.cursor = 'pointer'
           navProfileBox.innerHTML = `
-               <span class="header-middle__login-text">${data[0].name}</span>
+               <div>
+               <i class="fas fa-sign-out-alt" style="color:orange;margin-left:0.4rem" id="logout-btn" onclick="logoutHandler()"></i>
+                <span class="header-middle__login-text">${data[0].name}</span>
+               </div>
+               
             `
         }
       })
@@ -82,11 +110,8 @@ const showUsernameInNav = () => {
             <a href="register.html" class="header-middle__login-link index-register-btn">ثبت نام</a>
          `
   }
-
-
 }
 
-mode_btn.onclick = mode_handler
 
 //go to contact for support 
 if (document.querySelector('.createContactToSupport')) {
@@ -126,6 +151,24 @@ buyPageBtn ? buyPageBtn.onclick = () => {
   location.href = 'cart.html'
 } : ''
 
+//count of cart items
+const getBuyCount = async () => {
+  const token = getToken();
+  if (!token) return 0;
+  try {
+    const res = await fetch("http://localhost:5000/api/user/cart", {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const data = await res.json();
+    return data.cart ? data.cart.length : 0;
+  } catch (err) {
+    console.error("خطا در دریافت تعداد:", err);
+    return 0;
+  }
+};
+
+
+window.logoutHandler = logoutHandler
 
 window.addEventListener('load', () => {
   //loader

@@ -21,6 +21,7 @@
             }
             .home-content-users-table {
                 padding: 0 10px;
+                overflow-x: scroll;
                 table {
                     thead {
                         background-color: #f2f7fd;
@@ -41,6 +42,8 @@
                                 border-radius: 50%;
                             }
                             td {
+                                min-width: 100px;
+                                font-size: 13px;
                                 text-align: center;
                                 .edit-btn {
                                     font-size: 13px;

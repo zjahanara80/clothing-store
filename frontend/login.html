@@ -3,9 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">  
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/swiper.css" />
     <link rel="stylesheet" href="css/index.css" />
@@ -13,28 +22,42 @@
     <link rel="stylesheet" href="css/colors.css" />
     <title>صفحه اصلی</title>
   </head>
-  <body style="background-position: center !important;">
-    <div id="loader">
+  <body style="background-position: center !important">
+    <!-- <div id="loader">
      <div class="spinner"></div>
-   </div>    
+   </div>     -->
     <div class="container">
-    <!-- start header section -->
+      <!-- start header section -->
       <header class="header">
         <div class="header-top">
           <div class="header-top__right">
             <ul class="header-top__right-list">
               <li class="header-top__right-item">
-                <a href="articles.html" class="header-top__right-link">مقالات</a>
+                <a href="articles.html" class="header-top__right-link"
+                  >مقالات</a
+                >
               </li>
               <li class="header-top__right-item">
                 <a href="index.html" class="header-top__right-link">خانه</a>
               </li>
               <li class="header-top__right-item">
-                <a href="ticket.html" class="header-top__right-link">تماس با ما</a>
+                <a href="ticket.html" class="header-top__right-link"
+                  >تماس با ما</a
+                >
               </li>
 
               <li class="header-top__right-item">
-                <a href="panel/main/index.html" class="header-top__right-link">پنل مدیریت</a>
+                <a href="panel/main/index.html" class="header-top__right-link"
+                  >پنل مدیریت</a
+                >
+              </li>
+              <li>
+                <div class="header-bottom__mode rounded-pill">
+                  <i class="fas fa-moon header-bottom__mode-icon"></i>
+                  <span class="header-bottom__mode-btn light-mode"
+                    >حالت تاریک</span
+                  >
+                </div>
               </li>
             </ul>
           </div>
@@ -49,8 +72,11 @@
                 <div class="header-top__left-Consultant-wrapper">
                   <a href="#" class="header-top__left-link">
                     <img
-                      src="images/consultants/Consultant1.jpg" alt="" class="header-top__left-img rounded-circle"/></a>
-                     <a href="#" class="header-top__left-link">
+                      src="images/consultants/Consultant1.jpg"
+                      alt=""
+                      class="header-top__left-img rounded-circle"
+                  /></a>
+                  <a href="#" class="header-top__left-link">
                     <img
                       src="images/consultants/Consultant2.jpg"
                       alt=""
@@ -73,61 +99,78 @@
             <img
               src="images/logo/main-logo-removebg-preview (1).png"
               alt="main-logo"
-              class="header-middle__logo-img register-login-logo"/>
+              class="header-middle__logo-img register-login-logo"
+            />
           </div>
         </div>
-
       </header>
       <!-- finish header section -->
 
       <!-- start login body -->
       <div class="register">
         <div class="register-icon">
-            <i class="fa-regular fa-user"></i>
+          <i class="fa-regular fa-user"></i>
         </div>
 
         <p class="register-title">ورود به حساب کاربری</p>
         <p class="register-login">
-            حساب ندارید؟          
-             <a href="register.html" class="register-link">ثبت نام کنید</a>
+          حساب ندارید؟
+          <a href="register.html" class="register-link">ثبت نام کنید</a>
         </p>
         <div class="register-inputs">
+          <div class="register-inputs__email-box register-inputs__box">
+            <label for="email" class="register-inputs__label"
+              >نشانی ایمیل</label
+            >
+            <input
+              type="text"
+              name=""
+              class="register-inputs__input"
+              id="identifier"
+            />
+            <i class="fa-solid fa-envelope register-inputs__icon"></i>
+          </div>
 
-            <div class="register-inputs__email-box register-inputs__box">
-                <label for="email" class="register-inputs__label" >نشانی ایمیل</label>
-                <input type="text" name="" class="register-inputs__input" id="identifier">
-                <i class="fa-solid fa-envelope register-inputs__icon"></i>
-            </div>
+          <div class="register-inputs__pass-box register-inputs__box">
+            <label for="pass" class="register-inputs__label">رمز عبور</label>
+            <input
+              type="number"
+              name=""
+              class="register-inputs__input"
+              id="password"
+            />
+            <i class="fa-solid fa-lock register-inputs__icon"></i>
+          </div>
 
-            <div class="register-inputs__pass-box register-inputs__box">
-                <label for="pass" class="register-inputs__label">رمز عبور</label>
-                <input type="number" name=""  class="register-inputs__input" id="password">
-                <i class="fa-solid fa-lock register-inputs__icon"></i>
-            </div>
+          <button
+            class="register-inputs__btn"
+            id="loginBtn"
+            style="box-shadow: 0 0 3px rgb(31, 94, 116)"
+          >
+            ورود
+          </button>
 
-            <button class="register-inputs__btn" id="loginBtn" style="box-shadow: 0 0 3px rgb(31, 94, 116)">ورود</button>
-
-            <div class="register-inputs__remember-box register-inputs__box">
-               <label for="remember" class="register-submit-label">مرا به خاطر بسپار</label>
-               <input type="checkbox" id="remember">
-            </div>
+          <div class="register-inputs__remember-box register-inputs__box">
+            <label for="remember" class="register-submit-label"
+              >مرا به خاطر بسپار</label
+            >
+            <input type="checkbox" id="remember" />
+          </div>
         </div>
       </div>
       <!-- finish login body -->
-      
-    <!-- start footer section -->
-    <footer class="footer register-footer">
+
+      <!-- start footer section -->
+      <footer class="footer register-footer">
         <ul class="footer-two">
-         <li class="footer-two__item border-end border-2">تلفن پشتیبانی : 732872347-021</li>
-         <li class="footer-two__item">7روز هفته، پاسخگوی شما هستیم</li>
+          <li class="footer-two__item border-end border-2">
+            تلفن پشتیبانی : 732872347-021
+          </li>
+          <li class="footer-two__item">7روز هفته، پاسخگوی شما هستیم</li>
         </ul>
 
-
-        <div class="footer-five">
-          تمامی حقوق این سایت محفوظ میباشد
-        </div>
-    </footer>
-
+        <div class="footer-five">تمامی حقوق این سایت محفوظ میباشد</div>
+      </footer>
     </div>
     <script src="vendor/fontAwsome6/all.min.js"></script>
     <script src="vendor/bootstrap/bootstrap.min.js"></script>
@@ -136,7 +179,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
     <script src="js/swiper.js"></script>
     <script src="js/login.js" type="module"></script>
-    <script src="js/components/page-mode.js"></script>
+    <script src="js/components/page-mode.js" type="module"></script>
     <script src="js/shared.js" type="module"></script>
   </body>
 </html>

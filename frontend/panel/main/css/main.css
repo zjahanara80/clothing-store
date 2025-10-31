@@ -542,6 +542,37 @@ body.no-scroll {
   padding: 0 !important;
 }
 
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ddd;
+  border-top: 6px solid #ae5909;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @font-face {
   font-family: "vazir";
   src: url("../fonts/Vazir/Vazir.eot");
@@ -713,6 +744,94 @@ body.no-scroll {
 
 .equals-color {
   color: rgb(126, 124, 125) !important;
+}
+
+#sidebar {
+  width: 21% !important;
+  z-index: 980 !important;
+}
+
+#home {
+  width: 80%;
+}
+
+@media (max-width: 920px) {
+  table {
+    font-size: 13px;
+  }
+  table thead tr th {
+    font-size: 14px !important;
+  }
+  table tbody tr td {
+    width: 150px;
+    text-wrap: nowrap;
+  }
+  .home-content-users-table {
+    overflow: scroll;
+  }
+  .home-box {
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .home-box .info-wrapper {
+    width: 98% !important;
+  }
+  .home-box .home-box-title span {
+    font-size: 18px !important;
+  }
+  .home-box .home-box-value label,
+  .home-box .home-box-value span {
+    font-size: 13px !important;
+  }
+  #sidebar {
+    overflow-x: scroll;
+  }
+  #sidebar .sidebar-header .sidebar-menu-btn {
+    top: 10px;
+  }
+  #sidebar #sidebar .sidebar-menu ul li a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 704px) {
+  #sidebar {
+    width: 30% !important;
+  }
+  #sidebar .sidebar-menu ul li a {
+    font-size: 13px;
+  }
+  #home {
+    width: 70% !important;
+  }
+}
+@media (max-width: 620px) {
+  #home .home-header {
+    margin: 0 5px;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    align-items: center;
+  }
+  #home .home-header .home-left .home-profile .home-profile-image img {
+    width: 50px;
+    border-radius: 50%;
+    height: 48px;
+  }
+  #home .home-header .home-right {
+    width: 200px;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  #home .home-header .home-right .home-notification-modal {
+    top: 30px !important;
+    left: unset !important;
+  }
+  #home .home-header .home-right .home-notification-modal .alert-danger {
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

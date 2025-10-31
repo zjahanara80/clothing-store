@@ -1893,7 +1893,7 @@ body {
   .article-sug__text {
     font-size: 14px !important;
   }
-  .main-top {
+  .main-top:not(.main-tickets) {
     height: 20rem !important;
   }
   .cart-box__products {
@@ -2182,6 +2182,33 @@ body {
   .footer-four__left-img {
     width: 80px !important;
     height: 90px !important;
+  }
+  .main-tickets {
+    width: 95% !important;
+  }
+  .main-tickets input {
+    width: 90% !important;
+  }
+  .showTickets-box {
+    width: 99% !important;
+    margin: 2rem auto !important;
+    padding: 0 !important;
+  }
+  .showTickets-box .showUserTicketItemWrapper {
+    margin-top: 0.5rem;
+  }
+  .showTickets-box .ticket-show-box .bottom {
+    flex-wrap: wrap;
+  }
+  .showTickets-box .ticket-details__body .right-side .user-ticket {
+    width: max-content !important;
+    max-width: 70% !important;
+    line-height: 1.3rem !important;
+  }
+  .showTickets-box .ticket-details__body .left-side .admin-answer {
+    width: max-content !important;
+    max-width: 70% !important;
+    line-height: 1.3rem !important;
   }
 }
 @media (max-width: 503px) {
