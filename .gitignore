@@ -66,6 +66,5 @@ frontend/build/
 # -----------------------------
 # Uploads or runtime storage (if any)
 # -----------------------------
-uploads/
-public/uploads/
+
 storage/
