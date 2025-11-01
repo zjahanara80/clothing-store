@@ -115,9 +115,10 @@
   padding: 1rem;
 
   &__right {
-    flex-basis: 20%;
+    // flex-basis: 20%;
     padding: 1rem;
     gap: 1rem;
+    width: 250px;
     &-img {
       flex-basis: 80%;
       width: 80%;
@@ -155,7 +156,7 @@
       overflow: hidden;
       padding: 1.5rem !important;
       position: relative;
-      width: 29% !important;
+      width: 250px !important;
 
       &__overlay {
         @include flexiblity(row, center);
@@ -398,8 +399,9 @@
   }
 
   &__item {
-    width: 30% !important;
+    // width: 30% !important;
     height: 95%;
+    width: 300px !important;
     @include flexiblity(column, center);
     justify-content: space-between !important;
     // gap: 0.5rem;

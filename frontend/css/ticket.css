@@ -1188,9 +1188,6 @@ body .container .overlay {
   }
 }
 @media (max-width: 950px) {
-  .main-offer__left-item {
-    width: 40% !important;
-  }
   .main-category__box-title {
     padding: 1.2rem !important;
     font-size: 1rem !important;
@@ -1223,9 +1220,6 @@ body .container .overlay {
   .header-middle__search-btn,
   .header-middle__login-text {
     font-size: 13px;
-  }
-  .main-offer__right {
-    flex-basis: 26% !important;
   }
   .main-offer__left-priceWrapper {
     flex-direction: column !important;
@@ -1404,14 +1398,20 @@ body .container .overlay {
   .main-offer {
     height: 26rem !important;
   }
-  .main-offer__left-item {
-    width: 47% !important;
-  }
   .main-category__box-title {
     padding: 0.5rem !important;
   }
   .main-category__box {
-    grid-template-rows: repeat(3, 150px) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-category__box-item {
+    width: 90%;
+    height: 330px;
+  }
+  .main-category__box-img .main-item {
+    object-fit: cover;
   }
   .main-category__menu {
     gap: 2rem !important;
@@ -1429,7 +1429,6 @@ body .container .overlay {
     width: 6rem !important;
   }
   .article-sug__item {
-    width: 35% !important;
     margin-left: 15px !important;
   }
   .article-sug__item-title {
@@ -1531,20 +1530,11 @@ body .container .overlay {
     font-size: 0.7rem !important;
     margin-right: 0;
   }
-  .main-offer__right {
-    flex-basis: 30% !important;
-  }
-  .main-offer__left-item {
-    width: 90% !important;
-  }
   .main-offer__left-img {
     width: 70% !important;
   }
   .article-sug__img {
     width: 100% !important;
-  }
-  .article-sug__item {
-    width: 49% !important;
   }
   .article-sug__item-title {
     font-size: 0.9rem !important;

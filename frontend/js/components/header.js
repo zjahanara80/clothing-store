@@ -32,60 +32,73 @@ const insertSelectClassOnsearchItems = (index) => {
 
 //global searchBox behavior
 globalSearchElem.onkeyup = (event) => {
-    globalSearch(globalSearchElem.value).then(products => {
+  globalSearch(globalSearchElem.value).then(products => {
 
-        if (event.key === 'ArrowDown') {
-            if (products.slice(0, 4).length) {
-                if (currentIndexForSearchItems < products.slice(0, 4).length - 1) {
-                    currentIndexForSearchItems++
-                    insertSelectClassOnsearchItems(currentIndexForSearchItems)
-                }
-            }
+    if (event.key === 'ArrowDown') {
+      if (products.slice(0, 4).length) {
+        if (currentIndexForSearchItems < products.slice(0, 4).length - 1) {
+          currentIndexForSearchItems++;
+          insertSelectClassOnsearchItems(currentIndexForSearchItems);
         }
+      }
+    }
 
-        else if (event.key === 'ArrowUp') {
-            if (products.slice(0, 4).length) {
-                if (currentIndexForSearchItems > 0) {
-                    currentIndexForSearchItems--
-                    insertSelectClassOnsearchItems(currentIndexForSearchItems)
-                }
-            }
+    else if (event.key === 'ArrowUp') {
+      if (products.slice(0, 4).length) {
+        if (currentIndexForSearchItems > 0) {
+          currentIndexForSearchItems--;
+          insertSelectClassOnsearchItems(currentIndexForSearchItems);
         }
+      }
+    }
 
-        else if (event.code == 'Enter') {
-            //هر محصولی که کاربر اومد روش اگه اینتر زد بره به جزییات
-            const selectedItem = document.querySelector('.search-result__parent-item.userArrowItem');
-            if (selectedItem) {
-                const productId = selectedItem.dataset.id;
-                location.href = `productDetails.html?q=${productId}`;
-                globalSearchElem.value = ''
-            } else {
-                //سرچ عادی
-                hrefSearchValueTo(); 
-            }
+    else if (event.code === 'Enter') {
+      // اگر روی آیتم خاصی هست
+      const selectedItem = document.querySelector('.search-result__parent-item.userArrowItem');
+      if (selectedItem) {
+        const productId = selectedItem.dataset.id;
+        location.href = `productDetails.html?q=${productId}`;
+        globalSearchElem.value = '';
+      } else {
+        // اگه فقط اینتر زده و چیزی انتخاب نکرده
+        const firstItem = document.querySelector('.search-result__parent-item');
+        if (firstItem) {
+          const productId = firstItem.dataset.id;
+          location.href = `productDetails.html?q=${productId}`;
+          globalSearchElem.value = '';
+        } else {
+          hrefSearchValueTo();
         }
+      }
+    }
 
-        else {
-            if (products.length) {
-                showSearchResultBoxElem.innerHTML = ''
-                products.slice(0, 4).forEach(product => {
-                    console.log(product);
-                    showSearchResultBoxElem.style.display = 'block'
-                    showSearchResultBoxElem.insertAdjacentHTML('beforeend',
-                        `
-                          <li class="search-result__parent-item" data-id="${product._id}">${product.name} با کد ${product.code}</li>
-                         `
-                    )
-                })
-            }
-            else {
-                showSearchResultBoxElem.style.display = 'none'
-            }
-        }
+    else {
+      if (products.length) {
+        showSearchResultBoxElem.innerHTML = '';
+        showSearchResultBoxElem.style.display = 'block';
+        products.slice(0, 4).forEach(product => {
+          showSearchResultBoxElem.insertAdjacentHTML('beforeend', `
+            <li class="search-result__parent-item" data-id="${product._id}">
+              ${product.name} با کد ${product.code}
+            </li>
+          `);
+        });
 
-    })
+        // اضافه کردن کلیک مستقیم روی آیتم‌ها
+        document.querySelectorAll('.search-result__parent-item').forEach(item => {
+          item.onclick = () => {
+            const productId = item.dataset.id;
+            location.href = `productDetails.html?q=${productId}`;
+            globalSearchElem.value = '';
+          };
+        });
+      } else {
+        showSearchResultBoxElem.style.display = 'none';
+      }
+    }
 
-}
+  });
+};
 
 serachSubmitBtn.onclick = hrefSearchValueTo
 

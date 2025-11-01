@@ -171,19 +171,31 @@ const renderStars = (avg) => {
     return stars;
 }
 
-const showUserInfoInCommentBoxStatus = () => {
-    if (isLogin()) {
-        if (getMe()) {
-            getMe().then(userInfo => {
-                console.log(userInfo);
-                emailInput.value = userInfo[0].email
-                nameInput.value = userInfo[0].name
-            });
-        }
+const showUserInfoInCommentBoxStatus = async () => {
+  try {
+    if (isLogin() && getToken()) {
+      const userInfo = await getMe();
+
+      if (userInfo && userInfo.length > 0) {
+        emailInput.value = userInfo[0].email || '';
+        nameInput.value = userInfo[0].name || '';
+      } else {
+        emailInput.value = '';
+        nameInput.value = '';
+      }
+    } else {
+      emailInput.value = '';
+      nameInput.value = '';
     }
-}
+  } catch (error) {
+    console.error(' خطا در گرفتن اطلاعات کاربر:', error);
+    emailInput.value = '';
+    nameInput.value = '';
+  }
+};
 
 let userRateCount = 0
+
 const prepareSendComment = () => {
     rateInputs.forEach(rateInput => {
         rateInput.onclick = (event) => {
@@ -294,11 +306,11 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-window.onload = () => {
+window.onload = async() => {
     getAndShowProductDetails()
     getAndShowAllcomments()
     prepareSendComment()
-    showUserInfoInCommentBoxStatus()
+   await showUserInfoInCommentBoxStatus()
 
 }
 
