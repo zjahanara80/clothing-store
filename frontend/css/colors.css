@@ -384,7 +384,18 @@ body {
     background-color: var(--header-top-bg);
     color: var(--g-color-secondry);
 }
-
+.comment {
+    color: var(--g-color-secondry) !important;
+}
+.comment-header {
+    background: var(--header-top-bg) !important;
+    color: var(--g-color-secondry);
+}
+.comment-left input , .comment-left textarea , 
+.comment-left input::placeholder , .comment-left textarea::placeholder{
+    background: var(--g-bg-light) !important;
+    color: var(--g-color-secondry) !important;
+}
 /* article details page */
 .articles-info span,
 .articles-info,
