@@ -34,14 +34,7 @@ To access the admin panel, create an admin user directly in MongoDB with role: "
 ## 🌐 Live Demo
 [View Online](https://lovin-clothing.onrender.com)
 
-
-## 📁 Project Structure
-
-
-(مثل ساختار پوشه‌ها و فایل‌ها: frontend، backend، models، controllers، routes و ...)
-
 Environment Variables
-توضیح بده چه .env هایی باید تنظیم بشن:
 
 ## ⚙️ Environment Variables
 Create a `.env` file in the backend directory with the following:
