@@ -16,6 +16,7 @@ It includes a **user storefront** and an **admin panel** for product and categor
 - 💬 articles comments & ratings
 - 🧱 Admin panel for managing products, users, and discounts
 - 💡 Responsive UI with global page loader
+- sales products
 
 ---
 ## 🔑 Admin Access
