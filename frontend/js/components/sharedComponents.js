@@ -170,29 +170,58 @@ const getBuyCount = async () => {
 
 window.logoutHandler = logoutHandler
 
-window.addEventListener('load', () => {
-  //loader
+// window.addEventListener('load', () => {
+//   //loader
+//   const loader = document.getElementById("loader");
+//   const mainContent = document.getElementById("main-content");
+//   loader.style.opacity = "0";
+//   setTimeout(() => {
+//     loader.style.display = "none";
+//     mainContent.style.display = "block";
+//   }, 500);
+
+
+window.addEventListener("load", async () => {
   const loader = document.getElementById("loader");
   const mainContent = document.getElementById("main-content");
+
+  loader.style.display = "flex";
+
+  // صبر می‌کنیم همه دیتاها بیاید
+  await fetchAllData();
+
+  // مخفی کردن لودر
   loader.style.opacity = "0";
   setTimeout(() => {
     loader.style.display = "none";
     mainContent.style.display = "block";
   }, 500);
 
+  // فانکشن‌های بعد از لود صفحه
+  ticketShowStatus();
+  getAndShowParentMenus();
+  change_mode(getFromLs("mode"));
+  showUsernameInNav();
 
-  ticketShowStatus()
-  getAndShowParentMenus()
-  change_mode(getFromLs('mode'))
-  showUsernameInNav()
+  // نمایش تعداد علاقه‌مندی‌ها
+  getFavoriteCount();
 
-  // show favorite products count
-  getFavoriteCount()
+  // نمایش تعداد سبد خرید
+  getBuyCount().then((length) => (buyCountSpan.innerHTML = length));
+});
 
-  // show cart products count
-  getBuyCount().then(lenght =>
-    buyCountSpan.innerHTML = lenght)
-})
+async function fetchAllData() {
+  try {
+    await Promise.all([
+      getFavoriteCount(),     // دریافت علاقه‌مندی‌ها
+      getBuyCount(),          // دریافت سبد خرید
+      getAndShowParentMenus(),// دریافت منوها
+      getMe(),                // دریافت اطلاعات کاربر
+    ]);
+  } catch (err) {
+    console.log("خطا در fetchAllData :", err);
+  }
+}
 
 window.onresize = (event) => {
   checkResize(event)
