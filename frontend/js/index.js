@@ -167,13 +167,10 @@ var swiperOffer = new Swiper(".main-offer-swiper", {
 let mainOfferGeneration = () => {
     getDataFromApi('https://lovin-clothing.onrender.com/api/products').then(data => {
         console.log(data);
-
         const swiperWrapper = document.querySelector('.offer-swiper-parent');
-
         for (const [key, value] of Object.entries(data)) {
-            if (value.discount > 0) {
+            if (value.discount > 0 || value.globalDiscount > 0 ) {
                 console.log(value);
-
                 const slide = `
                     <div class="swiper-slide main-offer__left-item">
     
@@ -198,10 +195,9 @@ let mainOfferGeneration = () => {
                 swiperOffer.update();
             }
         }
-    })
-        .catch(error => {
-            console.error(error);
-        });
+    }).catch(error => {
+        console.error(error);
+    });
 }
 
 // article swiper
