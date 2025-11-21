@@ -513,10 +513,10 @@
   }
   .main-category__box-item {
     width: 90%;
-    height: 330px; 
+    height: 330px;
   }
   .main-category__box-img .main-item {
-   object-fit: cover;
+    object-fit: cover;
   }
   .main-category__menu {
     gap: 2rem !important;
@@ -682,6 +682,21 @@
   }
   .main-offer__left-img {
     width: 70% !important;
+  }
+
+  .input-wrapper {
+    margin: 3rem auto;
+    input {
+      width: 90%;
+    }
+  }
+  .top-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .article-sug {
+    margin-top: 7rem !important;
   }
 
   // main-articles

@@ -1533,6 +1533,20 @@ body .container .overlay {
   .main-offer__left-img {
     width: 70% !important;
   }
+  .input-wrapper {
+    margin: 3rem auto;
+  }
+  .input-wrapper input {
+    width: 90%;
+  }
+  .top-details {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .article-sug {
+    margin-top: 7rem !important;
+  }
   .article-sug__img {
     width: 100% !important;
   }
