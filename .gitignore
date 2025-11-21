@@ -44,6 +44,10 @@ Thumbs.db
 dist/
 build/
 coverage/
+uploads/articles
+uploads/menus
+uploads/bg
+uploads/products
 
 # -----------------------------
 # Frontend specific (if you have a separate frontend folder)
