@@ -384,18 +384,24 @@ body {
     background-color: var(--header-top-bg);
     color: var(--g-color-secondry);
 }
+
 .comment {
     color: var(--g-color-secondry) !important;
 }
+
 .comment-header {
     background: var(--header-top-bg) !important;
     color: var(--g-color-secondry);
 }
-.comment-left input , .comment-left textarea , 
-.comment-left input::placeholder , .comment-left textarea::placeholder{
+
+.comment-left input,
+.comment-left textarea,
+.comment-left input::placeholder,
+.comment-left textarea::placeholder {
     background: var(--g-bg-light) !important;
     color: var(--g-color-secondry) !important;
 }
+
 /* article details page */
 .articles-info span,
 .articles-info,
@@ -517,12 +523,29 @@ body {
 .edit-box {
     background: var(--header-top-bg) !important;
     color: var(--g-color-secondry) !important;
+    z-index: 999;
 }
 
-/* .edit-btn{
-    border-color: var(--mainTop-shadow) !important;
-} */
+.edit-box .edit-title span{
+    color: var(--g-color-secondry) !important;
 
+}
+.edit-box input , .edit-box textarea {
+    background: var(--header-top-bg) !important;
+    color: var(--g-color-secondry) !important;
+}
+.home-content-edit .form .bottom-form {
+    justify-content: center;
+    align-items: center; 
+}
+.edit-submit-btn #edit-btn{
+    background: var(--g-color-orange2) !important;
+    margin-top: 2rem;
+
+}
+.draft-edit-radio {
+    width: 10px !important;
+}
 /* ticket page */
 .main-tickets {
     background-color: var(--header-top-bg);
@@ -547,10 +570,12 @@ body {
     background: var(--g-bg-light) !important;
     color: var(--g-color-secondry) !important;
 }
+
 .ticket-box {
     background: var(--g-bg-light) !important;
     color: var(--g-color-secondry) !important;
 }
+
 /* components */
 .breadcrump__list-item {
     color: var(--g-color-secondry);
@@ -599,7 +624,8 @@ table thead tr th {
     color: var(--g-color-secondry) !important;
 }
 
-.form input::placeholder, .home-profile-icon {
+.form input::placeholder,
+.home-profile-icon {
     color: var(--g-color-secondry) !important;
 }
 
