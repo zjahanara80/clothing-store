@@ -6,7 +6,6 @@ const createUser = async (req, res) => {
   try {
     const { name, username, email, phone, password, isAdmin } = req.body;
 
-    // بررسی عدم وجود کاربر تکراری
     const existingUser = await User.findOne({ $or: [ { email }, { username } ] });
     if (existingUser) {
       return res.status(400).json({ error: 'کاربری با این ایمیل یا نام کاربری وجود دارد.' });
@@ -32,7 +31,6 @@ const createUser = async (req, res) => {
   }
 };
 
-// حذف کاربر
 const deleteUser = async (req, res) => {
   try {
     if (!req.user.isAdmin) {
