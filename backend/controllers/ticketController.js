@@ -45,10 +45,7 @@ exports.setAnswer = async (req, res, next) => {
     try {
       const ticketId = req.params.id;
   
-      // حذف پاسخ‌های مربوط به این تیکت (در صورت وجود)
       await Ticket.deleteMany({ parent: ticketId });
-  
-      // حذف خود تیکت
       await Ticket.findByIdAndDelete(ticketId);
   
       res.status(200).json({ message: 'تیکت با موفقیت حذف شد.' });
