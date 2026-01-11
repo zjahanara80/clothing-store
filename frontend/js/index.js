@@ -76,7 +76,7 @@ let galleryGeneration = async (title) => {
                     $.querySelector('.item-four-title').innerHTML = value.srcFive.title
                 }
 
-                // تنظیم grid بر اساس دسته‌بندی
+                // grid setting by category
                 if (title == 'کودکانه') {
                     $.querySelector('.main-category__box').style.gridTemplateRows = 'repeat(2, 270px)';
                     $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(2, 1fr)';
@@ -122,35 +122,6 @@ let galleryGeneration = async (title) => {
         });
 }
 
-
-// let categoryResponse = (event) => {
-//     if (window.innerWidth < 560) {
-//         galleryBtns.forEach(item => {
-//             if (item.classList.contains('current-category__item')) {
-//                 $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(4, 1fr)';
-//                 $.querySelector('.main-category__box').style.width = '90%';
-//                 $.querySelector('.main-category__box').style.gridTemplateAreas =
-//                     `
-//                  "gallery_1 gallery_1 gallery_1 gallery_1"
-//                  "gallery_3 gallery_3 gallery_2 gallery_2"
-//                  "gallery_4 gallery_4 gallery_5 gallery_5"
-//                  `
-//             }
-//         })
-//     }
-//     else {
-//         $.querySelector('.main-category__box').style.gridTemplateColumns = 'repeat(2, 1fr)';
-//         $.querySelector('.main-category__box').style.width = '85%';
-//         $.querySelector('.main-category__box').style.gridTemplateAreas =
-//             `
-//             "gallery_1 gallery_1 gallery_1"
-//             "gallery_3 gallery_3 gallery_2"
-//             "gallery_4 gallery_5 gallery_2"
-//          `
-//     }
-// }
-
-// offer section swiper
 var swiperOffer = new Swiper(".main-offer-swiper", {
 
     slidesPerView: 'auto',

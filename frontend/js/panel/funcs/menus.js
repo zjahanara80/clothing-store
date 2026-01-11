@@ -170,17 +170,17 @@ const editMenuesInfos = async (menuID) => {
     descEditInputElem.value = menuDetalis.description
     iconEditInputElem.value = menuDetalis.icon ? menuDetalis.icon : menuDetalis.parent.icon || '';
 
-    //دریافت دسته بندی در ادیت باکس
+    //get category on select-box
     await showMenuCategories(categoriesEditSelect)
 
-    //سلکت پرنت دسته بندی 
+    //get category parent
     if (menuDetalis.parent !== null) {
         catEditElemSelect.value = String(menuDetalis.parent._id)
     }
 
     let editSelectValue = catEditElemSelect.value
 
-    //اگه کاربر دسته بندی رو تغییر داد
+    //if user changed the select-box
     catEditElemSelect.onchange = (event) => {
         editSelectValue = event.target.value
     }

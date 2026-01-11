@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/Product');
-const authenticateToken = require('../middleware/authenticateToken'); // بررسی توکن
+const authenticateToken = require('../middleware/authenticateToken'); 
 const productController = require('../controllers/productController');
 const multer = require('multer');
 const path = require('path');

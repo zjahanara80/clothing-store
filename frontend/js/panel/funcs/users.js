@@ -166,7 +166,6 @@ const createNewUser = async () => {
     }
 }
 
-
 const editUserInfos = async (userID) => {
     const nameInputElem = document.getElementById('edit-name')
     const usernameInputElem = document.getElementById('edit-username')
@@ -250,9 +249,7 @@ const editUserInfos = async (userID) => {
             })
         }
     }
-
 }
-
 
 export {
     getAndShowAllUsers, removeUser, blockUser

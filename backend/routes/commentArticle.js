@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const CommentArticle = require('../models/CommentArticle');
 
-// 🔹 ثبت کامنت جدید برای مقاله
+//submit a new comment
 router.post('/', async (req, res) => {
   const { articleId, name, email, title, message, rating } = req.body;
 

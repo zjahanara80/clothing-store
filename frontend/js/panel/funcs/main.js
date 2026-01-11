@@ -41,7 +41,7 @@ const getAndShowMainDetails = async () => {
     document.querySelector('.count-articles .home-box-value span').innerHTML = result.articles.totalCount + ' مقاله'
     document.querySelector('.count-users .home-box-value span').innerHTML = result.users.totalCount + ' کاربر'
 
-//  رشد درصد کاربران
+// users grow percent
 result.users.growthRate > 0 
   ? usersImproveElem.classList.add('improve-color') 
   : result.users.growthRate == 0  
@@ -50,7 +50,7 @@ result.users.growthRate > 0
 
 usersImproveElem.innerHTML = result.users.growthRate + '% ';
 
-//  رشد تعداد کاربران
+// users frow count
 result.users.countLastWeek > 0 
   ? usersImproveCountElem.classList.add('improve-color') 
   : result.users.countLastWeek == 0  
@@ -59,7 +59,7 @@ result.users.countLastWeek > 0
 
 usersImproveCountElem.innerHTML = result.users.countLastWeek + ' کاربر';
 
-//  رشد مقالات درصد
+// articles grow percent
 result.articles.growthRate > 0 
   ? articlesImproveElem.classList.add('improve-color') 
   : result.articles.growthRate == 0  
@@ -68,7 +68,7 @@ result.articles.growthRate > 0
 
 articlesImproveElem.innerHTML = result.articles.growthRate + '% ';
 
-//  رشد تعداد مقالات
+// articles grow count
 result.articles.countLastWeek > 0 
   ? articlesImproveCountElem.classList.add('improve-color') 
   : result.articles.countLastWeek == 0  
@@ -77,7 +77,7 @@ result.articles.countLastWeek > 0
 
 articlesImproveCountElem.innerHTML = result.articles.countLastWeek + ' مقاله ';
 
-// درصد رشد محصولات
+// products grow percent
 result.products.growthRate > 0 
   ? productsImproveElem.classList.add('improve-color') 
   : result.products.growthRate == 0  
@@ -86,7 +86,7 @@ result.products.growthRate > 0
 
 productsImproveElem.innerHTML = result.products.growthRate + '% ';
 
-//  رشد تعداد محصولات
+// products grow count
 result.products.countLastWeek > 0 
   ? productsImproveCountElem.classList.add('improve-color') 
   : result.products.countLastWeek == 0  

@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
   console.log("📋 All users:", allUsers.map(u => u.email));
 });
 
-// مدیریت: دریافت همه تیکت‌ها
+// admin: get all tickets 
 router.get('/', authenticateToken, async (req, res) => {
   try {
     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });
@@ -45,7 +45,7 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
-// دریافت تیکت‌های کاربر لاگین شده
+// get logined users tickets
 router.get('/user', authenticateToken, async (req, res) => {
   try {
     const userId = req.user.id;
@@ -70,7 +70,7 @@ router.get('/user', authenticateToken, async (req, res) => {
 });
 
 
-// مدیریت: پاسخ یا رد یا دیدن تیکت
+// admin: get or reject tickets
 router.patch('/:id', authenticateToken, async (req, res) => {
   try {
     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });

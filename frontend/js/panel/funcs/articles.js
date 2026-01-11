@@ -95,77 +95,6 @@ const getAndShowCetgoriesItems = async (parentElem) => {
 }
 
 const insertTextEditor = async (element) => {
-    // const {
-    //     ClassicEditor,
-    //     Essentials,
-    //     Bold,
-    //     Italic,
-    //     Font,
-    //     Paragraph,
-    //     Heading,
-    //     Table,
-    //     TableToolbar,
-    //     Image,
-    //     ImageUpload,
-    //     ImageInsert,
-    //     SimpleUploadAdapter
-    // } = CKEDITOR;
-
-    // ClassicEditor.create(editorElem, {
-    //     licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTIxOTE5OTksImp0aSI6IjYzNWJhZWEzLTY3MmMtNDliNC04NWIwLThlYzVjYjg4M2Y3NSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImEwM2VmMzM2In0.Wy2m5n7t_V8qE6GD7-HdfZeHR2cFm6al2FA3rOk1LqD2T9aKnR85pp0T2GFQmyElYr5Sxt_ZUNPMEZAh7lIbJg', // کلید تستی ۱۴ روزه شما
-
-    //     plugins: [Essentials, Heading, Bold, Italic, Font, Paragraph, Table, TableToolbar, Image, ImageUpload, ImageInsert, SimpleUploadAdapter],
-
-    //     toolbar: [
-    //         'heading', '|',
-    //         'undo', 'redo', '|',
-    //         'bold', 'italic', '|',
-    //         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
-    //         'insertTable',
-    //         'insertImage'
-    //     ],
-
-    //     heading: {
-    //         options: [
-    //             { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-    //             { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-    //             { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
-    //         ]
-    //     },
-    //     table: {
-    //         contentToolbar: [
-    //             'tableColumn', 'tableRow', 'mergeTableCells'
-    //         ]
-    //     },
-    //     simpleUpload: {
-    //         uploadUrl: 'https://lovin-clothing.onrender.com/uploads/articles'
-    //     },
-    //     // تنظیمات زبان فارسی و راست‌به‌چپ
-    //     language: {
-    //         uiLanguage: 'fa',
-    //         contentLanguage: 'fa'
-    //     },
-    //     // تنظیم جهت متون
-    //     initialData: '<p dir="rtl"></p>',
-    //     wordCount: false
-    // })
-    //     .then(editor => {
-    //         // تنظیم جهت راست‌به‌چپ
-    //         editor.editing.view.change(writer => {
-    //             writer.setAttribute('dir', 'rtl', editor.editing.view.document.getRoot());
-    //         });
-
-    //         // مقداردهی اولیه
-    //         articleBodyEditor = editor.getData();
-
-    //         // گوش دادن به تغییرات محتوا
-    //         editor.model.document.on('change:data', () => {
-    //             articleBodyEditor = editor.getData();
-    //         });
-
-    //         console.log('Editor آماده با فارسی، هدر و جدول');
-    //     })
-    //     .catch(err => console.error(err));
     if (articleBodyEditor) return articleBodyEditor;
     const { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph, Heading, Table, TableToolbar, Image, ImageUpload, ImageInsert, SimpleUploadAdapter } = CKEDITOR;
     articleBodyEditor = await ClassicEditor
@@ -327,14 +256,6 @@ const publishedArticleEdit = async (articleID, event) => {
     document.getElementById('edit-title').value = article.title
     document.getElementById('edit-link').value = article.slug
     document.getElementById('edit-chekideh').value = article.chekide
-
-    //get category list
-    // getAndShowCetgoriesItems(editCategoryParent).then(result => {
-    //     //show selected category option
-    //     editCategoryParent.value = article.category._id || -1
-    //     editCategoryID = editCategoryParent.value
-    // })
-
     document.getElementById('edit-content').value = article.body
 
     articleImgPreview.src = `https://lovin-clothing.onrender.com${article.cover}`

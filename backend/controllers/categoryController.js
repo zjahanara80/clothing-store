@@ -43,7 +43,7 @@ exports.updateCategory = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // فیلدهای مجاز برای آپدیت
+    // fields for update
     const allowed = ['name', 'link', 'icon', 'description', 'parent'];
     const updates = {};
 
@@ -54,12 +54,12 @@ exports.updateCategory = async (req, res) => {
       }
     }
 
-    // اگر فایل تصویر جدید آپلود شد
+    // if new picture uploaded
     if (req.file) {
       updates.background = `/uploads/menus/${req.file.filename}`;
     }
 
-    // اگر parent فرستاده نشه یا invalid باشه، null قرار بگیره
+    // be null if parent is not valid 
     if (updates.parent && !mongoose.Types.ObjectId.isValid(updates.parent)) {
       updates.parent = null;
     }

@@ -17,35 +17,6 @@ exports.createProduct = async (req, res) => {
   }
 };
 
-// exports.createProduct = async (req, res) => {
-//   try {
-//     const productData = {
-//       ...req.body,
-//       discount: req.body.discount !== undefined ? Number(req.body.discount) : 0, 
-//       price: Number(req.body.price),
-//       countInStock: Number(req.body.countInStock),
-//       size: req.body.size
-//         ? Array.isArray(req.body.size)
-//           ? req.body.size
-//           : req.body.size.split(",").map(s => s.trim())
-//         : [],
-//       code: req.body.code
-//         ? Array.isArray(req.body.code)
-//           ? req.body.code
-//           : [req.body.code]
-//         : [],
-//       img: req.files && req.files.length > 0
-//         ? req.files.map(file => `/uploads/products/${file.filename}`)
-//         : []
-//     };
-
-//     const product = await Product.create(productData);
-//     res.status(201).json(product);
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// };
-
 exports.searchProducts = async (req, res) => {
   try {
     const { query } = req.query;
@@ -81,10 +52,10 @@ exports.getProducts = async (req, res) => {
       }
     }
 
-    // دریافت محصولات طبق فیلتر
+    // get products by filtering
     const products = await Product.find(filters).populate('category');
 
-    // دریافت جدیدترین علاقه‌مندی‌های کاربر از دیتابیس
+    // get the user newset favorite products from DB
     let favoriteIds = [];
         let cartIds = [];
     if (req.user) {
@@ -96,18 +67,18 @@ exports.getProducts = async (req, res) => {
       }
     }
 
-    // بررسی کمپین فعال
+    // check active campaign
     const activeCampaign = await Campaign.findOne({ isActive: true });
 
     const productsWithEnhancements = products.map(p => {
       const pObj = p.toObject();
 
-      // تعیین وضعیت علاقه‌مندی
+      // is favorite ? 
       pObj.isFavorite = favoriteIds.includes(p._id.toString());
 
       pObj.inCart = cartIds.includes(p._id.toString());
 
-      // محاسبه قیمت نهایی با تخفیف محصول یا کمپین
+      // price calculator with discount or campaign
       if (pObj.discount > 0) {
         const discountAmount = (pObj.price * pObj.discount) / 100;
         pObj.finalPrice = Math.floor(pObj.price - discountAmount);
@@ -124,7 +95,7 @@ exports.getProducts = async (req, res) => {
       return pObj;
     });
 
-    // مرتب‌سازی: تخفیف ویژه > تخفیف کمپین > بدون تخفیف
+    // sorting
     productsWithEnhancements.sort((a, b) => {
       const getPriority = (p) => {
         if (p.discount > 0) return 2;
@@ -223,29 +194,29 @@ exports.updateProduct = async (req, res) => {
 
     const updateData = {};
 
-    // متن‌ها
+    // texts
     if (req.body.name) updateData.name = req.body.name;
     if (req.body.description) updateData.description = req.body.description;
     if (req.body.category) updateData.category = req.body.category;
     if (req.body.code) updateData.code = Array.isArray(req.body.code) ? req.body.code : [req.body.code];
 
-    // عددها
+    // numbers
     if (req.body.price !== undefined) updateData.price = Number(req.body.price);
     if (req.body.countInStock !== undefined) updateData.countInStock = Number(req.body.countInStock);
 
-    // سایزها
+    // sizes
     if (req.body.size) {
       updateData.size = typeof req.body.size === "string"
         ? req.body.size.split(",").map(s => s.trim())
         : req.body.size;
     }
 
-    // تخفیف محصول → اگر ارسال نشده دست نخورده بمونه، اگر ارسال شده 0 یا مقدار خودش اعمال بشه
+    // if discount sended ....
     if (req.body.discount !== undefined) {
       updateData.discount = Number(req.body.discount);
     }
 
-    // تصاویر
+    // pictures
     if (req.files && req.files.length > 0) {
       const imagePaths = req.files.map(file => `/uploads/products/${file.filename}`);
       updateData.img = [...product.img, ...imagePaths];

@@ -282,12 +282,7 @@ let articleImgTransition = (img) => {
             }
         }
     })
-
 }
-
-
-
-
 
 window.onload = () => {
     let mainText = "برازنده ی تن تو..."

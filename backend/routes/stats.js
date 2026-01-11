@@ -6,13 +6,12 @@ const Article = require("../models/Article");
 const authenticateToken = require("../middleware/authenticateToken");
 const isAdmin = require("../middleware/isAdmin");
 
-// 📊 محاسبه آمار رشد
 async function getStats(model) {
   const totalCount = await model.countDocuments();
 
   const now = new Date();
 
-  // هفته اخیر
+  // recent week
   const oneWeekAgo = new Date();
   oneWeekAgo.setDate(now.getDate() - 7);
 
@@ -20,7 +19,7 @@ async function getStats(model) {
     createdAt: { $gte: oneWeekAgo }
   });
 
-  // هفته قبل از آن
+  // last week
   const twoWeeksAgo = new Date();
   twoWeeksAgo.setDate(now.getDate() - 14);
 
@@ -28,12 +27,12 @@ async function getStats(model) {
     createdAt: { $gte: twoWeeksAgo, $lt: oneWeekAgo }
   });
 
-  // محاسبه درصد رشد
+  // grow percent calculator
   let growthRate = 0;
   if (countWeekBefore > 0) {
     growthRate = ((countLastWeek - countWeekBefore) / countWeekBefore) * 100;
   } else if (countLastWeek > 0) {
-    growthRate = 100; // چون قبلاً هیچی نبوده
+    growthRate = 100;
   }
 
   return {
@@ -43,7 +42,7 @@ async function getStats(model) {
   };
 }
 
-// 📌 روت واحد برای آمار کلی
+// the main route for all
 router.get("/overview", authenticateToken, isAdmin, async (req, res) => {
   try {
     const [productsStats, usersStats, articlesStats] = await Promise.all([

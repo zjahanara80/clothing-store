@@ -26,7 +26,7 @@ const getAndShowCategoryProducts = async () => {
 
   const pageNumber = parseInt(getParamFromUrl('page')) || 1;
 
-  // گرفتن تمام دسته‌ها
+  // get all categories
   const categories = await getCategoriesItems();
   const current = categories.find(c => c._id === categoryId);
   if (current) {
@@ -36,7 +36,7 @@ const getAndShowCategoryProducts = async () => {
     backgroundCat.style.background = `url("https://lovin-clothing.onrender.com${current.background}")`;
   }
 
-  // اگه وارد صفحه تخفیفات شدیم محصولات تخفیف دار رو نمایش بده
+  // show discount products if enter the discount-products page
   if (categoryId == "67fb7e93055a1468df373b7c") {
     const res = await fetch('https://lovin-clothing.onrender.com/api/products', {
       "content-type": "application/json",
@@ -58,7 +58,7 @@ const getAndShowCategoryProducts = async () => {
         console.log(favorites);
         
 
-        // merge علاقه مندی روی لیست محصولات
+        // merge favorite products on products list
         FilteredProducts = FilteredProducts.map(p => ({
           ...p,
           isFavorite: favorites.favorites.some(f => f._id === p._id)
@@ -71,7 +71,6 @@ const getAndShowCategoryProducts = async () => {
     allProducts = FilteredProducts
   }
 
-  // در غیر اینصورت برو محصولات رو از دیتا بیس مربوط به دسته بندی دریافت کن
   else {
     const children = categories.filter(cat => {
       return cat.parent && cat.parent._id === categoryId;
@@ -85,13 +84,12 @@ const getAndShowCategoryProducts = async () => {
     const targetCategoryIds = isMain
       ? [categoryId, ...children.map(c => c._id)]
       : [categoryId];
-    // گرفتن محصولات مرتبط
     allProducts = await getProductsFromCategories(targetCategoryIds.join(','));
     console.log(allProducts);
     console.log(targetCategoryIds);
   }
 
-  // صفحه‌بندی اولیه و نمایش
+  // first pagination and show it.
   const pageProducts = paginationStructure(allProducts, 3, paginateList, pageNumber);
 
   productsParent.innerHTML = '';
@@ -107,7 +105,7 @@ const getAndShowCategoryProducts = async () => {
         </div>`;
   }
 
-  // sort
+  // sorting
   selection.onchange = event => {
     const key = event.target.selectedOptions[0].dataset.key;
     const sorted = sortUserSelection(allProducts, key);
@@ -116,13 +114,7 @@ const getAndShowCategoryProducts = async () => {
     setProductsToDom(paged, productsParent);
   };
 
-  // search
-  // searchInput.oninput = event => {
-  //   const filtered = userSearchProduct(allProducts, 'name', event.target.value);
-  //   const paged = paginationStructure(filtered, 3, paginateList, 1);
-  //   productsParent.innerHTML = '';
-  //   setProductsToDom(paged, productsParent);
-  // };
+
   searchInput.oninput = event => {
   const filtered = userSearchProduct(allProducts, 'name', event.target.value);
   const paged = paginationStructure(filtered, 3, paginateList, 1);

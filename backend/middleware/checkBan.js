@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 async function checkBanStatus(req, res, next) {
   const { phone, email } = req.body;
-  console.log('به middleware رسیدیم:', { phone, email }); // خط دیباگ
+  console.log('به middleware رسیدیم:', { phone, email });
 
   if (!phone && !email) {
     return next();

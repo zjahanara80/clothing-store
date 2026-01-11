@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 // create user (admin only)
 router.post('/', authenticateToken, isAdmin, createUser);
 
-// me: get/edit (فقط احراز هویت)
+//authenticate
 router.get('/me', authenticateToken, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -22,7 +22,7 @@ router.get('/me', authenticateToken, async (req, res) => {
   }
 });
 
-// دریافت کاربر با آیدی (فقط برای ادمین)
+// admin: get user by ID
 router.get('/:id', authenticateToken, isAdmin, async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
@@ -85,10 +85,10 @@ router.get('/latest', authenticateToken, isAdmin, async (req, res) => {
 router.patch('/ban/:id', authenticateToken, isAdmin, toggleBanUser);
 router.delete('/:id', authenticateToken, isAdmin, deleteUser);
 
-//ویرایش کاربر توسط ادمین
+//admin: edit user
 router.patch('/admin/:id', authenticateToken, updateUserByAdmin);
 
-// روت برای کاربر جهت ویرایش پروفایل خودش
+//edit user by self
 router.patch('/me', authenticateToken, updateMe);
 
 module.exports = router;

@@ -92,7 +92,7 @@ if (!isLogin() || !getToken()) {
               const newUrl = `favorite.html?page=${currentPage}#products-wrapper`;
               window.history.replaceState(null, '', newUrl);
 
-              // رندر محصولات با صفحه جدید
+              // products render in new page
               const pagedProducts = paginationStructure(allProducts, pageSize, paginateList, currentPage);
               setProductsToDom(pagedProducts, productsParent, true);
 

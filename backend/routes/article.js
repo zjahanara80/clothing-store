@@ -4,9 +4,9 @@ const Article = require('../models/Article');
 const authenticateToken = require('../middleware/authenticateToken');
 const multer = require('multer');
 const path = require('path');
-const Category = require('../models/Category'); // مدل دسته‌بندی
+const Category = require('../models/Category'); 
 
-// تنظیمات آپلود فایل کاور مقاله
+// article cover file uploader setting
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, 'uploads/articles/'),
   filename: (req, file, cb) => {
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
-// ✅ ایجاد مقاله (پیش‌نویس یا منتشرشده)
+//create article (draft or published)
 router.post('/', authenticateToken, upload.single('cover'), async (req, res) => {
   try {
     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });
@@ -27,9 +27,9 @@ router.post('/', authenticateToken, upload.single('cover'), async (req, res) => 
 
     let categoryData;
     if (category === '-1') {
-      categoryData = 'متفرقه'; // دسته‌بندی "متفرقه" در صورت -1 بودن
+      categoryData = 'متفرقه';
     } else {
-      // جستجو برای دسته‌بندی از دیتابیس
+      // search for category from DB
       categoryData = await Category.findById(category);
       if (!categoryData) {
         return res.status(404).json({ error: 'دسته‌بندی یافت نشد' });
@@ -43,7 +43,7 @@ router.post('/', authenticateToken, upload.single('cover'), async (req, res) => 
       slug : link,
       category : categoryData,
       cover,
-      isDraft: isDraft === 'true' // از فرم‌دیتا رشته میاد
+      isDraft: isDraft === 'true' 
     });
 
     await newArticle.save();
@@ -59,7 +59,7 @@ router.post('/', authenticateToken, upload.single('cover'), async (req, res) => 
 });
 
 
-// ✅ دریافت همه مقالات (منتشرشده)
+// get all articles (published)
 router.get('/', async (req, res) => {
   try {
     const articles = await Article.find({ isDraft: false });
@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// ✅ دریافت همه مقالات با امکان فیلتر پیش‌نویس برای ادمین
+//get all Articles with filterability by draft for Admin 
 router.get('/admin', authenticateToken, async (req, res) => {
   try {
     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });
@@ -91,7 +91,7 @@ router.get('/admin', authenticateToken, async (req, res) => {
 });
 
 
-// ✅ دریافت مقاله تکی
+//get single article
 router.get('/:id', async (req, res) => {
   try {
     const article = await Article.findById(req.params.id);
@@ -103,7 +103,7 @@ router.get('/:id', async (req, res) => {
 });
 
 
-// ✅ حذف مقاله
+//remove article
 router.delete('/:id', authenticateToken, async (req, res) => {
   try {
     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });
@@ -118,7 +118,7 @@ router.delete('/:id', authenticateToken, async (req, res) => {
 });
 
 
-// 📌 API ایجاد مقاله پیش‌نویس
+//create draft article
 router.post(
     '/draft',
     authenticateToken,
@@ -151,34 +151,6 @@ router.post(
     }
   );
 
-// ✅ ویرایش مقاله
-// router.put('/:id', authenticateToken, upload.single('cover'), async (req, res) => {
-//   try {
-//     if (!req.user.isAdmin) return res.status(403).json({ error: 'دسترسی غیرمجاز' });
-
-//     const { title, body, chekide ,slug, category, relatedProduct, isDraft } = req.body;
-//     const cover = req.file ? `/uploads/articles/${req.file.filename}` : undefined;
-
-//     const updatedData = {
-//       title,
-//       body,
-//       slug,
-//       category,
-//       chekide,
-//       relatedProduct: category === 'product' ? relatedProduct : null,
-//       isDraft: isDraft === 'true'
-//     };
-
-//     if (cover) updatedData.cover = cover;
-
-//     const updated = await Article.findByIdAndUpdate(req.params.id, updatedData, { new: true });
-//     if (!updated) return res.status(404).json({ error: 'مقاله یافت نشد' });
-
-//     res.json({ message: 'مقاله بروزرسانی شد', article: updated });
-//   } catch (err) {
-//     res.status(500).json({ error: 'خطا در بروزرسانی مقاله' });
-//   }
-// });
 
 router.put('/:id', authenticateToken, upload.single('cover'), async (req, res) => {
   try {
@@ -217,7 +189,7 @@ router.put('/:id', authenticateToken, upload.single('cover'), async (req, res) =
   }
 });
 
-// انتشار مقاله از حالت پیش‌نویس
+// publish the draft article
 router.put(
     '/:id/publish',
     authenticateToken,

@@ -13,9 +13,8 @@ const getAdminInfo = async () => {
     return adminInfo
 
 }
+
 console.log(getAdminInfo());
-
-
 
 if (window.innerWidth > 700) {
     console.log('h');
@@ -51,8 +50,6 @@ const menuSideShowAndHide = (event) => {
 
 
 }
-
-
 
 export { getAdminInfo, menuSideShowAndHide }
 

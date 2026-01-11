@@ -49,7 +49,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
-// بن کردن یا آزاد کردن کاربر
+// block or unblock user
 async function toggleBanUser(req, res) {
   try {
     const user = await User.findById(req.params.id);
@@ -91,88 +91,6 @@ async function updateUserByAdmin(req, res, next) {
   }
 }
 
-// async function updateUserByAdmin (req, res, next){
-//   try {
-//     const { id } = req.params;
-//     const allowed = ['name', 'username', 'email', 'phone', 'isAdmin'];
-//     const updates = {};
-
-//     for (const field of allowed) {
-//       if (req.body[field] != null && req.body[field].trim() !== '') {
-//         updates[field] = req.body[field].trim();
-//       }
-//     }
-
-//     const updated = await User.findByIdAndUpdate(
-//       id,
-//       { $set: updates },
-//       { new: true, runValidators: true, select: '-password' }
-//     );
-//     if (!updated) return res.status(404).json({ error: 'کاربر یافت نشد' });
-
-//     res.json({ message: 'اطلاعات کاربر با موفقیت بروز شد', user: updated });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
-// async function updateMe (req, res, next){
-//   try {
-//     const allowed = ['name', 'username', 'email', 'phone', 'password'];
-//     const updates = {};
-
-//     for (const field of allowed) {
-//       if (req.body[field] != null && req.body[field].trim() !== '') {
-//         updates[field] = req.body[field].trim();
-//       }
-//     }
-
-//     if (updates.password) {
-//       const salt = await bcrypt.genSalt(10);
-//       updates.password = await bcrypt.hash(updates.password, salt);
-//     }
-
-//     const updatedUser = await User.findByIdAndUpdate(
-//       req.user.id,
-//       { $set: updates },
-//       { new: true, runValidators: true, select: '-password' }
-//     );
-
-//     res.json({ message: 'پروفایل شما بروزرسانی شد', user: updatedUser });
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
-// async function updateMe(req, res, next) {
-//   try {
-//     const allowed = ['name', 'username', 'email', 'phone', 'password'];
-//     const updates = {};
-
-//     for (const field of allowed) {
-//       const value = req.body[field];
-//       if (value != null && value !== '') {
-//         updates[field] = (typeof value === 'string') ? value.trim() : value;
-//       }
-//     }
-
-//     if (updates.password) {
-//       const salt = await bcrypt.genSalt(10);
-//       updates.password = await bcrypt.hash(updates.password, salt);
-//     }
-
-//     const updatedUser = await User.findByIdAndUpdate(
-//       req.user.id,
-//       { $set: updates },
-//       { new: true, runValidators: true, select: '-password' }
-//     );
-
-//     res.json({ message: 'پروفایل شما بروزرسانی شد', user: updatedUser });
-//   } catch (err) {
-//     next(err);
-//   }
-// }
-
 async function updateMe(req, res, next) {
   try {
     const allowed = [
@@ -209,8 +127,6 @@ async function updateMe(req, res, next) {
     next(err);
   }
 }
-
-
 
 module.exports = {
   deleteUser,

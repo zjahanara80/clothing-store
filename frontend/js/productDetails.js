@@ -283,25 +283,23 @@ window.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // افزودن به علاقه‌مندی‌ها
+  // add to favorites
   favoriteBtn.addEventListener("click", async (e) => {
     try {
       await AddOrRemoveFavorite(e, productId);
-      alert("✅ محصول به علاقه‌مندی‌ها اضافه یا حذف شد");
+      alert(" محصول به علاقه‌مندی‌ها اضافه یا حذف شد");
     } catch (error) {
       console.error("خطا در افزودن به علاقه‌مندی:", error);
-      alert("⚠️ خطا در انجام عملیات علاقه‌مندی");
+      alert(" خطا در انجام عملیات علاقه‌مندی");
     }
   });
 
-  // افزودن به سبد خرید
+  // add to buy basket
   addToCartBtn.addEventListener("click", async (e) => {
     try {
       await AddOrRemoveCart(e, productId);
-    //   alert("✅ محصول به سبد خرید اضافه یا حذف شد");
     } catch (error) {
       console.error("خطا در افزودن به سبد خرید:", error);
-    //   alert("⚠️ خطا در انجام عملیات سبد خرید");
     }
   });
 });

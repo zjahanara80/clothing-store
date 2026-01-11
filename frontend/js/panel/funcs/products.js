@@ -124,13 +124,10 @@ const createNewProduct = async () => {
    console.log(addProductResult);
 
    if (!res.ok) {
-      //اگه ادمین کد محصول رو تکراری زد
       if (addProductResult.field === "code") {
-         document.getElementById('product-code').style.borderColor = 'red' //bootstrap
-         // codeErrorText.innerText = data.message;
+         document.getElementById('product-code').style.borderColor = 'red' 
          alert('کد محصول نمیتواند تکراری باشد')
       } else {
-         // پیام عمومی برای بقیه خطاها
          swal.fire({ title: "خطا", text: addProductResult.message, icon: "error" });
       }
       return;
@@ -212,7 +209,6 @@ const editProduct = async (proID) => {
    editCountElem.value = product.countInStock
    editDisCountElem.value = product.discount
 
-   //سایز های از قبل ست شده برای محصول را در دام نشون بده
    const allCheckSizes = document.querySelectorAll('input[name="edit-size"]');
    if (allCheckSizes) {
       allCheckSizes.forEach(checkBox => {
@@ -227,7 +223,7 @@ const editProduct = async (proID) => {
 
    editCatSelect.value = product.category._id
 
-   //تصاویر محصول رو داخل ادیت باکس نشون بده
+   //show pictures on Edit-box
    imagesParentElem.innerHTML = ''
    product.img.forEach(image => {
       imagesParentElem.insertAdjacentHTML('beforeend', `
@@ -241,7 +237,7 @@ const editProduct = async (proID) => {
    `)
    })
 
-   //وقتی دکمه ویرایش کلیک شد
+   //if edit-btn clicked
    editProductBtn.onclick = async (event) => {
       event.preventDefault()
       const formData = new FormData()
@@ -254,14 +250,13 @@ const editProduct = async (proID) => {
 
       formData.append("category", editCatSelect.value)
 
-      //اگه ادمین تصویری رو اضافه کرد اد کن داخل فرم دیتا
+      //if admin added a new picture
       if (editImgElem && editImgElem.files.length > 0) {
          for (let i = 0; i < editImgElem.files.length; i++) {
             formData.append("img", editImgElem.files[i])
          }
       }
 
-      //سایز های تغییر داده شده رو اد کن
       const checkedSizes = document.querySelectorAll('input[name="edit-size"]:checked');
       const editSizes = Array.from(checkedSizes).map(cb => cb.value);
       formData.append("size", editSizes)
@@ -307,7 +302,6 @@ function removeImgFromDb(productId, imagePath) {
       .then(res => res.json())
       .then(data => {
          console.log("عکس حذف شد:", data)
-         // ری‌لود عکس‌ها بعد از حذف
          editProduct(productId)
       })
       .catch(err => console.error(err))

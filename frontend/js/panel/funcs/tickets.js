@@ -136,7 +136,6 @@ const showTicketMore = async (event, ticketID) => {
     const iconElem = event.target;
     const parentRow = iconElem.closest("tr");
 
-    // اگر آیکون باز شدن بود
     if (iconElem.classList.contains("fa-angle-down")) {
         iconElem.classList.replace("fa-angle-down", "fa-angle-up");
 
@@ -178,7 +177,6 @@ const showTicketMore = async (event, ticketID) => {
     } else if (iconElem.classList.contains("fa-angle-up")) {
         iconElem.classList.replace("fa-angle-up", "fa-angle-down");
 
-        // حذف ردیف‌های فرزند با data-parent
         const allChildRows = document.querySelectorAll(`tr.child-ticket[data-parent="${ticketID}"]`);
         allChildRows.forEach(row => row.remove());
     }

@@ -15,13 +15,13 @@ router.post('/favorites/toggle/:productId', authenticateToken, async (req, res) 
       return res.status(400).json({ message: 'شناسه محصول نامعتبر است.' });
     }
 
-    // چک کردن کاربر
+    // user check
     const user = await User.findById(req.user.id);
     if (!user) {
       return res.status(404).json({ message: 'کاربر یافت نشد.' });
     }
 
-    // چک کردن محصول
+    // product check
     const product = await Product.findById(productId);
     if (!product) {
       return res.status(404).json({ message: 'محصول یافت نشد.' });
@@ -47,7 +47,7 @@ router.post('/favorites/toggle/:productId', authenticateToken, async (req, res) 
 });
 
 
-// حذف از علاقه‌مندی‌ها (اختیاری اگر فقط toggle استفاده شود)
+// remove from favorites (toggle / optional)
 router.delete('/favorites/:productId', authenticateToken, async (req, res) => {
   const { productId } = req.params;
 
@@ -57,33 +57,6 @@ router.delete('/favorites/:productId', authenticateToken, async (req, res) => {
 
   res.json({ favorites: user.favoriteProducts });
 });
-
-// دریافت لیست علاقه‌مندی‌ها
-// router.get('/favorites', authenticateToken, async (req, res) => {
-//   const user = await User.findById(req.user.id).populate('favoriteProducts');
-//   res.json({ favorites: user.favoriteProducts });
-// });
-
-// router.get('/favorites', authenticateToken, async (req, res) => {
-//   const user = await User.findById(req.user.id).populate('favoriteProducts');
-  
-//   // بررسی کمپین‌ها برای هر محصول
-//   const favoritesWithGlobal = await Promise.all(
-//     user.favoriteProducts.map(async (product) => {
-//       const campaign = await Campaign.findOne({
-//         product: product._id,
-//         startDate: { $lte: new Date() },
-//         endDate: { $gte: new Date() }
-//       });
-
-//       const obj = product.toObject();
-//       obj.globalDiscount = campaign ? campaign.discount : 0;
-//       return obj;
-//     })
-//   );
-
-//   res.json({ favorites: favoritesWithGlobal });
-// });
 
 router.get('/favorites', authenticateToken, async (req, res) => {
   try {

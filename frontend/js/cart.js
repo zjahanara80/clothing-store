@@ -81,7 +81,6 @@ if (!isLogin() || !getToken()) {
 
 
       const renderProducts = (productsArray) => {
-        // const pageProducts = paginationStructure(productsArray, 6, paginateList, pageNumber);
         productsParent.innerHTML = '';
 
         if (productsArray.length) {
@@ -100,84 +99,7 @@ if (!isLogin() || !getToken()) {
         const plusBtn = event.target.closest(".plus");
         const minusBtn = event.target.closest(".mines");
 
-        // حذف محصول از سبد
-        // if (deleteProBTN) {
-        //   const productId = deleteProBTN.dataset.id;
-        //   try {
-        //     const res = await fetch(`https://lovin-clothing.onrender.com/api/user/cart/toggle/${productId}`, {
-        //       method: "POST",
-        //       headers: {
-        //         "Content-Type": "application/json",
-        //         Authorization: `Bearer ${getToken()}`
-        //       }
-        //     });
-
-        //     const data = await res.json();
-        //     if (!res.ok) {
-        //       alert(data.message || "خطا در تغییر سبد خرید");
-        //       return;
-        //     }
-
-        //     // حذف محصول از allProducts و رندر مجدد
-        //     allProducts = allProducts.filter(p => p._id !== productId);
-        //     renderProducts(allProducts);
-
-        //     // به‌روزرسانی شمارنده هدر
-        //     CartCountVar = allProducts.length;
-        //     cartCount ? cartCount.textContent = CartCountVar : '';
-
-        //   } catch (err) {
-        //     console.error("خطا در toggle محصول:", err);
-        //     alert("خطا در تغییر سبد خرید");
-        //   }
-        // }
-
-        // // افزایش یا کاهش تعداد
-        // if (plusBtn || minusBtn) {
-        //   const productElem = event.target.closest(".cart-box__products-item");
-        //   const productId = productElem.dataset.id;
-        //   const countInput = productElem.querySelector(".count");
-        //   let newQuantity = parseInt(countInput.value);
-        //   const maxStock = parseInt(productElem.dataset.stock);
-
-        //   if (plusBtn && newQuantity < 3 && newQuantity < maxStock) newQuantity++;
-        //   if (plusBtn && newQuantity >= maxStock) {
-        //     alert("تعداد محصول داخل انبار کافی نیست");
-        //     return;
-        //   }
-        //   if (minusBtn && newQuantity > 1) newQuantity--;
-
-        //   countInput.value = newQuantity;
-
-        //   try {
-        //     const res = await fetch("https://lovin-clothing.onrender.com/api/user/cart/update-quantity", {
-        //       method: "POST",
-        //       headers: {
-        //         "Content-Type": "application/json",
-        //         Authorization: `Bearer ${getToken()}`
-        //       },
-        //       body: JSON.stringify({ productId, quantity: newQuantity })
-        //     });
-
-        //     const data = await res.json();
-        //     if (!res.ok) {
-        //       alert(data.message);
-        //       return;
-        //     }
-
-        //     // آپدیت مقدار در allProducts
-        //     const index = allProducts.findIndex(p => p._id === productId);
-        //     if (index !== -1) allProducts[index].quantity = newQuantity;
-
-        //     // شمارنده هدر
-        //     CartCountVar = allProducts.length;
-        //     cartCount ? cartCount.textContent = CartCountVar : '';
-
-        //   } catch (err) {
-        //     console.error("خطا در آپدیت تعداد:", err);
-        //   }
-        // }
-        // حذف محصول
+        // remove product
         if (deleteProBTN) {
           const productId = deleteProBTN.dataset.id;
           try {
@@ -194,14 +116,16 @@ if (!isLogin() || !getToken()) {
 
             allProducts = allProducts.filter(p => p._id !== productId);
             renderProducts(allProducts);
-            updateCartTotals(allProducts);  // ⚡ بروزرسانی قیمت و تخفیف
+
+            //update price and discount
+            updateCartTotals(allProducts);
           } catch (err) {
             console.error("خطا در toggle محصول:", err);
             alert("خطا در تغییر سبد خرید");
           }
         }
 
-        // افزایش یا کاهش تعداد
+        // increase  or decrease count
         if (plusBtn || minusBtn) {
           const productElem = event.target.closest(".cart-box__products-item");
           const productId = productElem.dataset.id;
@@ -228,7 +152,7 @@ if (!isLogin() || !getToken()) {
             const index = allProducts.findIndex(p => p._id === productId);
             if (index !== -1) allProducts[index].quantity = newQuantity;
 
-            updateCartTotals(allProducts);  // ⚡ بروزرسانی قیمت و تخفیف
+            updateCartTotals(allProducts); 
           } catch (err) {
             console.error("خطا در آپدیت تعداد:", err);
           }
